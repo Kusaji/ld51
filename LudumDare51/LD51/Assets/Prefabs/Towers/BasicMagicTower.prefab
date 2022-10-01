@@ -333,6 +333,8 @@ MonoBehaviour:
   attackRange: 10
   attackDamage: 5
   attackDelay: 0.5
+  instantAttack: 0
+  attackProjectilePrefab: {fileID: 7300430972184893010, guid: e201d947c0efd6a45ba1c130512f2f92, type: 3}
 --- !u!1 &4675356524396653158
 GameObject:
   m_ObjectHideFlags: 0
