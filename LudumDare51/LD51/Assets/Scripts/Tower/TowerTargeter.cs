@@ -23,11 +23,11 @@ public class TowerTargeter : MonoBehaviour
 
     private void Update()
     {
-        if (debugMode)
+        if (debugMode && target != null)
         {
             if (distanceToTarget > towerAttacker.attackRange)
             {
-                Debug.DrawLine(projectileSpawnpoint.transform.position, target.transform.position, Color.red);
+                Debug.DrawLine(projectileSpawnpoint.transform.position, target.transform.position, Color.white);
             }
             else if (distanceToTarget <= towerAttacker.attackRange)
             {

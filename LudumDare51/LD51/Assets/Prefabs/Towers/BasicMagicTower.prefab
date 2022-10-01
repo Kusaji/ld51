@@ -217,7 +217,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targeter: {fileID: 179404295171479120}
+  structure: {fileID: 8196598761461319996}
   attackRange: 10
+  attackDamage: 5
+  attackDelay: 0.5
 --- !u!1 &4675356524396653158
 GameObject:
   m_ObjectHideFlags: 0
