@@ -20,6 +20,7 @@ public class PlayerStructures : MonoBehaviour
         instance = this;
     }
 
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -58,8 +59,7 @@ public class PlayerStructures : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            mousePosition = hit.transform.position;
-            Debug.Log(hit.transform.position);
+            mousePosition = hit.point;
         }
     }
 }

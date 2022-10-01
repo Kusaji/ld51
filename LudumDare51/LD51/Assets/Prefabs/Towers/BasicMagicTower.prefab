@@ -111,7 +111,7 @@ Transform:
   m_GameObject: {fileID: 549349075060496980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.6, y: 3.09, z: -4.16}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 924503178618288667}
   m_Father: {fileID: 0}
@@ -184,8 +184,6 @@ MonoBehaviour:
   currentHealth: 0
   buildingProgress: 0
   designatedPopulation: 0
-  designatedBuilders: 0
-  designatedRepairers: 0
 --- !u!114 &2443460608288517008
 MonoBehaviour:
   m_ObjectHideFlags: 0

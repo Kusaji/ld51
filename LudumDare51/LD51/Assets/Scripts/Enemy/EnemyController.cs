@@ -47,13 +47,15 @@ public class EnemyController : MonoBehaviour
     {
         while (health.isAlive)
         {
-            GetRandomTarget();
-
-            if (target != null)
+            if (target == null)
             {
-                agent.SetDestination(target.transform.position);
-            }
+                target = GetRandomTarget();
 
+                if (target != null)
+                {
+                    agent.SetDestination(target.transform.position);
+                }
+            }
             yield return new WaitForSeconds(1f);
         }
     }
