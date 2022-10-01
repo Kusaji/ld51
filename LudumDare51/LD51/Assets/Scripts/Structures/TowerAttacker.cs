@@ -10,9 +10,12 @@ public class TowerAttacker : MonoBehaviour
     public float attackDamage;
     public float attackDelay;
 
+    public bool instantAttack;
+    public GameObject attackProjectilePrefab;
+
     private void Start()
     {
-        StartCoroutine(AttackRoutine());   
+        StartCoroutine(AttackRoutine());
     }
 
     public void DealDamage()
@@ -28,8 +31,22 @@ public class TowerAttacker : MonoBehaviour
             {
                 if (targeter.distanceToTarget <= attackRange)
                 {
-                    targeter.target.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
-                    Debug.DrawLine(targeter.projectileSpawnpoint.transform.position, targeter.target.transform.position, Color.red, 0.35f);
+                    if (instantAttack)
+                    {
+                        targeter.target.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
+                        Debug.DrawLine(targeter.projectileSpawnpoint.transform.position, targeter.target.transform.position, Color.red, 0.35f);
+                    }
+                    else if (!instantAttack)
+                    {
+                        var projectile = Instantiate(
+                            attackProjectilePrefab,
+                            targeter.projectileSpawnpoint.transform.position,
+                            Quaternion.identity);
+                        var projectileSettings = projectile.GetComponent<SingleTargetProjectile>();
+                        projectileSettings.target = targeter.target;
+                        projectileSettings.damage = attackDamage;
+                    }
+
                     yield return new WaitForSeconds(attackDelay / structure.effectivenessExponent);
                 }
             }

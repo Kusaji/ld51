@@ -103,9 +103,7 @@ public class PlayerStructures : MonoBehaviour
         {
             mousePosition = hit.point;
 
-            Debug.Log(hit.transform.gameObject.name);
-
-            if (!hit.transform.gameObject.CompareTag("Tower") && !hit.transform.gameObject.CompareTag("Environment"))
+            if (!hit.transform.gameObject.CompareTag("Structure") && !hit.transform.gameObject.CompareTag("Environment"))
             {
                 canSpawnOnMouse = true;
             } 
