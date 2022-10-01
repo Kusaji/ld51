@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b70ce7d95136748b6bfcff81e05360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMode: 1
+  debugMode: 0
   target: {fileID: 0}
   projectileSpawnpoint: {fileID: 4675356524396653158}
   distanceToTarget: 0
@@ -317,6 +317,8 @@ MonoBehaviour:
   attackRange: 10
   attackDamage: 5
   attackDelay: 0.5
+  instantAttack: 0
+  attackProjectilePrefab: {fileID: 1427661989262336, guid: 1a0b29289f432ce4fa642ef94f798f5d, type: 3}
 --- !u!1 &4675356524396653158
 GameObject:
   m_ObjectHideFlags: 0

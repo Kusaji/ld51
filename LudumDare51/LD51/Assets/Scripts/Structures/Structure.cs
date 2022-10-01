@@ -16,7 +16,9 @@ public class Structure : MonoBehaviour
     [Header("Prefabs")]
     public GameObject explosionPrefab;
 
-
+    public float effectivenessExponent = 0.75f;
+    protected float cachedPopulationEffectiveness = 0f;
+    public int minimumPopulationToFunction = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,5 +50,23 @@ public class Structure : MonoBehaviour
 
             GameObject.Destroy(gameObject);
         }
+    }
+    public virtual void UpdatePopulation()
+    {
+        //float usedpop = designatedPopulation;
+        //float finalEffectiveness = 0f;
+        //int increments = 1;
+        //while (usedpop >= effectivenessSoftCap)
+        //{
+        //    finalEffectiveness += 1f / increments;
+        //    increments++;
+        //    usedpop -= effectivenessSoftCap;
+        //}
+        //finalEffectiveness += Mathf.Lerp(0f, 1f / increments, SmoothFunc.SmoothStopVariable(usedpop / effectivenessSoftCap, 1.2f));
+        if (designatedPopulation >= minimumPopulationToFunction)
+            cachedPopulationEffectiveness = Mathf.Pow(designatedPopulation + 1, effectivenessExponent);
+        else
+            cachedPopulationEffectiveness = 0f;
+
     }
 }

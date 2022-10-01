@@ -146,7 +146,7 @@ Material:
     - _MainTexTiling: {r: 1, g: 1, b: 0, a: 0}
     - _MaskTiling: {r: 1, g: 1, b: 0, a: 0}
     - _NoiseTiling: {r: 1, g: 1, b: 0, a: 0}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0.5}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
     - _PixelGridOrigin: {r: 0, g: 0, b: 0, a: 0}
     - _SpeedMainTexUVNoiseUV: {r: 0, g: 0, b: 0, a: 0}
     - _SpeedMainTexUVNoiseZW: {r: 0, g: 0, b: 0, a: 0}
