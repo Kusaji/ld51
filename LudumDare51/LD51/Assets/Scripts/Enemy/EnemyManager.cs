@@ -60,6 +60,7 @@ public class EnemyManager : MonoBehaviour
             //Increase next wave amount
             enemiesToSpawn = wave + 5;
 
+            //TODO countdown for spawn
             for (int i = (int)spawnTime; i > 0; i--)
             {
                 DebugTextCanvas.Instance._SetDbText($"Ass", $"Time until next wave : {i}");
