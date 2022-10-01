@@ -30,16 +30,7 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        //Force new target Debug
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            target = GetRandomTarget();
 
-            if (target != null)
-            {
-                agent.SetDestination(target.transform.position);
-            }
-        }
     }
 
     //todo
@@ -62,20 +53,31 @@ public class EnemyController : MonoBehaviour
 
         while (health.isAlive)
         {
-            if (target == null)
+            if (PlayerStructures.instance.structures.Count > 0)
             {
-                target = GetRandomTarget();
-                
-                if (target != null)
+                var closestTower = PlayerStructures.instance.structures[0];
+                var closestTowerDistance = Mathf.Infinity;
+
+                for (int i = 0; i < PlayerStructures.instance.structures.Count; i++)
                 {
-                    targetStructure = target.GetComponent<Structure>();
-                    agent.SetDestination(target.transform.position);
-                    StartCoroutine(CalculateDistance());
+                    if (Vector3.Distance(transform.position, PlayerStructures.instance.structures[i].transform.position) < closestTowerDistance)
+                    {
+                        closestTowerDistance = Vector3.Distance(transform.position, PlayerStructures.instance.structures[i].transform.position);
+                        closestTower = PlayerStructures.instance.structures[i];
+                    }
                 }
+                target = closestTower;
+                targetStructure = closestTower.GetComponent<Structure>();
+                agent.SetDestination(target.transform.position);
+                distanceToTarget = closestTowerDistance;
+                StartCoroutine(CalculateDistance());
             }
             yield return new WaitForSeconds(0.25f);
         }
     }
+
+
+
 
     public IEnumerator CalculateDistance()
     {
@@ -102,7 +104,7 @@ public class EnemyController : MonoBehaviour
             if (distanceToTarget <= attackRange && target != null)
             {
                 targetStructure.DealDamage(attackDamage);
-            } 
+            }
             else
             {
                 isAttacking = false;
