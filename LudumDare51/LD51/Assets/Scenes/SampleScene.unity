@@ -4981,6 +4981,14 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 5098
       objectReference: {fileID: 0}
+    - target: {fileID: 3966794298239735979, guid: 46c35968b9aa55e408b2d2c3c1a4d019, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8792279629526411329, guid: 46c35968b9aa55e408b2d2c3c1a4d019, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46c35968b9aa55e408b2d2c3c1a4d019, type: 3}
 --- !u!1001 &4826958155124599216
@@ -4996,6 +5004,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4826958155831621458, guid: 734a40e43390f51478b1f3f85555cb99, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826958155831621459, guid: 734a40e43390f51478b1f3f85555cb99, type: 3}
+      propertyPath: spawnTime
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4826958155831621460, guid: 734a40e43390f51478b1f3f85555cb99, type: 3}

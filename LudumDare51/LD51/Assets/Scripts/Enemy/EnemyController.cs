@@ -30,6 +30,7 @@ public class EnemyController : MonoBehaviour
 
 
         StartCoroutine(FindTargetRoutine());
+        StartCoroutine(CalculateDistance());
     }
 
     private void Update()
@@ -75,7 +76,9 @@ public class EnemyController : MonoBehaviour
                 agent.SetDestination(target.transform.position);
                 distanceToTarget = closestTowerDistance;
                 currentAttackRange = defaultAttackRange;
-                StartCoroutine(CalculateDistance());
+
+
+                //StartCoroutine(CalculateDistance());
             }
             else
             {
@@ -86,10 +89,10 @@ public class EnemyController : MonoBehaviour
                     targetStructure = PlayerStructures.instance.bastion.GetComponent<Structure>();
                     agent.SetDestination(target.transform.position);
                     currentAttackRange = bastionAttackRange;
-                    StartCoroutine(CalculateDistance());
+                    //StartCoroutine(CalculateDistance());
                 }
             }
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.50f);
         }
     }
 
