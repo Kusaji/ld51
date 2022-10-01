@@ -72,12 +72,20 @@ public class EnemyController : MonoBehaviour
                 distanceToTarget = closestTowerDistance;
                 StartCoroutine(CalculateDistance());
             }
+            else
+            {
+                target = PlayerStructures.instance.bastion;
+
+                if (target != null)
+                {
+                    targetStructure = PlayerStructures.instance.bastion.GetComponent<Structure>();
+                    agent.SetDestination(target.transform.position);
+                    StartCoroutine(CalculateDistance());
+                }
+            }
             yield return new WaitForSeconds(0.25f);
         }
     }
-
-
-
 
     public IEnumerator CalculateDistance()
     {
