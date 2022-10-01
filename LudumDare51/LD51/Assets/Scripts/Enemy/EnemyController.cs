@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    [Header("Components")]
     public EnemyHealth health;
     public NavMeshAgent agent;
     public GameObject target;
@@ -14,12 +15,7 @@ public class EnemyController : MonoBehaviour
     {
         agent.Warp(transform.position);
 
-        target = GetRandomTarget();
-        
-        if (target != null)
-        {
-            agent.SetDestination(target.transform.position);
-        }
+        StartCoroutine(FindTargetRoutine());
     }
 
     private void Update()
@@ -37,6 +33,28 @@ public class EnemyController : MonoBehaviour
 
     public GameObject GetRandomTarget()
     {
-        return PlayerResources.instance.structures[Random.Range(0, PlayerResources.instance.structures.Count)];
+        if (PlayerStructures.instance.structures.Count > 0)
+        {
+            return PlayerStructures.instance.structures[Random.Range(0, PlayerStructures.instance.structures.Count)];
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public IEnumerator FindTargetRoutine()
+    {
+        while (health.isAlive)
+        {
+            GetRandomTarget();
+
+            if (target != null)
+            {
+                agent.SetDestination(target.transform.position);
+            }
+
+            yield return new WaitForSeconds(1f);
+        }
     }
 }

@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class Structure : MonoBehaviour
 {
+    [Header("Health")]
     public bool isAlive;
     public float maxHealth;
     public float currentHealth;
 
+    [Header("Stats")]
     public float buildingProgress;
-
     public int designatedPopulation;
-    public int designatedBuilders;
-    public int designatedRepairers;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentHealth = maxHealth;
+        isAlive = true;
     }
 
     // Update is called once per frame
