@@ -4,12 +4,36 @@ using UnityEngine;
 
 public class TowerTargeter : MonoBehaviour
 {
+    [Header("Debug")]
+    public bool debugMode;
+
+    [Header("Target Info")]
     public GameObject target;
+    public GameObject projectileSpawnpoint;
     public float distanceToTarget;
+
+    [Header("Components")]
+    public TowerAttacker towerAttacker;
 
     private void Start()
     {
         StartCoroutine(FindTargetRoutine());
+
+    }
+
+    private void Update()
+    {
+        if (debugMode)
+        {
+            if (distanceToTarget > towerAttacker.attackRange)
+            {
+                Debug.DrawLine(projectileSpawnpoint.transform.position, target.transform.position, Color.red);
+            }
+            else if (distanceToTarget <= towerAttacker.attackRange)
+            {
+                Debug.DrawLine(projectileSpawnpoint.transform.position, target.transform.position, Color.blue);
+            }
+        }
     }
 
     public void FindNewTarget()
@@ -21,12 +45,27 @@ public class TowerTargeter : MonoBehaviour
 
             for (int i = 0; i < EnemyManager.Instance.activeEnemies.Count; i++)
             {
-                closestEnemyDistance = Vector3.Distance(transform.position, EnemyManager.Instance.activeEnemies[i].transform.position);
-                closestEnemy = EnemyManager.Instance.activeEnemies[i];
+                if (Vector3.Distance(transform.position, EnemyManager.Instance.activeEnemies[i].transform.position) < closestEnemyDistance)
+                {
+                    closestEnemyDistance = Vector3.Distance(transform.position, EnemyManager.Instance.activeEnemies[i].transform.position);
+                    closestEnemy = EnemyManager.Instance.activeEnemies[i];
+                }
             }
 
             target = closestEnemy;
             distanceToTarget = closestEnemyDistance;
+        }
+    }
+
+    public IEnumerator CalculateDistanceToTargetRoutine()
+    {
+        while (gameObject)
+        {
+            if (target != null)
+            {
+                distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
+            }
+            yield return new WaitForSeconds(0.1f);
         }
     }
 

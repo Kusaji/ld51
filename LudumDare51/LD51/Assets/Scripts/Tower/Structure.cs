@@ -44,6 +44,8 @@ public class Structure : MonoBehaviour
                 transform.position + new Vector3(0.0f, 0.25f, 0.0f),
                 Quaternion.Euler(new Vector3(-90f, 0.0f, 0.0f)));
 
+            Camera.main.GetComponent<CameraController>().ShakeCameraImpulse(Random.onUnitSphere, 10f);
+
             GameObject.Destroy(gameObject);
         }
     }
