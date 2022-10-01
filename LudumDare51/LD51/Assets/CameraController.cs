@@ -71,7 +71,6 @@ public class CameraController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha9))
         {
-            print("a9");
             ShakeCameraImpulse(Random.onUnitSphere, 10f);
         }
 
