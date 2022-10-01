@@ -18,6 +18,7 @@ public class Structure : MonoBehaviour
 
     public float effectivenessExponent = 0.75f;
     protected float cachedPopulationEffectiveness = 0f;
+    public int minimumPopulationToFunction = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,7 +61,10 @@ public class Structure : MonoBehaviour
         //    usedpop -= effectivenessSoftCap;
         //}
         //finalEffectiveness += Mathf.Lerp(0f, 1f / increments, SmoothFunc.SmoothStopVariable(usedpop / effectivenessSoftCap, 1.2f));
+        if (designatedPopulation >= minimumPopulationToFunction)
+            cachedPopulationEffectiveness = Mathf.Pow(designatedPopulation + 1, effectivenessExponent);
+        else
+            cachedPopulationEffectiveness = 0f;
 
-        cachedPopulationEffectiveness = Mathf.Pow(designatedPopulation + 1, effectivenessExponent);
     }
 }
