@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerResources : MonoBehaviour
 {
-    public static PlayerResources instance;
+    public static PlayerResources Instance;
 
     [Header("Player Status")]
     public bool isAlive;
@@ -17,7 +17,7 @@ public class PlayerResources : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
         isAlive = true;
     }
 

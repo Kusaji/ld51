@@ -14,10 +14,17 @@ public class PlayerStructures : MonoBehaviour
 
     public Vector3 mousePosition;
 
+    public Transform structuresTransform;
+
 
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+        structuresTransform = GameObject.Find("Structures").gameObject.transform;
     }
 
 
@@ -46,8 +53,9 @@ public class PlayerStructures : MonoBehaviour
         var builtStructure = Instantiate(
             structurePrefabs[0],
             mousePosition,
-            Quaternion.identity
-            );
+            Quaternion.identity,
+            structuresTransform
+            ); ;
 
         AddStructure(builtStructure);
     }

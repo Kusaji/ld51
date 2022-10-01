@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    public static EnemyManager Instance;
+
     public List<GameObject> enemyPrefabs;
+    public List<GameObject> activeEnemies;
     public float spawnTime;
 
     public int wave; 
@@ -13,17 +16,17 @@ public class EnemyManager : MonoBehaviour
 
     private Vector3 spawnPosition;
 
-    private void Start()
+    public Transform enemyTransform;
+
+    private void Awake()
     {
-        StartCoroutine(SpawnEnemyRoutine());
+        Instance = this;
     }
 
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SpawnEnemy();
-        }
+        enemyTransform = GameObject.Find("Enemies").transform;
+        StartCoroutine(SpawnEnemyRoutine());
     }
 
     public void GetRandomSpawnPos()
@@ -35,17 +38,20 @@ public class EnemyManager : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        Instantiate(
+        var spawnedEnemy = 
+            Instantiate(
             enemyPrefabs[Random.Range(0, enemyPrefabs.Count)], //what
             spawnPosition, //where
-            Quaternion.identity); //rotation
+            Quaternion.identity,
+            enemyTransform); //rotation
+
+        activeEnemies.Add(spawnedEnemy);
     }
 
     public IEnumerator SpawnEnemyRoutine()
     {
-        while (PlayerResources.instance.isAlive)
+        while (PlayerResources.Instance.isAlive)
         {
-
             //Grab spot to spawn a clump of enemies
             GetRandomSpawnPos();
 
