@@ -13,7 +13,11 @@ public class EnemyController : MonoBehaviour
     public Structure targetStructure;
 
     public float attackDamage;
-    public float attackRange;
+
+    public float defaultAttackRange;
+    public float bastionAttackRange;
+    public float currentAttackRange;
+
     public float attackDelay;
     public float distanceToTarget;
 
@@ -70,6 +74,7 @@ public class EnemyController : MonoBehaviour
                 targetStructure = closestTower.GetComponent<Structure>();
                 agent.SetDestination(target.transform.position);
                 distanceToTarget = closestTowerDistance;
+                currentAttackRange = defaultAttackRange;
                 StartCoroutine(CalculateDistance());
             }
             else
@@ -80,6 +85,7 @@ public class EnemyController : MonoBehaviour
                 {
                     targetStructure = PlayerStructures.instance.bastion.GetComponent<Structure>();
                     agent.SetDestination(target.transform.position);
+                    currentAttackRange = bastionAttackRange;
                     StartCoroutine(CalculateDistance());
                 }
             }
@@ -95,7 +101,7 @@ public class EnemyController : MonoBehaviour
             {
                 distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
 
-                if (distanceToTarget <= attackRange && !isAttacking)
+                if (distanceToTarget <= currentAttackRange && !isAttacking)
                 {
                     StartCoroutine(AttackRoutine());
                     isAttacking = true;
@@ -109,7 +115,7 @@ public class EnemyController : MonoBehaviour
     {
         while (health.isAlive != false)
         {
-            if (distanceToTarget <= attackRange && target != null)
+            if (distanceToTarget <= currentAttackRange && target != null)
             {
                 targetStructure.DealDamage(attackDamage);
             }
