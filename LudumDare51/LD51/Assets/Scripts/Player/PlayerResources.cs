@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerResources : MonoBehaviour
 {
     public static PlayerResources instance;
+
+    public List<GameObject> structures;
     
     public int population;
     public int builders;
