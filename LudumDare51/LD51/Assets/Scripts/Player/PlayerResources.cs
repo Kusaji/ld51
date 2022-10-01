@@ -5,7 +5,10 @@ using UnityEngine;
 public class PlayerResources : MonoBehaviour
 {
     public static PlayerResources instance;
-    
+
+    [Header("Player Status")]
+    public bool isAlive;
+
     [Header("Resources")]
     public int population;
     public int units;
@@ -15,6 +18,11 @@ public class PlayerResources : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        isAlive = true;
+    }
+
+    private void Start()
+    {
     }
 
     public void AddPopulation(int amount)

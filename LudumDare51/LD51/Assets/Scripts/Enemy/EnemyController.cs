@@ -24,6 +24,7 @@ public class EnemyController : MonoBehaviour
     {
         agent.Warp(transform.position);
 
+
         StartCoroutine(FindTargetRoutine());
     }
 
@@ -57,6 +58,8 @@ public class EnemyController : MonoBehaviour
 
     public IEnumerator FindTargetRoutine()
     {
+        yield return new WaitForSeconds(0.1f);
+
         while (health.isAlive)
         {
             if (target == null)
