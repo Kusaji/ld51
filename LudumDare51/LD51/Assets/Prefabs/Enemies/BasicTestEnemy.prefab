@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1052088562745392455}
   m_Layer: 0
   m_Name: BasicTestEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,6 +118,7 @@ MonoBehaviour:
   attackRange: 3
   attackDelay: 0.5
   distanceToTarget: 0
+  isAttacking: 0
 --- !u!114 &1052088562745392454
 MonoBehaviour:
   m_ObjectHideFlags: 0
