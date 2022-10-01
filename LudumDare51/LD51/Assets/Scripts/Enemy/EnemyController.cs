@@ -29,6 +29,7 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        //Force new target Debug
         if (Input.GetKeyDown(KeyCode.Space))
         {
             target = GetRandomTarget();
@@ -69,7 +70,7 @@ public class EnemyController : MonoBehaviour
                     StartCoroutine(CalculateDistance());
                 }
             }
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.25f);
         }
     }
 
