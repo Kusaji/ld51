@@ -93,8 +93,10 @@ GameObject:
   - component: {fileID: 924503178666033390}
   - component: {fileID: 4286201076087312203}
   - component: {fileID: 2062457737534782337}
+  - component: {fileID: 8196598761461319996}
+  - component: {fileID: 2443460608288517008}
   m_Layer: 0
-  m_Name: tower
+  m_Name: BasicMagicTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,3 +167,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8196598761461319996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549349075060496980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ad3eb66647e574eb32463a72c60632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAlive: 0
+  maxHealth: 10
+  currentHealth: 0
+  buildingProgress: 0
+  designatedPopulation: 0
+  designatedBuilders: 0
+  designatedRepairers: 0
+--- !u!114 &2443460608288517008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549349075060496980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86e9346f5390a0a42ad251b46baef1bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

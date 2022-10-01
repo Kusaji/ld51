@@ -6,9 +6,10 @@ public class PlayerResources : MonoBehaviour
 {
     public static PlayerResources instance;
     
+    [Header("Resources")]
     public int population;
-    public int builders;
-    public int repairmen;
+    public int units;
+    public int magicRunes;
 
 
     private void Awake()
@@ -16,17 +17,20 @@ public class PlayerResources : MonoBehaviour
         instance = this;
     }
 
-   
-
-    public void TakeDamage(float damage)
+    public void AddPopulation(int amount)
     {
-
+        population += amount;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void SpendPopulation(int amount)
     {
-        
+        if (population >= amount)
+        {
+            population -= amount;
+        }
+        else
+        {
+            Debug.Log("Not enough population.");
+        }
     }
-
 }
