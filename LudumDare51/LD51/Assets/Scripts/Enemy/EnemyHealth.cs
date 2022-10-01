@@ -22,7 +22,8 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-
+            EnemyManager.Instance.activeEnemies.Remove(gameObject);
+            Destroy(gameObject);
         }
     }
 

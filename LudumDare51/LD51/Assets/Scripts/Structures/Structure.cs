@@ -26,7 +26,7 @@ public class Structure : MonoBehaviour
         isAlive = true;
     }
 
-    public void DealDamage(float damage)
+    public virtual void DealDamage(float damage)
     {
         currentHealth -= damage;
 
@@ -45,6 +45,8 @@ public class Structure : MonoBehaviour
                 explosionPrefab,
                 transform.position + new Vector3(0.0f, 0.25f, 0.0f),
                 Quaternion.Euler(new Vector3(-90f, 0.0f, 0.0f)));
+
+            Camera.main.GetComponent<CameraController>().ShakeCameraImpulse(Random.onUnitSphere, 10f);
 
             GameObject.Destroy(gameObject);
         }
