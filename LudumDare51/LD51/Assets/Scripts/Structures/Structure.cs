@@ -71,7 +71,6 @@ public class Structure : MonoBehaviour
             cachedPopulationEffectiveness = 0f;
     }
 
-    
 
     public virtual void OnClickDown()
     {

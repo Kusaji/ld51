@@ -47,6 +47,7 @@ public class PlayerStructures : MonoBehaviour
         {
             GetMousePosition();
             inactiveTower.transform.position = mousePosition;
+            
         }
     }
 
