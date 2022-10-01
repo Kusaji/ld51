@@ -13,6 +13,9 @@ public class Structure : MonoBehaviour
     public float buildingProgress;
     public int designatedPopulation;
 
+    [Header("Prefabs")]
+    public GameObject explosionPrefab;
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +24,27 @@ public class Structure : MonoBehaviour
         isAlive = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DealDamage(float damage)
     {
-        
+        currentHealth -= damage;
+
+        if (currentHealth <= 0 && isAlive)
+        {
+            isAlive = false;
+            
+            //Remove from structurel ist
+            if (PlayerStructures.instance.structures.Contains(gameObject))
+            {
+                PlayerStructures.instance.structures.Remove(gameObject);
+            }
+
+            //Explosion / Death prefab
+            Instantiate(
+                explosionPrefab,
+                transform.position + new Vector3(0.0f, 0.25f, 0.0f),
+                Quaternion.Euler(new Vector3(-90f, 0.0f, 0.0f)));
+
+            GameObject.Destroy(gameObject);
+        }
     }
 }
