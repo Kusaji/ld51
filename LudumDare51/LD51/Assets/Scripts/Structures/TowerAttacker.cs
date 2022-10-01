@@ -30,7 +30,7 @@ public class TowerAttacker : MonoBehaviour
                 {
                     targeter.target.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
                     Debug.DrawLine(targeter.projectileSpawnpoint.transform.position, targeter.target.transform.position, Color.red, 0.35f);
-                    yield return new WaitForSeconds(attackDelay);
+                    yield return new WaitForSeconds(attackDelay / structure.effectivenessExponent);
                 }
             }
             yield return new WaitForEndOfFrame();

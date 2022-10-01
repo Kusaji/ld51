@@ -4971,6 +4971,7 @@ MonoBehaviour:
   designatedPopulation: 1
   explosionPrefab: {fileID: 2913511541878398760, guid: 6ac15664056ef7c45934d9ecafa6cd68, type: 3}
   effectivenessExponent: 0.5
+  minimumPopulationToFunction: 10
   timeToGenerateResource: 10
   generateTimer: 0
   generateEffect: {fileID: 4402789132329000297}
