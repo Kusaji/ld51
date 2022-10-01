@@ -47,7 +47,7 @@ public class TowerAttacker : MonoBehaviour
                         projectileSettings.damage = attackDamage;
                     }
 
-                    yield return new WaitForSeconds(attackDelay / structure.effectivenessExponent);
+                    yield return new WaitForSeconds(attackDelay / structure.cachedPopulationEffectiveness);
                 }
             }
             yield return new WaitForEndOfFrame();

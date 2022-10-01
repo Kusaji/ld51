@@ -5,8 +5,13 @@ using TMPro;
 
 public class ActivePopulation : MonoBehaviour
 {
+    public Structure attatchedStructure;
     public TextMeshProUGUI populationTMP;
     public Canvas theCanvas;
+    private void Start()
+    {
+        theCanvas.transform.rotation = CameraController.instance.theCamera.transform.rotation;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -15,6 +20,10 @@ public class ActivePopulation : MonoBehaviour
         //theCanvas.transform.rotation = Quaternion.Euler(lookie.x + 180f, lookie.y, lookie.z + 180f);
         
         
-        theCanvas.transform.rotation = CameraController.instance.theCamera.transform.rotation;
+        
+    }
+    public void SetPopulationCount(int active, int minimumRequired)
+    {
+        populationTMP.SetText(active + " / " + minimumRequired);
     }
 }

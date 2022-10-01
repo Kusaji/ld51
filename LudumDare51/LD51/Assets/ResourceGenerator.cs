@@ -13,10 +13,7 @@ public class ResourceGenerator : Structure
     }
     private void FixedUpdate()
     {
-        //float subtraction = Mathf.Log(1f + (designatedPopulation), effectivenessSoftCap) * Time.fixedDeltaTime;
-        //float subtraction = Mathf.Pow(1f + (designatedPopulation), 1f / effectivenessSoftCap) * Time.fixedDeltaTime;
-
-        UpdatePopulation();
+        HoldClickAddPopulation();
 
         generateTimer -= Time.fixedDeltaTime * cachedPopulationEffectiveness;
         int generates = 0;

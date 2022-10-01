@@ -18,15 +18,43 @@ public class Structure : MonoBehaviour
     public GameObject explosionPrefab;
 
     public float effectivenessExponent = 0.75f;
-    protected float cachedPopulationEffectiveness = 0f;
+    public float cachedPopulationEffectiveness = 0f;
     public int minimumPopulationToFunction = 0;
+
+    private bool clickHeld = false;
+    private float clickHeldTime = 0f;
+    public float holdTimeToStartAutoClick = 0.2f;
+    public float populationAddedPerFUP = 0.1f;
+    public float populationAddedPerFUPGainPerSecond = 0.01f;
+    private float fakePopAdded = 0f;
+    public ActivePopulation myActivePopulation;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
         isAlive = true;
+        if (myActivePopulation != null)
+            myActivePopulation.SetPopulationCount(designatedPopulation, minimumPopulationToFunction);
     }
-
+    private void FixedUpdate()
+    {
+        HoldClickAddPopulation();
+    }
+    protected void HoldClickAddPopulation()
+    {
+        if (clickHeld && PlayerResources.Instance.population > 0)
+        {
+            clickHeldTime += Time.fixedDeltaTime;
+            fakePopAdded += populationAddedPerFUP + (populationAddedPerFUPGainPerSecond * clickHeldTime);
+            while (fakePopAdded >= 1 && PlayerResources.Instance.population > 0)
+            {
+                fakePopAdded--;
+                designatedPopulation++;
+                PlayerResources.Instance.SpendPopulation(1);
+                UpdatePopulation();
+            }
+        }
+    }
     public virtual void DealDamage(float damage)
     {
         currentHealth -= damage;
@@ -69,17 +97,23 @@ public class Structure : MonoBehaviour
             cachedPopulationEffectiveness = Mathf.Pow(designatedPopulation + 1, effectivenessExponent);
         else
             cachedPopulationEffectiveness = 0f;
+
+        myActivePopulation.SetPopulationCount(designatedPopulation, minimumPopulationToFunction);
     }
 
 
     public virtual void OnClickDown()
     {
         Debug.Log($"{gameObject.name} OnClickDown called");
+        clickHeld = true;
+        fakePopAdded = 0f;
     }
 
     public virtual void OnClickUp()
     {
         Debug.Log($"{gameObject.name} OnClickUp called");
+        clickHeld = false;
+        fakePopAdded = 0f;
     }
 
     //Not sure what the best way for this would be.
