@@ -67,6 +67,25 @@ public class Structure : MonoBehaviour
             cachedPopulationEffectiveness = Mathf.Pow(designatedPopulation + 1, effectivenessExponent);
         else
             cachedPopulationEffectiveness = 0f;
+    }
+
+    
+
+    public virtual void OnClickDown()
+    {
+        Debug.Log($"{gameObject.name} OnClickDown called");
+    }
+
+    public virtual void OnClickUp()
+    {
+        Debug.Log($"{gameObject.name} OnClickUp called");
+    }
+
+    //Not sure what the best way for this would be.
+    //Onclickdown start a coroutine for adding units?
+    //Onclickup stop said coroutine?
+    public virtual void OnClickStay()
+    {
 
     }
 }

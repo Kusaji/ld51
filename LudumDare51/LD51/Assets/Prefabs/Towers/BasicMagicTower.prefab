@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 8949626775767681391}
   - component: {fileID: 173971439256909926}
   - component: {fileID: 5376552064403017680}
+  - component: {fileID: 5914313160298031112}
   m_Layer: 0
-  m_Name: Cube
-  m_TagString: Tower
+  m_Name: TowerHitbox
+  m_TagString: Structure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,6 +96,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5914313160298031112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543455000832910248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 433e6e8cac3f19e4cb738867aa32b71e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  structure: {fileID: 8196598761461319996}
 --- !u!1 &549349075014869153
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +207,7 @@ GameObject:
   - component: {fileID: 3819570541728797020}
   m_Layer: 0
   m_Name: BasicMagicTower
-  m_TagString: Tower
+  m_TagString: Structure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -283,6 +297,8 @@ MonoBehaviour:
   buildingProgress: 0
   designatedPopulation: 0
   explosionPrefab: {fileID: 2913511541878398760, guid: 6ac15664056ef7c45934d9ecafa6cd68, type: 3}
+  effectivenessExponent: 0.75
+  minimumPopulationToFunction: 0
 --- !u!114 &179404295171479120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,8 +333,6 @@ MonoBehaviour:
   attackRange: 10
   attackDamage: 5
   attackDelay: 0.5
-  instantAttack: 0
-  attackProjectilePrefab: {fileID: 1427661989262336, guid: 1a0b29289f432ce4fa642ef94f798f5d, type: 3}
 --- !u!1 &4675356524396653158
 GameObject:
   m_ObjectHideFlags: 0

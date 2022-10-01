@@ -2527,6 +2527,7 @@ GameObject:
   - component: {fileID: 1320461160}
   - component: {fileID: 1320461161}
   - component: {fileID: 1320461162}
+  - component: {fileID: 1320461163}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2590,6 +2591,20 @@ MonoBehaviour:
   spawningTower: 0
   canSpawnOnMouse: 0
   inactiveTower: {fileID: 0}
+--- !u!114 &1320461163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320461159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a14595956bbc05b41a9d60e8afe2d1c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectClickedOn: {fileID: 0}
+  structure: {fileID: 0}
 --- !u!1 &1371585485
 GameObject:
   m_ObjectHideFlags: 0
@@ -3192,6 +3207,10 @@ PrefabInstance:
     - target: {fileID: 4826958155831621458, guid: 734a40e43390f51478b1f3f85555cb99, type: 3}
       propertyPath: m_Name
       value: EnemyManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826958155831621458, guid: 734a40e43390f51478b1f3f85555cb99, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4826958155831621460, guid: 734a40e43390f51478b1f3f85555cb99, type: 3}
       propertyPath: m_RootOrder
