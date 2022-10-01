@@ -60,6 +60,8 @@ public class EnemyManager : MonoBehaviour
             for (int i = 0; i < enemiesToSpawn; i++)
             {
                 SpawnEnemy();
+                yield return null;
+                yield return null;
             }
 
             //Increment waves

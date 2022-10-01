@@ -116,7 +116,9 @@ MonoBehaviour:
   target: {fileID: 0}
   targetStructure: {fileID: 0}
   attackDamage: 1
-  attackRange: 3
+  defaultAttackRange: 3
+  bastionAttackRange: 8
+  currentAttackRange: 0
   attackDelay: 0.5
   distanceToTarget: 0
   isAttacking: 0
@@ -147,7 +149,7 @@ NavMeshAgent:
   m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 10
   m_AngularSpeed: 800
   m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
