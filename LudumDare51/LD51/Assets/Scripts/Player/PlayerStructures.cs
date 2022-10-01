@@ -12,10 +12,17 @@ public class PlayerStructures : MonoBehaviour
     [Header("Available Structures")]
     public List<GameObject> structurePrefabs;
 
-    public Vector3 mousePosition;
+    [Header("Inactive Structures")] //Match this with structure prefabs
+    public List<GameObject> inactiveStructurePrefabs;
 
+    public Vector3 mousePosition;
+    public GameObject bastion;
     public Transform structuresTransform;
 
+    public int spawningTowerInt;
+    public bool spawningTower;
+    public bool canSpawnOnMouse;
+    public GameObject inactiveTower;
 
     private void Awake()
     {
@@ -30,9 +37,15 @@ public class PlayerStructures : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetMouseButtonDown(0) && spawningTower)
         {
-            BuildStructure();
+            BuildStructure(spawningTowerInt);
+        }
+
+        if (spawningTower && inactiveTower != null)
+        {
+            GetMousePosition();
+            inactiveTower.transform.position = mousePosition;
         }
     }
 
@@ -46,18 +59,39 @@ public class PlayerStructures : MonoBehaviour
         structures.Remove(structure);
     }
 
-    public void BuildStructure()
+    public void SpawnPlacementTower(int towerPrefab)
     {
         GetMousePosition();
 
-        var builtStructure = Instantiate(
-            structurePrefabs[0],
+        spawningTower = true;
+        spawningTowerInt = towerPrefab;
+
+        inactiveTower = Instantiate(
+            inactiveStructurePrefabs[towerPrefab],
             mousePosition,
             Quaternion.identity,
             structuresTransform
-            ); ;
+            );
+    }
 
-        AddStructure(builtStructure);
+    public void BuildStructure(int towerPrefab)
+    {
+        GetMousePosition();
+
+        if (canSpawnOnMouse)
+        {
+            var builtStructure = Instantiate(
+                structurePrefabs[towerPrefab],
+                mousePosition,
+                Quaternion.identity,
+                structuresTransform
+                ); ;
+
+            AddStructure(builtStructure);
+
+            spawningTower = false;
+            Destroy(inactiveTower);
+        }
     }
 
     public void GetMousePosition()
@@ -68,6 +102,17 @@ public class PlayerStructures : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             mousePosition = hit.point;
+
+            Debug.Log(hit.transform.gameObject.name);
+
+            if (!hit.transform.gameObject.CompareTag("Tower") && !hit.transform.gameObject.CompareTag("Environment"))
+            {
+                canSpawnOnMouse = true;
+            } 
+            else
+            {
+                canSpawnOnMouse = false;
+            }
         }
     }
 }

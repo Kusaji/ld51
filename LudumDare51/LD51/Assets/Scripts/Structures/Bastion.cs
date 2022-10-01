@@ -2,36 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Structure : MonoBehaviour
+public class Bastion : Structure
 {
-    [Header("Health")]
-    public bool isAlive;
-    public float maxHealth;
-    public float currentHealth;
-
-    [Header("Stats")]
-    public float buildingProgress;
-    public int designatedPopulation;
-
-    [Header("Prefabs")]
-    public GameObject explosionPrefab;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        currentHealth = maxHealth;
-        isAlive = true;
-    }
-
-    public void DealDamage(float damage)
+    public override void DealDamage(float damage)
     {
         currentHealth -= damage;
 
         if (currentHealth <= 0 && isAlive)
         {
             isAlive = false;
-            
+
             //Remove from structurel ist
             if (PlayerStructures.instance.structures.Contains(gameObject))
             {
@@ -45,6 +25,8 @@ public class Structure : MonoBehaviour
                 Quaternion.Euler(new Vector3(-90f, 0.0f, 0.0f)));
 
             Camera.main.GetComponent<CameraController>().ShakeCameraImpulse(Random.onUnitSphere, 10f);
+
+            PlayerResources.Instance.isAlive = false;
 
             GameObject.Destroy(gameObject);
         }

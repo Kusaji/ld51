@@ -26,6 +26,7 @@ public class EnemyManager : MonoBehaviour
     private void Start()
     {
         enemyTransform = GameObject.Find("Enemies").transform;
+        transform.position = GameObject.Find("Bastion").transform.position;
         StartCoroutine(SpawnEnemyRoutine());
     }
 
@@ -78,5 +79,4 @@ public class EnemyManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
     }
-
 }
