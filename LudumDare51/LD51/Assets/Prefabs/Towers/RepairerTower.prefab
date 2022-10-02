@@ -228,7 +228,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 2913511541878398760, guid: 6ac15664056ef7c45934d9ecafa6cd68, type: 3}
   effectivenessExponent: 0.75
   cachedPopulationEffectiveness: 0
-  minimumPopulationToFunction: 0
+  minimumPopulationToFunction: 5
   holdTimeToStartAutoClick: 0.2
   populationAddedPerFUP: 0.1
   populationAddedPerFUPGainPerSecond: 0.01
@@ -246,9 +246,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towersInRange: []
+  damagedTowers: []
+  canHealSelf: 1
   towerHealRange: 10
-  towerHealAmount: 0
+  towerHealAmount: 2
+  towerHealDelay: 3
   activeHealTargets: 0
+  tickingHealCooldown: 0
 --- !u!1001 &8256427299494323681
 PrefabInstance:
   m_ObjectHideFlags: 0

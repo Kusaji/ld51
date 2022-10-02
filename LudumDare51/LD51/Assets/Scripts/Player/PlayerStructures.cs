@@ -25,6 +25,9 @@ public class PlayerStructures : MonoBehaviour
     public bool canSpawnOnMouse;
     public GameObject inactiveTower;
 
+    public delegate void TowerUpdateEvent();
+    public static event TowerUpdateEvent TowerUpdate;
+
     private void Awake()
     {
         instance = this;
@@ -53,11 +56,13 @@ public class PlayerStructures : MonoBehaviour
     public void AddStructure(GameObject structure)
     {
         structures.Add(structure);
+        BroadcastTowerUpdate();
     }
 
     public void RemoveStructure(GameObject structure)
     {
         structures.Remove(structure);
+        BroadcastTowerUpdate();
     }
 
     public void SpawnPlacementTower(int towerPrefab)
@@ -114,6 +119,15 @@ public class PlayerStructures : MonoBehaviour
             {
                 canSpawnOnMouse = false;
             }
+        }
+    }
+
+
+    public void BroadcastTowerUpdate()
+    {
+        if (TowerUpdate != null)
+        {
+            TowerUpdate();
         }
     }
 }

@@ -33,11 +33,6 @@ public class EnemyController : MonoBehaviour
         StartCoroutine(CalculateDistance());
     }
 
-    private void Update()
-    {
-
-    }
-
     //todo
     //Iterate over structure list and find closest with priority.
     public GameObject GetRandomTarget()

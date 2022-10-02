@@ -118,7 +118,6 @@ public class Structure : MonoBehaviour
 
     public virtual void OnClickDown()
     {
-        Debug.Log($"{gameObject.name} OnClickDown called");
         //  Bastion doesn't take population, it always operates at full power.
         if (constructionFrame == false && myActivePopulation != null && PlayerStructures.instance.spawningTower == false)
         {
@@ -130,7 +129,6 @@ public class Structure : MonoBehaviour
 
     public virtual void OnClickUp()
     {
-        Debug.Log($"{gameObject.name} OnClickUp called");
         //  Bastion doesn't take population, it always operates at full power.
         if (clickHeld && myActivePopulation != null)
         {
@@ -149,5 +147,15 @@ public class Structure : MonoBehaviour
     public virtual void OnClickStay()
     {
 
+    }
+
+    public void HealTower(float amount)
+    {
+        currentHealth += amount;
+
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
     }
 }

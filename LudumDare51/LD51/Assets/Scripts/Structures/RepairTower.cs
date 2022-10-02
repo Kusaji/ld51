@@ -5,27 +5,47 @@ using UnityEngine;
 public class RepairTower : MonoBehaviour
 {
     public List<Structure> towersInRange;
+    public List<Structure> damagedTowers;
 
     [Header("Can heal self?")]
     public bool canHealSelf;
 
     public float towerHealRange;
     public float towerHealAmount;
+    public float towerHealDelay;
     public int activeHealTargets;
+    public float tickingHealCooldown;
+
+    private Structure myStructure;
+
+    private void Start()
+    {
+        myStructure = GetComponent<Structure>();
+        GetTowersInRange();
+        StartCoroutine(HealRoutine());
+    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GetTowersInRange();
-        }
+
+    }
+
+    private void OnEnable()
+    {
+        PlayerStructures.TowerUpdate += GetTowersInRange;
+    }
+
+    private void OnDisable()
+    {
+        PlayerStructures.TowerUpdate -= GetTowersInRange;
     }
 
     public void GetTowersInRange()
     {
+        towersInRange.Clear();
+
         if (PlayerStructures.instance.structures.Count > 0)
         {
-            
             for (int i = 0; i < PlayerStructures.instance.structures.Count; i++)
             {
                 if (!canHealSelf)
@@ -49,4 +69,58 @@ public class RepairTower : MonoBehaviour
         }
     }
 
+    public void CheckForDamagedTowers()
+    {
+        damagedTowers.Clear();
+
+        for (int i = 0; i < towersInRange.Count; i++)
+        {
+            if (towersInRange[i].currentHealth < towersInRange[i].maxHealth)
+            {
+                damagedTowers.Add(towersInRange[i]);
+            }
+        }
+
+        activeHealTargets = damagedTowers.Count;
+    }
+
+
+    public void HealStructures()
+    {
+        float healAmount = towerHealAmount / activeHealTargets;
+
+        for (int i = 0; i < damagedTowers.Count; i++)
+        {
+            if (damagedTowers[i] != null) //In the off chance it was destroyed before the heal goes off.
+            {
+                damagedTowers[i].HealTower(healAmount);
+            }
+        }
+    }
+
+    public IEnumerator HealRoutine()
+    {
+        while (myStructure.isAlive)
+        {
+            if (towersInRange.Count > 0)
+            {
+                CheckForDamagedTowers();
+
+                if (damagedTowers.Count > 0)
+                {
+                    HealStructures();
+                }
+            }
+
+            tickingHealCooldown = towerHealDelay;
+
+            while (tickingHealCooldown >= 0f)
+            {
+                yield return new WaitForFixedUpdate();
+                tickingHealCooldown -= Time.fixedDeltaTime * myStructure.cachedPopulationEffectiveness;
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
+    }
 }
