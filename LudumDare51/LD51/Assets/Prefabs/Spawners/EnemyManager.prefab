@@ -48,6 +48,6 @@ MonoBehaviour:
   activeEnemies: []
   spawnTime: 10
   wave: 0
-  enemiesToSpawn: 5
+  enemiesToSpawn: 3
   enemySpawnIncrement: 0
   enemyTransform: {fileID: 0}
