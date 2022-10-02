@@ -33,17 +33,25 @@ public class RepairTowerProjectile : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = transform.forward * moveSpeed;
-        distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
 
-        if (distanceToTarget < 0.5f && !hitTarget)
+        if (target != null)
         {
-            hitTarget = true;
+            distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
 
-            Instantiate(
-                healEffectPrefab,
-                target.transform.position,
-                Quaternion.identity);
+            if (distanceToTarget < 0.5f && !hitTarget)
+            {
+                hitTarget = true;
 
+                Instantiate(
+                    healEffectPrefab,
+                    target.transform.position,
+                    Quaternion.identity);
+
+                Destroy(gameObject);
+            }
+        }
+        else if (target == null)
+        {
             Destroy(gameObject);
         }
     }

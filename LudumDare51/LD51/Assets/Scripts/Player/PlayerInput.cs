@@ -27,6 +27,12 @@ public class PlayerInput : MonoBehaviour
         {
             GetOnClickUpObject();
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && PlayerStructures.instance.spawningTower)
+        {
+            PlayerStructures.instance.spawningTower = false;
+            Destroy(PlayerStructures.instance.inactiveTower);
+        }
     }
 
     public void GetClickedOnObject()

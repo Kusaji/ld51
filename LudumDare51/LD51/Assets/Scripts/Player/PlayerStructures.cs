@@ -55,7 +55,6 @@ public class PlayerStructures : MonoBehaviour
 
     private void Update()
     {        
-
         if (Input.GetMouseButtonDown(0) && spawningTower)
         {
             BuildStructure(spawningTowerInt);
@@ -82,17 +81,20 @@ public class PlayerStructures : MonoBehaviour
 
     public void SpawnPlacementTower(int towerPrefab)
     {
-        GetMousePosition();
+        if (!spawningTower)
+        {
+            GetMousePosition();
 
-        spawningTower = true;
-        spawningTowerInt = towerPrefab;
+            spawningTower = true;
+            spawningTowerInt = towerPrefab;
 
-        inactiveTower = Instantiate(
-            inactiveStructurePrefabs[towerPrefab],
-            mousePosition,
-            Quaternion.identity,
-            structuresTransform
-            );
+            inactiveTower = Instantiate(
+                inactiveStructurePrefabs[towerPrefab],
+                mousePosition,
+                Quaternion.identity,
+                structuresTransform
+                );
+        }
     }
 
     public void BuildStructure(int towerPrefab)
