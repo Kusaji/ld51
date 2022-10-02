@@ -3,39 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// Handles Enemy Movement and Attacking AI.
+/// </summary>
 public class EnemyController : MonoBehaviour
 {
+    #region Variables
     [Header("Components")]
     public EnemyHealth health;
     public NavMeshAgent agent;
+    public EnemyAnimator enemyAnimator;
 
+    [Header("Set During Gameplay")]
     public GameObject target;
     public Structure targetStructure;
 
+    [Header("Stats")]
     public float attackDamage;
-
     public float defaultAttackRange;
     public float bastionAttackRange;
-    public float currentAttackRange;
-
     public float attackDelay;
+
+    [Header("Runtime Stats")]
+    public float currentAttackRange;
     public float distanceToTarget;
-
     public bool isAttacking;
-    public EnemyAnimator enemyAnimator;
-
     public float currentSpeed;
+    #endregion
 
+    #region Unity Callbacks
     // Start is called before the first frame update
     void Start()
     {
         agent.Warp(transform.position);
 
-
         StartCoroutine(FindTargetRoutine());
         StartCoroutine(CalculateDistance());
     }
+    #endregion
 
+    #region Methods
     //todo
     //Iterate over structure list and find closest with priority.
     public GameObject GetRandomTarget()
@@ -49,7 +56,9 @@ public class EnemyController : MonoBehaviour
             return null;
         }
     }
+    #endregion
 
+    #region Coroutines
     public IEnumerator FindTargetRoutine()
     {
         yield return new WaitForSeconds(0.1f);
@@ -134,4 +143,5 @@ public class EnemyController : MonoBehaviour
             yield return new WaitForSeconds(attackDelay);
         }
     }
+    #endregion
 }

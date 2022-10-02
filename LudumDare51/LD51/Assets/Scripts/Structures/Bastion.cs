@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Extends Structure, custom logic for when the Bastion dies.
+/// </summary>
 public class Bastion : Structure
 {
+    #region Methods
     public override void DealDamage(float damage)
     {
         currentHealth -= damage;
@@ -34,4 +38,5 @@ public class Bastion : Structure
             GameObject.Destroy(gameObject);
         }
     }
+    #endregion
 }
