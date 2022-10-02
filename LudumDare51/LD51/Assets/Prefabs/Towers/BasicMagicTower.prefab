@@ -292,21 +292,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ad3eb66647e574eb32463a72c60632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  balanceNumbersSO: {fileID: 11400000, guid: 7c339a49506ccd74b8af1162ef0259a5, type: 2}
+  holdTimeToStartAutoClick: 0.2
+  effectivenessExponent: 0.75
   isAlive: 0
-  maxHealth: 10
   currentHealth: 10
-  incomingDamageDefenseMod: 1
   buildingComplete: 0
   currentBuildProgress: 0
-  maxBuildProgress: 10
   designatedPopulation: 0
-  explosionPrefab: {fileID: 2913511541878398760, guid: 6ac15664056ef7c45934d9ecafa6cd68, type: 3}
-  effectivenessExponent: 0.75
   cachedPopulationEffectiveness: 0
-  minimumPopulationToFunction: 5
-  holdTimeToStartAutoClick: 0.2
-  populationAddedPerFUP: 0.2
   populationAddedPerFUPGainPerSecond: 0.1
+  populationAddedPerFUP: 0.2
+  explosionPrefab: {fileID: 2913511541878398760, guid: 6ac15664056ef7c45934d9ecafa6cd68, type: 3}
   myActivePopulation: {fileID: 9191001521092174329}
   myStructureHealthUI: {fileID: 286659874065460749}
 --- !u!114 &179404295171479120
@@ -338,12 +335,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3e2a6cc930cc7439c5aab1bfec6b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targeter: {fileID: 179404295171479120}
-  structure: {fileID: 8196598761461319996}
+  instantAttack: 0
   attackRange: 13
   attackDamage: 2.5
   attackDelay: 1
-  instantAttack: 0
+  targeter: {fileID: 179404295171479120}
+  structure: {fileID: 8196598761461319996}
   attackProjectilePrefab: {fileID: 7300430972184893010, guid: e201d947c0efd6a45ba1c130512f2f92, type: 3}
 --- !u!1 &4675356524396653158
 GameObject:

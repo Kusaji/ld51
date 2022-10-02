@@ -259,16 +259,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ad3eb66647e574eb32463a72c60632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minimumPopulationToFunction: 5
+  balanceNumbersSO: {fileID: 11400000, guid: 75dca1d039f8221429a7090fc56b4b22, type: 2}
   holdTimeToStartAutoClick: 0.2
   effectivenessExponent: 0.75
   isAlive: 0
-  maxHealth: 10
   currentHealth: 0
-  incomingDamageDefenseMod: 1
   buildingComplete: 0
   currentBuildProgress: 0
-  maxBuildProgress: 5
   designatedPopulation: 0
   cachedPopulationEffectiveness: 0
   populationAddedPerFUPGainPerSecond: 0.01

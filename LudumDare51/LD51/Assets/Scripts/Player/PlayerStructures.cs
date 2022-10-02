@@ -19,6 +19,7 @@ public class PlayerStructures : MonoBehaviour
 
     [Header("Available Structures")]
     public List<GameObject> structurePrefabs;
+    public List<StructureBalanceNumbersSO> structureBalanceNumbers;
 
     [Header("Inactive Structures")] //Match this with structure prefabs
     public List<GameObject> inactiveStructurePrefabs;
@@ -33,6 +34,7 @@ public class PlayerStructures : MonoBehaviour
     public bool spawningTower;
     public bool canSpawnOnMouse;
     public GameObject inactiveTower;
+    private int minimumPopOfSelectedTower;
     #endregion
 
     #region Events and Delegates
@@ -83,7 +85,8 @@ public class PlayerStructures : MonoBehaviour
 
     public void SpawnPlacementTower(int towerPrefab)
     {
-        if (!spawningTower)
+        minimumPopOfSelectedTower = structureBalanceNumbers[towerPrefab].minimumPopulationToFunction;
+        if (!spawningTower && PlayerResources.Instance.population >= minimumPopOfSelectedTower)
         {
             GetMousePosition();
 
@@ -103,7 +106,7 @@ public class PlayerStructures : MonoBehaviour
     {
         GetMousePosition();
 
-        if (canSpawnOnMouse)
+        if (canSpawnOnMouse && PlayerResources.Instance.population >= minimumPopOfSelectedTower)
         {
             var builtStructure = Instantiate(
                 structurePrefabs[towerPrefab],
@@ -113,6 +116,8 @@ public class PlayerStructures : MonoBehaviour
                 ); ;
 
             AddStructure(builtStructure);
+
+            builtStructure.GetComponent<Structure>().AddPopFromPlayer(minimumPopOfSelectedTower);
 
             spawningTower = false;
             Destroy(inactiveTower);

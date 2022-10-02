@@ -1666,7 +1666,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8709431709701167315}
   m_Layer: 0
-  m_Name: Bastion
+  m_Name: Bastion Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

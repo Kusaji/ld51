@@ -9,21 +9,49 @@ using UnityEngine;
 public class Structure : MonoBehaviour
 {
     #region Variables
+    [Header("Structure Balance SO")]
+    public StructureBalanceNumbersSO balanceNumbersSO;
+
+    
+    public int minimumPopulationToFunction
+    {
+        get
+        {
+            return balanceNumbersSO.minimumPopulationToFunction;
+        }
+    }
     [Header("Settings")]
-    public int minimumPopulationToFunction = 0;
     public float holdTimeToStartAutoClick = 0.2f;
     public float effectivenessExponent = 0.75f;
 
     [Header("Health")]
     public bool isAlive;
-    public float maxHealth;
+    public float maxHealth
+    {
+        get
+        {
+            return balanceNumbersSO.maxHealth;
+        }
+    }
     public float currentHealth;
-    public float incomingDamageDefenseMod = 1f;
+    public float incomingDamageDefenseMod
+    {
+        get
+        {
+            return balanceNumbersSO.incomingDamageDefenseMod;
+        }
+    }
 
     [Header("Build Progress")]
     public bool buildingComplete;
     public float currentBuildProgress;
-    public float maxBuildProgress;
+    public float maxBuildProgress
+    {
+        get
+        {
+            return balanceNumbersSO.maxBuildProgress;
+        }
+    }
 
     [Header("Stats")]
     public int designatedPopulation;
@@ -98,7 +126,7 @@ public class Structure : MonoBehaviour
             leftClickHeld = false;
             fakePopAdded = 0f;
             if (clickHeldTime < holdTimeToStartAutoClick && PlayerResources.Instance.population > 0)
-                AddAPop();
+                AddAPopFromPlayer();
             clickHeldTime = 0f;
 
         }
@@ -121,7 +149,7 @@ public class Structure : MonoBehaviour
         {
             rightClickHeld = false;
             fakePopAdded = 0f;
-            if (clickHeldTime < holdTimeToStartAutoClick && designatedPopulation > 0)
+            if (clickHeldTime < holdTimeToStartAutoClick && designatedPopulation > minimumPopulationToFunction)
                 RemoveAPop();
             clickHeldTime = 0f;
 
@@ -139,13 +167,13 @@ public class Structure : MonoBehaviour
             while (fakePopAdded >= 1 && PlayerResources.Instance.population > 0)
             {
                 fakePopAdded--;
-                AddAPop();
+                AddAPopFromPlayer();
             }
-        } else if (rightClickHeld && designatedPopulation > 0)
+        } else if (rightClickHeld && designatedPopulation > minimumPopulationToFunction)
         {
             clickHeldTime += Time.fixedDeltaTime;
             fakePopAdded += (populationAddedPerFUP + (populationAddedPerFUPGainPerSecond * clickHeldTime)) / 2f;
-            while (fakePopAdded >= 1 && designatedPopulation > 0)
+            while (fakePopAdded >= 1 && designatedPopulation > minimumPopulationToFunction)
             {
                 fakePopAdded--;
                 RemoveAPop();
@@ -153,11 +181,17 @@ public class Structure : MonoBehaviour
         }
     }
 
-    private void AddAPop()
+    private void AddAPopFromPlayer()
     {        
             designatedPopulation++;
             PlayerResources.Instance.SpendPopulation(1);
             UpdatePopulation();
+    }
+    public void AddPopFromPlayer(int popnum)
+    {
+        designatedPopulation += popnum;
+        PlayerResources.Instance.SpendPopulation(popnum);
+        UpdatePopulation();
     }
 
     private void RemoveAPop()

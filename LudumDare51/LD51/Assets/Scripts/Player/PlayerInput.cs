@@ -42,12 +42,18 @@ public class PlayerInput : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(1))
         {
-            GetRightClickedOnObject();
+#if UNITY_EDITOR
+            Debug.Log("Remove Population has been... removed. Commit to your decisions! More strategy, less micro!");
+#endif
+            //GetRightClickedOnObject();
         }
 
         if (Input.GetMouseButtonUp(1))
         {
-            GetOnRightClickUpObject();
+#if UNITY_EDITOR
+            Debug.Log("Remove Population has been... removed. Commit to your decisions! More strategy, less micro!");
+#endif
+            //GetOnRightClickUpObject();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && PlayerStructures.instance.spawningTower)

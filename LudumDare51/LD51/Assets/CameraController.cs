@@ -19,7 +19,9 @@ public class CameraController : MonoBehaviour
     public float shakeSpeed;
     Vector3 cameraShakeAdd;
     public float shakeDurationMod;
-
+    public float minCameraSize = 8f;
+    public float maxCameraSize = 20f;
+    public float targetCameraSize = 14f;
     Vector3 cameraNoShakePos;
 
     private void Awake()
@@ -28,6 +30,7 @@ public class CameraController : MonoBehaviour
         theCamera = GetComponent<Camera>();
         Cursor.lockState = CursorLockMode.Confined;
         cameraNoShakePos = transform.localPosition;
+        targetCameraSize = theCamera.orthographicSize;
     }
     private void Start()
     {
@@ -74,7 +77,14 @@ public class CameraController : MonoBehaviour
             ShakeCameraImpulse(Random.onUnitSphere, 10f);
         }
 
-            if (Input.GetKeyDown(KeyCode.Escape))
+        if (Mathf.Abs(Input.mouseScrollDelta.y) > 0.01f)
+        {
+            targetCameraSize = Mathf.Clamp(targetCameraSize + 2f * Mathf.Sign(-Input.mouseScrollDelta.y), minCameraSize, maxCameraSize);
+        }
+
+        theCamera.orthographicSize = SmoothFunc.Damp(theCamera.orthographicSize, targetCameraSize, 0.000001f, Time.unscaledDeltaTime);
+
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (Cursor.lockState == CursorLockMode.Confined)
                 Cursor.lockState = CursorLockMode.None;
