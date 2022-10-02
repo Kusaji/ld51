@@ -3,8 +3,15 @@ using System.Collections.Generic;
 using UnityEditor.AI;
 using UnityEngine;
 
+/// <summary>
+/// Singleton.
+/// Collection of spawnable player prefabs.
+/// Contains lists accessed by other scripts for structure tracking.
+/// </summary>
 public class PlayerStructures : MonoBehaviour
 {
+    #region Variables
+    [Header("Singleton")]
     public static PlayerStructures instance;
 
     [Header("Active Structures")]
@@ -16,19 +23,25 @@ public class PlayerStructures : MonoBehaviour
     [Header("Inactive Structures")] //Match this with structure prefabs
     public List<GameObject> inactiveStructurePrefabs;
 
+    [Header("Runtime | Do not set")]
+    [Space(50)]
     public Vector3 mousePosition;
+    public Vector3 MouseHitPosition;
     public GameObject bastion;
     public Transform structuresTransform;
-
     public int spawningTowerInt;
     public bool spawningTower;
     public bool canSpawnOnMouse;
     public GameObject inactiveTower;
+    #endregion
 
+    #region Events and Delegates
+    //Events
     public delegate void TowerUpdateEvent();
     public static event TowerUpdateEvent TowerUpdate;
+    #endregion
 
-    public Vector3 MouseHitPosition;
+    #region Unity Callbacks
     private void Awake()
     {
         instance = this;
@@ -40,21 +53,6 @@ public class PlayerStructures : MonoBehaviour
 
         StartCoroutine(GameWaitsForNavMesh());
     }
-
-    IEnumerator GameWaitsForNavMesh()
-    {
-        
-        Time.timeScale = 0f;
-        yield return null;
-        yield return null;
-        yield return null;
-        yield return null;
-        yield return null;
-        NavMeshBuilder.BuildNavMeshAsync();        
-        yield return new WaitUntil(() => NavMeshBuilder.isRunning);        
-        Time.timeScale = 1f;
-    }
-
     private void Update()
     {        
         if (Input.GetMouseButtonDown(0) && spawningTower)
@@ -68,7 +66,9 @@ public class PlayerStructures : MonoBehaviour
             inactiveTower.transform.position = MouseHitPosition;
         }
     }
+    #endregion
 
+    #region Methods
     public void AddStructure(GameObject structure)
     {
         structures.Add(structure);
@@ -141,7 +141,6 @@ public class PlayerStructures : MonoBehaviour
         }
     }
 
-
     public void BroadcastTowerUpdate()
     {
         if (TowerUpdate != null)
@@ -149,4 +148,20 @@ public class PlayerStructures : MonoBehaviour
             TowerUpdate();
         }
     }
+    #endregion
+
+    #region Coroutines
+    IEnumerator GameWaitsForNavMesh()
+    {
+        Time.timeScale = 0f;
+        yield return null;
+        yield return null;
+        yield return null;
+        yield return null;
+        yield return null;
+        NavMeshBuilder.BuildNavMeshAsync();
+        yield return new WaitUntil(() => NavMeshBuilder.isRunning);
+        Time.timeScale = 1f;
+    }
+    #endregion
 }

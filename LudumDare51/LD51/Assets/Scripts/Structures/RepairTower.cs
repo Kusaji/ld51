@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Handles logic for repair tower.
+/// Behavior for the repair tower.
 /// </summary>
 public class RepairTower : MonoBehaviour
 {

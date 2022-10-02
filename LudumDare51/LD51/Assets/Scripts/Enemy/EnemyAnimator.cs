@@ -2,21 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Handles triggering animations for enemies.
+/// </summary>
 public class EnemyAnimator : MonoBehaviour
 {
+    #region Variables
+    [Header("Components")]
     public EnemyController controller;
     public Animator anim;
 
-    public List<Animation> attackAnimations;
-
-    public bool isRunning;
-    public bool isIdle;
-    public bool isAttacking;
-
-    //
     public enum currentState { idle, running, attacking};
     public currentState state;
 
+    #endregion
+
+    #region Unity Callbacks
     private void Start()
     {
         state = currentState.idle;
@@ -33,7 +34,9 @@ public class EnemyAnimator : MonoBehaviour
             anim.SetTrigger("Idle");
         }
     }
+    #endregion
 
+    #region Methods
     public void AttackAnimation()
     {
         int randomAnimation = Random.Range(0, 3);
@@ -50,6 +53,6 @@ public class EnemyAnimator : MonoBehaviour
                 anim.SetTrigger("Attack3");
                 break;
         }
-
     }
+    #endregion
 }

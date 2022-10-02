@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Behavior for the builder tower.
+/// </summary>
 public class BuilderTower : MonoBehaviour
 {
+    #region Variables
     [Header("Lists")]
     public List<Structure> towersInRange;
     public List<Structure> incompleteTowers;
@@ -19,15 +23,18 @@ public class BuilderTower : MonoBehaviour
 
     [Header("Components")]
     public Structure myStructure;
+    #endregion
 
-
+    #region Unity Callbacks
     // Start is called before the first frame update
     void Start()
     {
         GetTowersInRange();
         StartCoroutine(BuildRoutine());
     }
+    #endregion
 
+    #region Events and Delegates
     private void OnEnable()
     {
         PlayerStructures.TowerUpdate += GetTowersInRange;
@@ -37,7 +44,9 @@ public class BuilderTower : MonoBehaviour
     {
         PlayerStructures.TowerUpdate -= GetTowersInRange;
     }
+    #endregion
 
+    #region Methods
     public void GetTowersInRange()
     {
         towersInRange.Clear();
@@ -81,7 +90,9 @@ public class BuilderTower : MonoBehaviour
             }
         }
     }
+    #endregion
 
+    #region Coroutines
     public IEnumerator BuildRoutine()
     {
         while (myStructure.isAlive)
@@ -103,8 +114,8 @@ public class BuilderTower : MonoBehaviour
                 yield return new WaitForFixedUpdate();
                 tickingBuildCooldown -= Time.fixedDeltaTime * myStructure.cachedPopulationEffectiveness;
             }
-
             yield return new WaitForEndOfFrame();
         }
     }
+    #endregion
 }

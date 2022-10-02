@@ -2,13 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Behavior for tower single target projectile.
+/// </summary>
 public class SingleTargetProjectile : MonoBehaviour
 {
-    public GameObject target;
-    public float damage;
-    public Rigidbody rb;
+    #region Variables
+    [Header("Stats")]
     public float moveSpeed;
 
+    [Header("Runtime Stats | Do not Set")]
+    public float damage;
+    public GameObject target;
+    public Rigidbody rb;
+    #endregion
+
+    #region Unity Callbacks
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -31,6 +40,9 @@ public class SingleTargetProjectile : MonoBehaviour
     {
         rb.velocity = transform.forward * moveSpeed;
     }
+    #endregion
+
+    #region Collision
 
     private void OnTriggerEnter(Collider other)
     {
@@ -40,4 +52,5 @@ public class SingleTargetProjectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    #endregion
 }

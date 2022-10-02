@@ -2,15 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Behavior for Repair Tower Projectile
+/// </summary>
 public class RepairTowerProjectile : MonoBehaviour
 {
+    #region Variables
+    [Header("Stats")]
+    public float moveSpeed;
+
+    [Header("Runtime Stats | Do not set")]
     public GameObject target;
     public GameObject healEffectPrefab;
-    public float moveSpeed;
     private Rigidbody rb;
     public float distanceToTarget;
     public bool hitTarget;
+    #endregion
 
+    #region Unity Callbacks
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -55,4 +64,5 @@ public class RepairTowerProjectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    #endregion
 }

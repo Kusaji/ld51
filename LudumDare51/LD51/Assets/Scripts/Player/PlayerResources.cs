@@ -2,8 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Handles generation and allocation of player resources.
+/// </summary>
 public class PlayerResources : MonoBehaviour
 {
+    #region Variables
+    [Header("Singleton")]
     public static PlayerResources Instance;
 
     [Header("Player Status")]
@@ -16,17 +21,18 @@ public class PlayerResources : MonoBehaviour
 
     [HideInInspector]
     public int overallPopulation;
+    #endregion
 
+    #region Unity Callbacks
     private void Awake()
     {
         Instance = this;
         isAlive = true;
         overallPopulation = population;
     }
+    #endregion
 
-    private void Start()
-    {
-    }
+    #region Methods
 
     public void AddPopulation(int amount)
     {
@@ -52,4 +58,5 @@ public class PlayerResources : MonoBehaviour
             Debug.Log("Not enough population.");
         }
     }
+    #endregion
 }

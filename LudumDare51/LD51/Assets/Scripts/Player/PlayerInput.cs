@@ -2,12 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Handles Player Input.
+/// </summary>
 public class PlayerInput : MonoBehaviour
 {
+    #region Variables
+    [Header("Singleton")]
     public static PlayerInput Instance;
+    
+    [Header("Runtime References")]
     public GameObject objectClickedOn;
     public Structure structure;
     public Vector2 testMatrix = Vector2.one;
+    #endregion
+
+    #region Unity Callbacks
     private void Awake()
     {
         Instance = this;
@@ -46,7 +56,9 @@ public class PlayerInput : MonoBehaviour
             Destroy(PlayerStructures.instance.inactiveTower);
         }
     }
+    #endregion
 
+    #region Methods
     public void GetClickedOnObject()
     {
         RaycastHit hit;
@@ -99,4 +111,5 @@ public class PlayerInput : MonoBehaviour
             structure = null;
         }
     }
+    #endregion
 }
