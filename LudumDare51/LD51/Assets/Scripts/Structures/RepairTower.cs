@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Handles logic for repair tower.
+/// </summary>
 public class RepairTower : MonoBehaviour
 {
+    #region Variables
     [Header("Tower Lists")]
     public List<Structure> towersInRange;
     public List<Structure> damagedTowers;
@@ -11,26 +15,35 @@ public class RepairTower : MonoBehaviour
     [Header("Can heal self?")]
     public bool canHealSelf;
 
-    [Header("Stats")]
+    [Header("Stats - Do Set")]
     public float towerHealRange;
     public float towerHealAmount;
     public float towerHealDelay;
+
+    [Header("Stats - Set Via Game")]
     public int activeHealTargets;
     public float tickingHealCooldown;
 
     [Header("Prefabs")]
     public GameObject repairProjectile;
 
-    [Header("Origins")]
+    [Header("Prefab Origins")]
     public GameObject projectileOrigin;
 
     private Structure myStructure;
+    #endregion
+
+    #region Unity Callbacks
     private void Start()
     {
         myStructure = GetComponent<Structure>();
         GetTowersInRange();
         StartCoroutine(HealRoutine());
     }
+
+    #endregion
+
+    #region Events
 
     private void OnEnable()
     {
@@ -41,6 +54,9 @@ public class RepairTower : MonoBehaviour
     {
         PlayerStructures.TowerUpdate -= GetTowersInRange;
     }
+    #endregion
+
+    #region Methods
 
     public void GetTowersInRange()
     {
@@ -108,7 +124,9 @@ public class RepairTower : MonoBehaviour
             }
         }
     }
+    #endregion
 
+    #region Coroutines
     public IEnumerator HealRoutine()
     {
         while (myStructure.isAlive)
@@ -134,4 +152,5 @@ public class RepairTower : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
     }
+    #endregion
 }
