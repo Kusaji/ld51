@@ -20,12 +20,12 @@ public class PlayerInput : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(1))
         {
-            GetClickedOnObject();
+            GetRightClickedOnObject();
         }
 
         if (Input.GetMouseButtonUp(1))
         {
-            GetOnClickUpObject();
+            GetOnRightClickUpObject();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && PlayerStructures.instance.spawningTower)

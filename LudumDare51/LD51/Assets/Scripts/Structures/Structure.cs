@@ -80,7 +80,7 @@ public class Structure : MonoBehaviour
         } else if (rightClickHeld && designatedPopulation > 0)
         {
             clickHeldTime += Time.fixedDeltaTime;
-            fakePopAdded += populationAddedPerFUP + (populationAddedPerFUPGainPerSecond * clickHeldTime);
+            fakePopAdded += (populationAddedPerFUP + (populationAddedPerFUPGainPerSecond * clickHeldTime)) / 2f;
             while (fakePopAdded >= 1 && designatedPopulation > 0)
             {
                 fakePopAdded--;
