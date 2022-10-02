@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RepairTower : MonoBehaviour
 {
+    [Header("Tower Lists")]
     public List<Structure> towersInRange;
     public List<Structure> damagedTowers;
 
@@ -23,11 +24,6 @@ public class RepairTower : MonoBehaviour
         myStructure = GetComponent<Structure>();
         GetTowersInRange();
         StartCoroutine(HealRoutine());
-    }
-
-    private void Update()
-    {
-
     }
 
     private void OnEnable()
