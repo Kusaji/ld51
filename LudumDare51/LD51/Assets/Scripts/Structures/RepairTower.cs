@@ -11,11 +11,18 @@ public class RepairTower : MonoBehaviour
     [Header("Can heal self?")]
     public bool canHealSelf;
 
+    [Header("Stats")]
     public float towerHealRange;
     public float towerHealAmount;
     public float towerHealDelay;
     public int activeHealTargets;
     public float tickingHealCooldown;
+
+    [Header("Prefabs")]
+    public GameObject repairProjectile;
+
+    [Header("Origins")]
+    public GameObject projectileOrigin;
 
     private Structure myStructure;
     public LineRenderer healingLine;
@@ -90,6 +97,15 @@ public class RepairTower : MonoBehaviour
             if (damagedTowers[i] != null) //In the off chance it was destroyed before the heal goes off.
             {
                 damagedTowers[i].HealTower(healAmount);
+                
+                //spawn our heal effect
+                var healProjectile = Instantiate(
+                    repairProjectile,
+                    projectileOrigin.transform.position,
+                    Quaternion.identity
+                    );
+
+                healProjectile.GetComponent<RepairTowerProjectile>().target = damagedTowers[i].gameObject;
             }
         }
     }
