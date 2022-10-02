@@ -59,6 +59,8 @@ public class Structure : MonoBehaviour
             myActivePopulation.SetPopulationCount(designatedPopulation, minimumPopulationToFunction);
         if (myStructureHealthUI != null)
             myStructureHealthUI.SetHealthCount(currentHealth, maxHealth);
+        if (myStructureHealthUI != null)
+            myStructureHealthUI.SetConstructionCount(currentBuildProgress, maxBuildProgress);
     }
     private void FixedUpdate()
     {
@@ -232,7 +234,10 @@ public class Structure : MonoBehaviour
         {
             buildingComplete = true;
             OnBuildComplete();
+            currentBuildProgress = maxBuildProgress;
         }
+        if (myStructureHealthUI != null)
+            myStructureHealthUI.SetConstructionCount(currentBuildProgress, maxBuildProgress);
     }
 
     //janky quick and easy way to have towers "Activate" when building is complete.
