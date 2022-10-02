@@ -270,7 +270,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 2913511541878398760, guid: 6ac15664056ef7c45934d9ecafa6cd68, type: 3}
   effectivenessExponent: 0.75
   cachedPopulationEffectiveness: 0
-  minimumPopulationToFunction: 0
+  minimumPopulationToFunction: 5
   holdTimeToStartAutoClick: 0.2
   populationAddedPerFUP: 0.1
   populationAddedPerFUPGainPerSecond: 0.01

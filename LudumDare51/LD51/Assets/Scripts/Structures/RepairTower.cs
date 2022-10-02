@@ -25,7 +25,6 @@ public class RepairTower : MonoBehaviour
     public GameObject projectileOrigin;
 
     private Structure myStructure;
-    public LineRenderer healingLine;
     private void Start()
     {
         myStructure = GetComponent<Structure>();
