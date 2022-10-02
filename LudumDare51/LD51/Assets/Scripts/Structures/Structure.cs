@@ -14,7 +14,8 @@ public class Structure : MonoBehaviour
 
     [Header("Build Progress")]
     public bool buildingComplete;
-    public float buildingProgress;
+    public float currentBuildProgress;
+    public float maxBuildProgress;
 
     [Header("Stats")]
     public int designatedPopulation;
@@ -225,6 +226,17 @@ public class Structure : MonoBehaviour
             myStructureHealthUI.SetHealthCount(currentHealth, maxHealth);
     }
 
+    public void AddBuildProgress(float amount)
+    {
+        currentBuildProgress += amount;
+
+        if (currentBuildProgress >= maxBuildProgress && !buildingComplete)
+        {
+            buildingComplete = true;
+            OnBuildComplete();
+        }
+    }
+
     //janky quick and easy way to have towers "Activate" when building is complete.
     public void OnBuildComplete()
     {
@@ -232,6 +244,7 @@ public class Structure : MonoBehaviour
         TowerAttacker attacker = GetComponent<TowerAttacker>();
         ResourceGenerator generator = GetComponent<ResourceGenerator>();
         RepairTower repair = GetComponent<RepairTower>();
+        BuilderTower build = GetComponent<BuilderTower>();
 
         if (targeter != null)
         {
@@ -251,6 +264,11 @@ public class Structure : MonoBehaviour
         if (repair != null)
         {
             repair.enabled = true;
+        }
+
+        if (build != null)
+        {
+            build.enabled = true;
         }
     }
 }

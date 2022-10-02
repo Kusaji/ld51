@@ -228,7 +228,8 @@ MonoBehaviour:
   currentHealth: 0
   incomingDamageDefenseMod: 1
   buildingComplete: 0
-  buildingProgress: 0
+  currentBuildProgress: 0
+  maxBuildProgress: 10
   designatedPopulation: 0
   explosionPrefab: {fileID: 2913511541878398760, guid: 6ac15664056ef7c45934d9ecafa6cd68, type: 3}
   effectivenessExponent: 0.75
@@ -246,7 +247,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3916337454664495451}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff8cf39f253be5f42a64c2a08fa6f97a, type: 3}
   m_Name: 
