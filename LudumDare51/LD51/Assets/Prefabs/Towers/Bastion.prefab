@@ -14657,6 +14657,7 @@ GameObject:
   - component: {fileID: 8304370153141541346}
   - component: {fileID: 7691297003753053388}
   - component: {fileID: 539973198415824676}
+  - component: {fileID: 4663998794020943171}
   m_Layer: 0
   m_Name: Bastion
   m_TagString: Tower
@@ -14762,8 +14763,9 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   incomingDamageDefenseMod: 1
-  buildingComplete: 0
-  buildingProgress: 0
+  buildingComplete: 1
+  currentBuildProgress: 10
+  maxBuildProgress: 10
   designatedPopulation: 0
   explosionPrefab: {fileID: 2913511541878398760, guid: 6ac15664056ef7c45934d9ecafa6cd68, type: 3}
   effectivenessExponent: 0.75
@@ -14805,7 +14807,7 @@ MonoBehaviour:
   targeter: {fileID: 539973198415824676}
   structure: {fileID: 1974728397034254223}
   attackRange: 16
-  attackDamage: 5
+  attackDamage: 2.5
   attackDelay: 0.5
   instantAttack: 0
   attackProjectilePrefab: {fileID: 7300430972184893010, guid: e201d947c0efd6a45ba1c130512f2f92, type: 3}
@@ -14826,6 +14828,26 @@ MonoBehaviour:
   projectileSpawnpoint: {fileID: 5813431578194035282}
   distanceToTarget: 0
   towerAttacker: {fileID: 7691297003753053388}
+--- !u!114 &4663998794020943171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974728397034254224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96cc9f24a6ce36f43b306995d47e76fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towersInRange: []
+  incompleteTowers: []
+  activeBuildTargets: 0
+  buildRange: 10
+  buildPower: 0.02
+  tickingBuildCooldown: 0
+  towerBuildDelay: 0
+  myStructure: {fileID: 1974728397034254223}
 --- !u!1 &2040161842990054088
 GameObject:
   m_ObjectHideFlags: 0

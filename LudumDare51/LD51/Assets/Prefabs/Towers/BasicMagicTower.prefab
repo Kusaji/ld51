@@ -341,7 +341,7 @@ MonoBehaviour:
   targeter: {fileID: 179404295171479120}
   structure: {fileID: 8196598761461319996}
   attackRange: 13
-  attackDamage: 5
+  attackDamage: 2.5
   attackDelay: 1
   instantAttack: 0
   attackProjectilePrefab: {fileID: 7300430972184893010, guid: e201d947c0efd6a45ba1c130512f2f92, type: 3}

@@ -7,6 +7,7 @@ public class StructureHealthUI : MonoBehaviour
 {
     public Structure attatchedStructure;
     public Slider healthSlider;
+    public Slider constructionSlider;
     public Canvas theCanvas;
     private void Start()
     {
@@ -25,8 +26,17 @@ public class StructureHealthUI : MonoBehaviour
         healthSlider.value = current;
         healthSlider.maxValue = max;
         if (Mathf.Abs(max - current) < 0.1f)
-            theCanvas.enabled = false;
+            healthSlider.gameObject.SetActive(false);
         else
-            theCanvas.enabled = true;
+            healthSlider.gameObject.SetActive(true);
+    }
+    public void SetConstructionCount(float current, float max)
+    {
+        constructionSlider.value = current;
+        constructionSlider.maxValue = max;
+        if (Mathf.Abs(max - current) < 0.1f)
+            constructionSlider.gameObject.SetActive(false);
+        else
+            constructionSlider.gameObject.SetActive(true);
     }
 }
