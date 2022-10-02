@@ -28,19 +28,24 @@ public class Structure : MonoBehaviour
     public float populationAddedPerFUPGainPerSecond = 0.01f;
     private float fakePopAdded = 0f;
     public ActivePopulation myActivePopulation;
+    private bool constructionFrame = true;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
         isAlive = true;
+
+        UpdatePopulation();
+
         if (myActivePopulation != null)
             myActivePopulation.SetPopulationCount(designatedPopulation, minimumPopulationToFunction);
     }
     private void FixedUpdate()
     {
-        HoldClickAddPopulation();
+        ManageHoldClickAddPopulation();
+        constructionFrame = false;
     }
-    protected void HoldClickAddPopulation()
+    public void ManageHoldClickAddPopulation()
     {
         if (clickHeld && PlayerResources.Instance.population > 0)
         {
@@ -49,11 +54,17 @@ public class Structure : MonoBehaviour
             while (fakePopAdded >= 1 && PlayerResources.Instance.population > 0)
             {
                 fakePopAdded--;
-                designatedPopulation++;
-                PlayerResources.Instance.SpendPopulation(1);
-                UpdatePopulation();
+                AddAPop();
             }
         }
+    }
+    private void AddAPop()
+    {
+        
+            designatedPopulation++;
+            PlayerResources.Instance.SpendPopulation(1);
+            UpdatePopulation();
+        
     }
     public virtual void DealDamage(float damage)
     {
@@ -78,6 +89,8 @@ public class Structure : MonoBehaviour
 
             Camera.main.GetComponent<CameraController>().ShakeCameraImpulse(Random.onUnitSphere, 10f);
 
+            PlayerResources.Instance.TrackPopulationDestruction(designatedPopulation);
+
             GameObject.Destroy(gameObject);
         }
     }
@@ -98,6 +111,7 @@ public class Structure : MonoBehaviour
         else
             cachedPopulationEffectiveness = 0f;
 
+        if (myActivePopulation != null)
         myActivePopulation.SetPopulationCount(designatedPopulation, minimumPopulationToFunction);
     }
 
@@ -105,15 +119,28 @@ public class Structure : MonoBehaviour
     public virtual void OnClickDown()
     {
         Debug.Log($"{gameObject.name} OnClickDown called");
-        clickHeld = true;
-        fakePopAdded = 0f;
+        //  Bastion doesn't take population, it always operates at full power.
+        if (constructionFrame == false && myActivePopulation != null)
+        {
+            clickHeld = true;
+            fakePopAdded = 0f;
+            clickHeldTime = 0f;
+        }
     }
 
     public virtual void OnClickUp()
     {
         Debug.Log($"{gameObject.name} OnClickUp called");
-        clickHeld = false;
-        fakePopAdded = 0f;
+        //  Bastion doesn't take population, it always operates at full power.
+        if (clickHeld && myActivePopulation != null)
+        {
+            clickHeld = false;
+            fakePopAdded = 0f;
+            if (clickHeldTime < holdTimeToStartAutoClick && PlayerResources.Instance.population > 0)
+                AddAPop();
+            clickHeldTime = 0f;
+            
+        }
     }
 
     //Not sure what the best way for this would be.

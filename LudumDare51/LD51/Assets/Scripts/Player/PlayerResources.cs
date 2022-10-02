@@ -14,11 +14,14 @@ public class PlayerResources : MonoBehaviour
     public int units;
     public int magicRunes;
 
+    [HideInInspector]
+    public int overallPopulation;
 
     private void Awake()
     {
         Instance = this;
         isAlive = true;
+        overallPopulation = population;
     }
 
     private void Start()
@@ -27,7 +30,15 @@ public class PlayerResources : MonoBehaviour
 
     public void AddPopulation(int amount)
     {
-        population += amount;
+        population += amount;        
+    }
+    public void TrackPopulationGeneration(int amount)
+    {
+        overallPopulation += amount;
+    }
+    public void TrackPopulationDestruction(int amount)
+    {
+        overallPopulation += amount;
     }
 
     public void SpendPopulation(int amount)

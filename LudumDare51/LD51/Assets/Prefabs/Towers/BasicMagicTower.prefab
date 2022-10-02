@@ -298,10 +298,11 @@ MonoBehaviour:
   designatedPopulation: 0
   explosionPrefab: {fileID: 2913511541878398760, guid: 6ac15664056ef7c45934d9ecafa6cd68, type: 3}
   effectivenessExponent: 0.75
+  cachedPopulationEffectiveness: 0
   minimumPopulationToFunction: 0
   holdTimeToStartAutoClick: 0.2
-  populationAddedPerFUP: 0.1
-  populationAddedPerFUPGainPerSecond: 0.01
+  populationAddedPerFUP: 0.08
+  populationAddedPerFUPGainPerSecond: 0.05
   myActivePopulation: {fileID: 9191001521092174329}
 --- !u!114 &179404295171479120
 MonoBehaviour:

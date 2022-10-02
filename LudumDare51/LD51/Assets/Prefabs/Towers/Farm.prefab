@@ -4916,6 +4916,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 159286371935982764}
+  - component: {fileID: 7069261710541727588}
   - component: {fileID: 3985806055285170214}
   m_Layer: 0
   m_Name: Farm
@@ -4941,6 +4942,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7069261710541727588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684044323393523222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ad3eb66647e574eb32463a72c60632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAlive: 0
+  maxHealth: 0
+  currentHealth: 0
+  buildingProgress: 0
+  designatedPopulation: 0
+  explosionPrefab: {fileID: 2913511541878398760, guid: 6ac15664056ef7c45934d9ecafa6cd68, type: 3}
+  effectivenessExponent: 0.5
+  cachedPopulationEffectiveness: 0
+  minimumPopulationToFunction: 5
+  holdTimeToStartAutoClick: 0.2
+  populationAddedPerFUP: 0.08
+  populationAddedPerFUPGainPerSecond: 0.05
+  myActivePopulation: {fileID: 5357604596696470597}
 --- !u!114 &3985806055285170214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4953,18 +4979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef706ae86352ab34ea607883a87345a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAlive: 0
-  maxHealth: 0
-  currentHealth: 0
-  buildingProgress: 0
-  designatedPopulation: 0
-  explosionPrefab: {fileID: 2913511541878398760, guid: 6ac15664056ef7c45934d9ecafa6cd68, type: 3}
-  effectivenessExponent: 0.5
-  minimumPopulationToFunction: 10
-  holdTimeToStartAutoClick: 0.2
-  populationAddedPerFUP: 0.1
-  populationAddedPerFUPGainPerSecond: 0.01
-  myActivePopulation: {fileID: 5357604596696470597}
+  myStructure: {fileID: 7069261710541727588}
   timeToGenerateResource: 10
   generateTimer: 0
   generateEffect: {fileID: 4402789132329000297}
@@ -19716,7 +19731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 433e6e8cac3f19e4cb738867aa32b71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  structure: {fileID: 3985806055285170214}
+  structure: {fileID: 7069261710541727588}
 --- !u!1 &4220600301173787971
 GameObject:
   m_ObjectHideFlags: 0
