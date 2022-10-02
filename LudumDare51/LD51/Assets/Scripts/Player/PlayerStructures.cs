@@ -36,6 +36,7 @@ public class PlayerStructures : MonoBehaviour
     private void Start()
     {
         structuresTransform = GameObject.Find("Structures").gameObject.transform;
+        NavMeshBuilder.BuildNavMeshAsync();
     }
 
 

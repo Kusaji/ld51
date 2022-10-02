@@ -18,7 +18,6 @@ public class TowerTargeter : MonoBehaviour
     private void Start()
     {
         StartCoroutine(FindTargetRoutine());
-
     }
 
     private void Update()

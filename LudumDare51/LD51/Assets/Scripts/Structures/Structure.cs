@@ -5,13 +5,17 @@ using UnityEngine;
 
 public class Structure : MonoBehaviour
 {
+
     [Header("Health")]
     public bool isAlive;
     public float maxHealth;
     public float currentHealth;
 
-    [Header("Stats")]
+    [Header("Build Progress")]
+    public bool buildingComplete;
     public float buildingProgress;
+
+    [Header("Stats")]
     public int designatedPopulation;
 
     [Header("Prefabs")]
@@ -175,5 +179,10 @@ public class Structure : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
+    }
+
+    public void OnBuildComplete()
+    {
+
     }
 }
