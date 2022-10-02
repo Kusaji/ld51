@@ -22,6 +22,9 @@ public class EnemyController : MonoBehaviour
     public float distanceToTarget;
 
     public bool isAttacking;
+    public EnemyAnimator enemyAnimator;
+
+    public float currentSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -75,7 +78,7 @@ public class EnemyController : MonoBehaviour
 
                 //StartCoroutine(CalculateDistance());
             }
-            else
+            else if (PlayerStructures.instance.bastion != null)
             {
                 target = PlayerStructures.instance.bastion;
 
@@ -84,8 +87,13 @@ public class EnemyController : MonoBehaviour
                     targetStructure = PlayerStructures.instance.bastion.GetComponent<Structure>();
                     agent.SetDestination(target.transform.position);
                     currentAttackRange = bastionAttackRange;
-                    //StartCoroutine(CalculateDistance());
                 }
+            }
+            else
+            {
+                agent.SetDestination(transform.position);
+                enemyAnimator.anim.SetTrigger("Idle");
+                distanceToTarget = 0;
             }
             yield return new WaitForSeconds(0.50f);
         }
@@ -116,6 +124,7 @@ public class EnemyController : MonoBehaviour
             if (distanceToTarget <= currentAttackRange && target != null)
             {
                 targetStructure.DealDamage(attackDamage);
+                enemyAnimator.AttackAnimation();
             }
             else
             {
