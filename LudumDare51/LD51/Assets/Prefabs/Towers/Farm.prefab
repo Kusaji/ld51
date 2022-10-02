@@ -5306,9 +5306,10 @@ MonoBehaviour:
   cachedPopulationEffectiveness: 0
   minimumPopulationToFunction: 10
   holdTimeToStartAutoClick: 0.2
-  populationAddedPerFUP: 0.08
-  populationAddedPerFUPGainPerSecond: 0.05
+  populationAddedPerFUP: 0.2
+  populationAddedPerFUPGainPerSecond: 0.1
   myActivePopulation: {fileID: 5357604596696470597}
+  myStructureHealthUI: {fileID: 0}
 --- !u!114 &3985806055285170214
 MonoBehaviour:
   m_ObjectHideFlags: 0

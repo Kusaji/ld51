@@ -27,7 +27,11 @@ public class Structure : MonoBehaviour
     public float populationAddedPerFUP = 0.1f;
     public float populationAddedPerFUPGainPerSecond = 0.01f;
     private float fakePopAdded = 0f;
+
+    [Header("References")]
     public ActivePopulation myActivePopulation;
+    public StructureHealthUI myStructureHealthUI;
+
     private bool constructionFrame = true;
     // Start is called before the first frame update
     void Start()
@@ -39,11 +43,22 @@ public class Structure : MonoBehaviour
 
         if (myActivePopulation != null)
             myActivePopulation.SetPopulationCount(designatedPopulation, minimumPopulationToFunction);
+        if (myStructureHealthUI != null)
+            myStructureHealthUI.SetHealthCount(currentHealth, maxHealth);
     }
     private void FixedUpdate()
     {
         ManageHoldClickAddPopulation();
+
+        if (constructionFrame && myStructureHealthUI != null)
+            myStructureHealthUI.SetHealthCount(currentHealth, maxHealth);
+
         constructionFrame = false;
+    }
+    private void LateUpdate()
+    {
+        if (constructionFrame && myStructureHealthUI != null)
+            myStructureHealthUI.SetHealthCount(currentHealth, maxHealth);
     }
     public void ManageHoldClickAddPopulation()
     {
@@ -69,6 +84,9 @@ public class Structure : MonoBehaviour
     public virtual void DealDamage(float damage)
     {
         currentHealth -= damage;
+
+        if (myStructureHealthUI != null)
+            myStructureHealthUI.SetHealthCount(currentHealth, maxHealth);
 
         if (currentHealth <= 0 && isAlive)
         {

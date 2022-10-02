@@ -8,6 +8,9 @@ public class Bastion : Structure
     {
         currentHealth -= damage;
 
+        if (myStructureHealthUI != null)
+            myStructureHealthUI.SetHealthCount(currentHealth, maxHealth);
+
         if (currentHealth <= 0 && isAlive)
         {
             isAlive = false;

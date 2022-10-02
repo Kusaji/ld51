@@ -14,7 +14,6 @@ public class ResourceGenerator : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        myStructure.ManageHoldClickAddPopulation();
 
         generateTimer -= Time.fixedDeltaTime * myStructure.cachedPopulationEffectiveness;
         int generates = 0;

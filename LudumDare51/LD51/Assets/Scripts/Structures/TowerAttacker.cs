@@ -27,7 +27,7 @@ public class TowerAttacker : MonoBehaviour
     {
         while (structure.isAlive)
         {
-            if (targeter.target != null)
+            if (targeter.target != null && structure.cachedPopulationEffectiveness > 0.001f)
             {
                 if (targeter.distanceToTarget <= attackRange)
                 {
