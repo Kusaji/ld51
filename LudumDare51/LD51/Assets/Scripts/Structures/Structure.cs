@@ -120,7 +120,7 @@ public class Structure : MonoBehaviour
     {
         Debug.Log($"{gameObject.name} OnClickDown called");
         //  Bastion doesn't take population, it always operates at full power.
-        if (constructionFrame == false && myActivePopulation != null)
+        if (constructionFrame == false && myActivePopulation != null && PlayerStructures.instance.spawningTower == false)
         {
             clickHeld = true;
             fakePopAdded = 0f;

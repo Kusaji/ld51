@@ -12,7 +12,7 @@ public class TowerAttacker : MonoBehaviour
 
     public bool instantAttack;
     public GameObject attackProjectilePrefab;
-
+    private float tickingAttackCooldown;
     private void Start()
     {
         StartCoroutine(AttackRoutine());
@@ -47,7 +47,13 @@ public class TowerAttacker : MonoBehaviour
                         projectileSettings.damage = attackDamage;
                     }
 
-                    yield return new WaitForSeconds(attackDelay / structure.cachedPopulationEffectiveness);
+                    tickingAttackCooldown = attackDelay;
+                    while (tickingAttackCooldown >= 0f)
+                    {
+                        yield return new WaitForFixedUpdate();
+                        tickingAttackCooldown -= Time.fixedDeltaTime * structure.cachedPopulationEffectiveness;
+                    }
+                    //yield return new WaitForSeconds(attackDelay / structure.cachedPopulationEffectiveness);
                 }
             }
             yield return new WaitForEndOfFrame();

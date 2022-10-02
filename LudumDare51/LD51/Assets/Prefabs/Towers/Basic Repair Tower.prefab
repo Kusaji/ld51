@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 179404295171479120}
   - component: {fileID: 3819570541728797020}
   m_Layer: 0
-  m_Name: BasicMagicTower
+  m_Name: Basic Repair Tower
   m_TagString: Structure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -299,7 +299,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 2913511541878398760, guid: 6ac15664056ef7c45934d9ecafa6cd68, type: 3}
   effectivenessExponent: 0.75
   cachedPopulationEffectiveness: 0
-  minimumPopulationToFunction: 5
+  minimumPopulationToFunction: 1
   holdTimeToStartAutoClick: 0.2
   populationAddedPerFUP: 0.08
   populationAddedPerFUPGainPerSecond: 0.05
@@ -335,9 +335,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targeter: {fileID: 179404295171479120}
   structure: {fileID: 8196598761461319996}
-  attackRange: 13
+  attackRange: 10
   attackDamage: 5
-  attackDelay: 1
+  attackDelay: 0.5
   instantAttack: 0
   attackProjectilePrefab: {fileID: 7300430972184893010, guid: e201d947c0efd6a45ba1c130512f2f92, type: 3}
 --- !u!1 &4675356524396653158
