@@ -9,6 +9,7 @@ public class Structure : MonoBehaviour
     public bool isAlive;
     public float maxHealth;
     public float currentHealth;
+    public float incomingDamageDefenseMod = 1f;
 
     [Header("Stats")]
     public float buildingProgress;
@@ -175,5 +176,8 @@ public class Structure : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
+
+        if (myStructureHealthUI != null)
+            myStructureHealthUI.SetHealthCount(currentHealth, maxHealth);
     }
 }

@@ -5299,8 +5299,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAlive: 0
-  maxHealth: 0
-  currentHealth: 0
+  maxHealth: 20
+  currentHealth: 20
+  incomingDamageDefenseMod: 1.5
   buildingProgress: 0
   designatedPopulation: 0
   explosionPrefab: {fileID: 2913511541878398760, guid: 6ac15664056ef7c45934d9ecafa6cd68, type: 3}
