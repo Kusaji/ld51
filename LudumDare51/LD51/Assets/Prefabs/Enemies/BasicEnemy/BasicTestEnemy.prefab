@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1052088562745392455}
   - component: {fileID: 4910163079619391906}
   - component: {fileID: 8307113940210926471}
+  - component: {fileID: 7033545255873040978}
   m_Layer: 0
   m_Name: BasicTestEnemy
   m_TagString: Enemy
@@ -124,6 +125,7 @@ MonoBehaviour:
   attackDelay: 0.25
   distanceToTarget: 0
   isAttacking: 0
+  enemyAnimator: {fileID: 7033545255873040978}
 --- !u!114 &1052088562745392454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +198,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7033545255873040978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052088562745392504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae95fc76c4cdba45a524e6028ec12e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 1052088562745392449}
+  anim: {fileID: 8307113940210926471}
+  isRunning: 0
+  isIdle: 0
+  isAttacking: 0
+  state: 0
 --- !u!1 &4312765199510127107
 GameObject:
   m_ObjectHideFlags: 0

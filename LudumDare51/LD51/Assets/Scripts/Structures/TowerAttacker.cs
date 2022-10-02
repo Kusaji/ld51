@@ -2,27 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Handles attack routines and dealing damage to enemies.
+/// </summary>
 public class TowerAttacker : MonoBehaviour
 {
-    public TowerTargeter targeter;
-    public Structure structure;
+    #region Variables
+    [Header("Options")]
+    public bool instantAttack;
+    
+    [Header("Stats")]
     public float attackRange;
     public float attackDamage;
     public float attackDelay;
-
-    public bool instantAttack;
+    
+    [Header("References")]
+    public TowerTargeter targeter;
+    public Structure structure;
+    
+    [Header("Prefabs")]
     public GameObject attackProjectilePrefab;
+
+    //Private Vars
     private float tickingAttackCooldown;
+    #endregion
+
+    #region Unity Callbacks
     private void Start()
     {
         StartCoroutine(AttackRoutine());
     }
+    #endregion
 
+    #region Methods
     public void DealDamage()
     {
         targeter.target.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
     }
+    #endregion
 
+    #region Coroutines
     public IEnumerator AttackRoutine()
     {
         while (structure.isAlive)
@@ -59,4 +78,5 @@ public class TowerAttacker : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
     }
+    #endregion
 }
