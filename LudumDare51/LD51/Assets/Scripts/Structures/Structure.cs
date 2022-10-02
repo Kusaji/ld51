@@ -225,8 +225,32 @@ public class Structure : MonoBehaviour
             myStructureHealthUI.SetHealthCount(currentHealth, maxHealth);
     }
 
+    //janky quick and easy way to have towers "Activate" when building is complete.
     public void OnBuildComplete()
     {
+        TowerTargeter targeter = GetComponent<TowerTargeter>();
+        TowerAttacker attacker = GetComponent<TowerAttacker>();
+        ResourceGenerator generator = GetComponent<ResourceGenerator>();
+        RepairTower repair = GetComponent<RepairTower>();
 
+        if (targeter != null)
+        {
+            targeter.enabled = true;
+        }
+
+        if (attacker != null)
+        {
+            attacker.enabled = true;
+        }
+
+        if (generator != null)
+        {
+            generator.enabled = true;
+        }
+
+        if (repair != null)
+        {
+            repair.enabled = true;
+        }
     }
 }
