@@ -22,7 +22,6 @@ public class StructureHealthUI : MonoBehaviour
 
     public void SetHealthCount(float current, float max)
     {
-        print("SHC " + current + " " + max);
         healthSlider.value = current;
         healthSlider.maxValue = max;
     }

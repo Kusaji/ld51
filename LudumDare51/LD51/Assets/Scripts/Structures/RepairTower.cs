@@ -18,7 +18,7 @@ public class RepairTower : MonoBehaviour
     public float tickingHealCooldown;
 
     private Structure myStructure;
-
+    public LineRenderer healingLine;
     private void Start()
     {
         myStructure = GetComponent<Structure>();
