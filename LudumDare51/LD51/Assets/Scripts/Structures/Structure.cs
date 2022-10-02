@@ -26,7 +26,8 @@ public class Structure : MonoBehaviour
     public float cachedPopulationEffectiveness = 0f;
     public int minimumPopulationToFunction = 0;
 
-    private bool clickHeld = false;
+    private bool leftClickHeld = false;
+    private bool rightClickHeld = false;
     private float clickHeldTime = 0f;
     public float holdTimeToStartAutoClick = 0.2f;
     public float populationAddedPerFUP = 0.1f;
@@ -67,7 +68,7 @@ public class Structure : MonoBehaviour
     }
     public void ManageHoldClickAddPopulation()
     {
-        if (clickHeld && PlayerResources.Instance.population > 0)
+        if (leftClickHeld && PlayerResources.Instance.population > 0)
         {
             clickHeldTime += Time.fixedDeltaTime;
             fakePopAdded += populationAddedPerFUP + (populationAddedPerFUPGainPerSecond * clickHeldTime);
@@ -76,15 +77,30 @@ public class Structure : MonoBehaviour
                 fakePopAdded--;
                 AddAPop();
             }
+        } else if (rightClickHeld && designatedPopulation > 0)
+        {
+            clickHeldTime += Time.fixedDeltaTime;
+            fakePopAdded += populationAddedPerFUP + (populationAddedPerFUPGainPerSecond * clickHeldTime);
+            while (fakePopAdded >= 1 && designatedPopulation > 0)
+            {
+                fakePopAdded--;
+                RemoveAPop();
+            }
         }
+
     }
     private void AddAPop()
-    {
-        
+    {        
             designatedPopulation++;
             PlayerResources.Instance.SpendPopulation(1);
             UpdatePopulation();
         
+    }
+    private void RemoveAPop()
+    {
+        designatedPopulation--;
+        PlayerResources.Instance.AddPopulation(1);
+        UpdatePopulation();
     }
     public virtual void DealDamage(float damage)
     {
@@ -142,9 +158,9 @@ public class Structure : MonoBehaviour
     public virtual void OnClickDown()
     {
         //  Bastion doesn't take population, it always operates at full power.
-        if (constructionFrame == false && myActivePopulation != null && PlayerStructures.instance.spawningTower == false)
+        if (rightClickHeld == false && constructionFrame == false && myActivePopulation != null && PlayerStructures.instance.spawningTower == false)
         {
-            clickHeld = true;
+            leftClickHeld = true;
             fakePopAdded = 0f;
             clickHeldTime = 0f;
         }
@@ -153,14 +169,38 @@ public class Structure : MonoBehaviour
     public virtual void OnClickUp()
     {
         //  Bastion doesn't take population, it always operates at full power.
-        if (clickHeld && myActivePopulation != null)
+        if (rightClickHeld == false && leftClickHeld && myActivePopulation != null)
         {
-            clickHeld = false;
+            leftClickHeld = false;
             fakePopAdded = 0f;
             if (clickHeldTime < holdTimeToStartAutoClick && PlayerResources.Instance.population > 0)
                 AddAPop();
             clickHeldTime = 0f;
             
+        }
+    }
+    public virtual void OnRightClickDown()
+    {
+        //  Bastion doesn't take population, it always operates at full power.
+        if (leftClickHeld == false && constructionFrame == false && myActivePopulation != null && PlayerStructures.instance.spawningTower == false)
+        {
+            rightClickHeld = true;
+            fakePopAdded = 0f;
+            clickHeldTime = 0f;
+        }
+    }
+
+    public virtual void OnRightClickUp()
+    {
+        //  Bastion doesn't take population, it always operates at full power.
+        if (leftClickHeld == false && rightClickHeld && myActivePopulation != null)
+        {
+            rightClickHeld = false;
+            fakePopAdded = 0f;
+            if (clickHeldTime < holdTimeToStartAutoClick && designatedPopulation > 0)
+                RemoveAPop();
+            clickHeldTime = 0f;
+
         }
     }
 

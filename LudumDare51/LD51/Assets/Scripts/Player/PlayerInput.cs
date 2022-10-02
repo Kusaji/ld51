@@ -18,6 +18,15 @@ public class PlayerInput : MonoBehaviour
         {
             GetOnClickUpObject();
         }
+        if (Input.GetMouseButtonDown(1))
+        {
+            GetClickedOnObject();
+        }
+
+        if (Input.GetMouseButtonUp(1))
+        {
+            GetOnClickUpObject();
+        }
     }
 
     public void GetClickedOnObject()
@@ -42,6 +51,31 @@ public class PlayerInput : MonoBehaviour
         if (structure != null)
         {
             structure.OnClickUp();
+            structure = null;
+        }
+    }
+    public void GetRightClickedOnObject()
+    {
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            objectClickedOn = hit.transform.gameObject;
+        }
+
+        if (objectClickedOn.CompareTag("Structure"))
+        {
+            structure = hit.transform.gameObject.GetComponent<StructureHitbox>().structure;
+            structure.OnRightClickDown();
+        }
+    }
+
+    public void GetOnRightClickUpObject()
+    {
+        if (structure != null)
+        {
+            structure.OnRightClickUp();
             structure = null;
         }
     }

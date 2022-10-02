@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5656,6 +5656,14 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5423890397670383717, guid: 46c35968b9aa55e408b2d2c3c1a4d019, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5423890397670383717, guid: 46c35968b9aa55e408b2d2c3c1a4d019, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8782872196835579620, guid: 46c35968b9aa55e408b2d2c3c1a4d019, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -5680,6 +5688,10 @@ PrefabInstance:
     - target: {fileID: 4826958155831621458, guid: 734a40e43390f51478b1f3f85555cb99, type: 3}
       propertyPath: m_Name
       value: EnemyManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826958155831621459, guid: 734a40e43390f51478b1f3f85555cb99, type: 3}
+      propertyPath: spawnTime
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4826958155831621460, guid: 734a40e43390f51478b1f3f85555cb99, type: 3}
       propertyPath: m_RootOrder
