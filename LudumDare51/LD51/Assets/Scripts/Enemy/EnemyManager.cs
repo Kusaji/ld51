@@ -51,6 +51,14 @@ public class EnemyManager : MonoBehaviour
 
     public IEnumerator SpawnEnemyRoutine()
     {
+        //TODO countdown for spawn
+        for (int i = (int)spawnTime; i > 0; i--)
+        {
+            DebugTextCanvas.Instance._SetDbText($"Ass", $"Time until next wave : {i}");
+            //Add animations or whatever you want here.
+            yield return new WaitForSeconds(1f);
+        }
+
         while (PlayerResources.Instance.isAlive)
         {
             //Grab spot to spawn a clump of enemies

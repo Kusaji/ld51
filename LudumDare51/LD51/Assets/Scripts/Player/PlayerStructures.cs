@@ -26,8 +26,7 @@ public class PlayerStructures : MonoBehaviour
     public GameObject inactiveTower;
 
     public delegate void TowerUpdateEvent();
-    public static event TowerUpdateEvent TowerUpdate;
-
+    public static event TowerUpdateEvent TowerUpdate;    
     private void Awake()
     {
         instance = this;
@@ -36,12 +35,27 @@ public class PlayerStructures : MonoBehaviour
     private void Start()
     {
         structuresTransform = GameObject.Find("Structures").gameObject.transform;
-        NavMeshBuilder.BuildNavMeshAsync();
+
+        StartCoroutine(GameWaitsForNavMesh());
     }
 
+    IEnumerator GameWaitsForNavMesh()
+    {
+        
+        Time.timeScale = 0f;
+        yield return null;
+        yield return null;
+        yield return null;
+        yield return null;
+        yield return null;
+        NavMeshBuilder.BuildNavMeshAsync();        
+        yield return new WaitUntil(() => NavMeshBuilder.isRunning);        
+        Time.timeScale = 1f;
+    }
 
     private void Update()
-    {
+    {        
+
         if (Input.GetMouseButtonDown(0) && spawningTower)
         {
             BuildStructure(spawningTowerInt);
