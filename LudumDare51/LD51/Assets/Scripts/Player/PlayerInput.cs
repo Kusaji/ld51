@@ -4,9 +4,21 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    public static PlayerInput Instance;
     public GameObject objectClickedOn;
     public Structure structure;
-
+    public Vector2 testMatrix = Vector2.one;
+    private void Awake()
+    {
+        Instance = this;
+    }
+    public static Vector3 ScaledMousePosition
+    {
+        get
+        {
+            return Input.mousePosition;
+        }
+    }
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -38,14 +50,16 @@ public class PlayerInput : MonoBehaviour
     public void GetClickedOnObject()
     {
         RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = CameraController.instance.theCamera.ScreenPointToRay(ScaledMousePosition);
+        
 
         if (Physics.Raycast(ray, out hit))
         {
             objectClickedOn = hit.transform.gameObject;
         }
 
-        if (objectClickedOn.CompareTag("Structure"))
+        if (objectClickedOn != null && objectClickedOn.CompareTag("Structure"))
         {
             structure = hit.transform.gameObject.GetComponent<StructureHitbox>().structure;
             structure.OnClickDown();
@@ -63,7 +77,7 @@ public class PlayerInput : MonoBehaviour
     public void GetRightClickedOnObject()
     {
         RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(ScaledMousePosition);
 
         if (Physics.Raycast(ray, out hit))
         {

@@ -24,5 +24,9 @@ public class StructureHealthUI : MonoBehaviour
     {
         healthSlider.value = current;
         healthSlider.maxValue = max;
+        if (Mathf.Abs(max - current) < 0.1f)
+            theCanvas.enabled = false;
+        else
+            theCanvas.enabled = true;
     }
 }
