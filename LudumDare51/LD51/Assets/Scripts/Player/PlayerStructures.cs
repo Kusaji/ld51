@@ -26,7 +26,9 @@ public class PlayerStructures : MonoBehaviour
     public GameObject inactiveTower;
 
     public delegate void TowerUpdateEvent();
-    public static event TowerUpdateEvent TowerUpdate;    
+    public static event TowerUpdateEvent TowerUpdate;
+
+    public Vector3 MouseHitPosition;
     private void Awake()
     {
         instance = this;
@@ -63,7 +65,7 @@ public class PlayerStructures : MonoBehaviour
         if (spawningTower && inactiveTower != null)
         {
             GetMousePosition();
-            inactiveTower.transform.position = mousePosition;
+            inactiveTower.transform.position = MouseHitPosition;
         }
     }
 
@@ -90,7 +92,7 @@ public class PlayerStructures : MonoBehaviour
 
             inactiveTower = Instantiate(
                 inactiveStructurePrefabs[towerPrefab],
-                mousePosition,
+                MouseHitPosition,
                 Quaternion.identity,
                 structuresTransform
                 );
@@ -105,7 +107,7 @@ public class PlayerStructures : MonoBehaviour
         {
             var builtStructure = Instantiate(
                 structurePrefabs[towerPrefab],
-                mousePosition,
+                MouseHitPosition,
                 Quaternion.identity,
                 structuresTransform
                 ); ;
@@ -122,11 +124,11 @@ public class PlayerStructures : MonoBehaviour
     public void GetMousePosition()
     {
         RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(PlayerInput.ScaledMousePosition);
 
         if (Physics.Raycast(ray, out hit))
         {
-            mousePosition = hit.point;
+            MouseHitPosition = hit.point;
 
             if (!hit.transform.gameObject.CompareTag("Structure") && !hit.transform.gameObject.CompareTag("Environment"))
             {
