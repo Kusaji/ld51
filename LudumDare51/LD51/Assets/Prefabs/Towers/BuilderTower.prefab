@@ -259,6 +259,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ad3eb66647e574eb32463a72c60632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minimumPopulationToFunction: 5
+  holdTimeToStartAutoClick: 0.2
+  effectivenessExponent: 0.75
   isAlive: 0
   maxHealth: 10
   currentHealth: 0
@@ -267,13 +270,10 @@ MonoBehaviour:
   currentBuildProgress: 0
   maxBuildProgress: 5
   designatedPopulation: 0
-  explosionPrefab: {fileID: 2913511541878398760, guid: 6ac15664056ef7c45934d9ecafa6cd68, type: 3}
-  effectivenessExponent: 0.75
   cachedPopulationEffectiveness: 0
-  minimumPopulationToFunction: 5
-  holdTimeToStartAutoClick: 0.2
-  populationAddedPerFUP: 0.1
   populationAddedPerFUPGainPerSecond: 0.01
+  populationAddedPerFUP: 0.1
+  explosionPrefab: {fileID: 2913511541878398760, guid: 6ac15664056ef7c45934d9ecafa6cd68, type: 3}
   myActivePopulation: {fileID: 5952773766199139753}
   myStructureHealthUI: {fileID: 1451263424730430919}
 --- !u!114 &6304842220685353524
@@ -292,9 +292,9 @@ MonoBehaviour:
   incompleteTowers: []
   activeBuildTargets: 0
   buildRange: 10
-  buildPower: 4
+  buildPower: 0.02
   tickingBuildCooldown: 0
-  towerBuildDelay: 2
+  towerBuildDelay: 0
   myStructure: {fileID: 7179941867667544852}
 --- !u!1 &5017592781306433589
 GameObject:
