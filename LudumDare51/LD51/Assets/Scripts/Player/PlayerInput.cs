@@ -10,11 +10,15 @@ public class PlayerInput : MonoBehaviour
     #region Variables
     [Header("Singleton")]
     public static PlayerInput Instance;
-    
+
+    [Header("Set References")]
+    public GameObject pauseUI;
+
     [Header("Runtime References")]
     public GameObject objectClickedOn;
     public Structure structure;
     public Vector2 testMatrix = Vector2.one;
+    public bool isPaused;
     #endregion
 
     #region Unity Callbacks
@@ -22,6 +26,11 @@ public class PlayerInput : MonoBehaviour
     {
         Instance = this;
     }
+    private void Start()
+    {
+        Time.timeScale = 1.0f;
+    }
+
     public static Vector3 ScaledMousePosition
     {
         get
@@ -60,6 +69,21 @@ public class PlayerInput : MonoBehaviour
         {
             PlayerStructures.instance.spawningTower = false;
             Destroy(PlayerStructures.instance.inactiveTower);
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && !PlayerStructures.instance.spawningTower)
+        {
+            if (!isPaused)
+            {
+                pauseUI.SetActive(true);
+                isPaused = true;
+                Time.timeScale = 0;
+            }
+            else if (isPaused) 
+            {
+                pauseUI.SetActive(false);
+                isPaused = false;
+                Time.timeScale = 1;
+            }
         }
     }
     #endregion

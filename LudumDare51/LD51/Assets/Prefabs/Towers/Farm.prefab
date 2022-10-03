@@ -5301,18 +5301,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   balanceNumbersSO: {fileID: 11400000, guid: cdbfce7b96380f147ad2164705eefb33, type: 2}
   holdTimeToStartAutoClick: 0.2
-  effectivenessExponent: 0.5
   isAlive: 0
   currentHealth: 20
   buildingComplete: 0
   currentBuildProgress: 0
   designatedPopulation: 0
   cachedPopulationEffectiveness: 0
+  cachedPopulationRangeEffectiveness: 0
   populationAddedPerFUPGainPerSecond: 0.1
   populationAddedPerFUP: 0.2
   explosionPrefab: {fileID: 2913511541878398760, guid: 6ac15664056ef7c45934d9ecafa6cd68, type: 3}
   myActivePopulation: {fileID: 5357604596696470597}
   myStructureHealthUI: {fileID: 1526808741728942025}
+  audioController: {fileID: 0}
+  OnUpdatePopulation:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3985806055285170214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20018,6 +20022,7 @@ GameObject:
   - component: {fileID: 2197664632098623779}
   - component: {fileID: 3186902304263971527}
   - component: {fileID: 2339967441890873944}
+  - component: {fileID: 462738789637277314}
   m_Layer: 0
   m_Name: NavMeshBlock
   m_TagString: Untagged
@@ -20100,6 +20105,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &462738789637277314
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905483012721867163}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &2224578912150869178
 GameObject:
   m_ObjectHideFlags: 0
@@ -20432,7 +20453,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3143541743000900869}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7718, z: 0}
+  m_LocalPosition: {x: 0, y: 1.592, z: 0}
   m_LocalScale: {x: 2, y: 1.5836, z: 2}
   m_Children: []
   m_Father: {fileID: 159286371935982764}
@@ -20497,7 +20518,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.75, y: 0.27438477, z: 1.75}
+  m_Size: {x: 0.75, y: 0.27438477, z: 0.75}
   m_Center: {x: 0, y: -0.36280784, z: 0}
 --- !u!114 &5064076731065511357
 MonoBehaviour:
@@ -41685,6 +41706,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eecdcbda4d98fe2449a4ccaac6322d1b, type: 3}
+--- !u!4 &5336532227642177157 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 764834916675862552, guid: eecdcbda4d98fe2449a4ccaac6322d1b, type: 3}
+  m_PrefabInstance: {fileID: 4652806123388073629}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1526808741728942025 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6170572447129534804, guid: eecdcbda4d98fe2449a4ccaac6322d1b, type: 3}
@@ -41696,11 +41722,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3750c8c4eb7b830418690f431a998a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &5336532227642177157 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 764834916675862552, guid: eecdcbda4d98fe2449a4ccaac6322d1b, type: 3}
-  m_PrefabInstance: {fileID: 4652806123388073629}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7621587626525751587
 PrefabInstance:
   m_ObjectHideFlags: 0

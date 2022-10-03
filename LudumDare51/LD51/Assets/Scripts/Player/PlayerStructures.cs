@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.AI;
+//using UnityEditor.AI;
 using UnityEngine;
 
 /// <summary>
@@ -62,7 +62,7 @@ public class PlayerStructures : MonoBehaviour
     {
         structuresTransform = GameObject.Find("Structures").gameObject.transform;
 
-        StartCoroutine(GameWaitsForNavMesh());
+        //StartCoroutine(GameWaitsForNavMesh());
     }
     private void Update()
     {        
@@ -157,7 +157,7 @@ public class PlayerStructures : MonoBehaviour
 
             audioController.PlayOneShot(0, 0.1f);
 
-            NavMeshBuilder.BuildNavMeshAsync();
+            //NavMeshBuilder.BuildNavMeshAsync();
 
         }
     }
@@ -221,8 +221,8 @@ public class PlayerStructures : MonoBehaviour
         yield return null;
         yield return null;
         yield return null;
-        NavMeshBuilder.BuildNavMeshAsync();
-        yield return new WaitUntil(() => NavMeshBuilder.isRunning);
+        //NavMeshBuilder.BuildNavMeshAsync();
+        //yield return new WaitUntil(() => NavMeshBuilder.isRunning);
         Time.timeScale = 1f;
     }
     #endregion

@@ -10,14 +10,13 @@ public class BGMController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartPlayingRandomSong();
+        StartCoroutine(CheckIfSongEndedRoutine());
     }
 
 
     public void StartPlayingRandomSong()
     {
         int randomSelection = Random.Range(0, songs.Count);
-        Debug.Log($"{randomSelection}");
         speaker.clip = songs[randomSelection];
         speaker.Play();
     }

@@ -108,7 +108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3174358473229104364}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.871, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 256841992197831921}
@@ -319,6 +319,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 2913511541878398760, guid: 6ac15664056ef7c45934d9ecafa6cd68, type: 3}
   myActivePopulation: {fileID: 3678723643564921194}
   myStructureHealthUI: {fileID: 7471436208015923298}
+  audioController: {fileID: 0}
   OnUpdatePopulation:
     m_PersistentCalls:
       m_Calls: []
@@ -452,6 +453,7 @@ GameObject:
   - component: {fileID: 2569095576757154400}
   - component: {fileID: 3470588470866370708}
   - component: {fileID: 2208456480014795505}
+  - component: {fileID: 3802668669916314242}
   m_Layer: 0
   m_Name: NavBlocker
   m_TagString: Untagged
@@ -534,6 +536,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &3802668669916314242
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7781443169546450361}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &8253620924015570567
 GameObject:
   m_ObjectHideFlags: 0

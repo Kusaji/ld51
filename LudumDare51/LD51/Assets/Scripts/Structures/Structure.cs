@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.AI;
+using UnityEngine.AI;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -231,7 +231,9 @@ public class Structure : MonoBehaviour
             if (PlayerStructures.instance.structures.Contains(gameObject))
             {
                 PlayerStructures.instance.structures.Remove(gameObject);
-                NavMeshBuilder.BuildNavMeshAsync();
+                
+                //TODO 
+                //Rebuild navmesh
             }
 
             //Explosion / Death prefab
