@@ -15,11 +15,13 @@ public class MeatballController : MonoBehaviour
 
     [Header("Runtime Stats | Do not assign")]
     public bool hasHitGround;
+    public Vector3 randomDirection;
 
 
     [Header("References / Compoennts")]
     public Rigidbody rb;
     public MeatballHitController meatballHit;
+
 
     #endregion
 
@@ -28,12 +30,13 @@ public class MeatballController : MonoBehaviour
     private void Start()
     {
         //Shape the delicious meatball
-        transform.localScale = new Vector3(meatballSize, meatballSize, meatballSize);    
+        transform.localScale = new Vector3(meatballSize, meatballSize, meatballSize);
+        PickRandomDirection();
     }
 
     private void FixedUpdate()
     {
-        rb.AddForce(Vector3.forward * moveSpeed * Time.deltaTime);
+        rb.AddForce(randomDirection * moveSpeed * Time.deltaTime);
     }
     #endregion
 
@@ -43,6 +46,27 @@ public class MeatballController : MonoBehaviour
     {
         StartCoroutine(MeatballRoutine());
         Destroy(gameObject, lifeLength);
+    }
+
+    public void PickRandomDirection ()
+    {
+        int selectedDirection = Random.Range(0, 4);
+
+        switch (selectedDirection)
+        {
+            case 0:
+                randomDirection = new Vector3(0f, 0f, 1f);
+                break;
+            case 1:
+                randomDirection = new Vector3(0f, 0f, -1f);
+                break;
+            case 2:
+                randomDirection = new Vector3(1f, 0f, 0f);
+                break;
+            case 3:
+                randomDirection = new Vector3(-1f, 0f, 0f);
+                break;
+        }
     }
 
     #endregion
