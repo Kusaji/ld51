@@ -15,6 +15,7 @@ public class MeatballHitController : MonoBehaviour
         {
             meatball.hasHitGround = true;
             meatball.StartMeatballRoutine();
+            meatball.audioController.PlayOneShot(1, 0.60f);
             Camera.main.GetComponent<CameraController>().ShakeCameraImpulse(Random.onUnitSphere, 100f);
         }
 
@@ -22,6 +23,7 @@ public class MeatballHitController : MonoBehaviour
         if (!other.gameObject.CompareTag("Untagged") && meatball.hasHitGround)
         {
             Camera.main.GetComponent<CameraController>().ShakeCameraImpulse(Random.onUnitSphere, screenShakeStrength);
+            meatball.audioController.PlayOneShot(3, 0.20f);
 
             if (screenShakeStrength - screenShakeReductionAmount > 0)
             {
