@@ -21,6 +21,7 @@ public class EnemyAnimator : MonoBehaviour
     private void Start()
     {
         state = currentState.idle;
+        anim.speed = Random.Range(0.95f, 1.05f);
     }
 
     private void FixedUpdate()

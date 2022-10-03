@@ -161,7 +161,7 @@ public class PlayerStructures : MonoBehaviour
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(PlayerInput.ScaledMousePosition);
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit))        
         {
             MouseHitPosition = hit.point;
 
@@ -169,9 +169,11 @@ public class PlayerStructures : MonoBehaviour
 
             bool collisionOkay;
 
-            if (!hit.transform.gameObject.CompareTag("Structure") && !hit.transform.gameObject.CompareTag("Environment"))
+            //if (!hit.transform.gameObject.CompareTag("Structure") && !hit.transform.gameObject.CompareTag("Environment"))
+            if (hit.transform.gameObject.CompareTag("Ground"))
             {
                 collisionOkay = true;
+                DebugTextCanvas.SetDbText("hittag", hit.transform.gameObject.name + " " + hit.transform.gameObject.tag);
             } 
             else
             {
