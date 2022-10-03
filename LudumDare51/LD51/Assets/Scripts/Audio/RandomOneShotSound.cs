@@ -8,6 +8,10 @@ using UnityEngine;
 public class RandomOneShotSound : MonoBehaviour
 {
     #region Variables
+    [Header("Settings")]
+    public float minVolume;
+    public float maxVolume;
+
     [Header("Audio Clips")]
     public List<AudioClip> sounds;
 
@@ -19,7 +23,7 @@ public class RandomOneShotSound : MonoBehaviour
     private void Start()
     {
         speaker.pitch = Random.Range(0.90f, 1.10f);
-        speaker.PlayOneShot(sounds[Random.Range(0, sounds.Count)], Random.Range(0.45f, 0.55f));
+        speaker.PlayOneShot(sounds[Random.Range(0, sounds.Count)], Random.Range(minVolume, maxVolume));
     }
     #endregion
 }

@@ -28,6 +28,9 @@ public class PlayerStructures : MonoBehaviour
     public Material canPlaceHere;
     public Material noPlaceHere;
 
+    [Header("References")]
+    public AudioController audioController;
+
     [Header("Runtime | Do not set")]
     [Space(50)]
     public Vector3 mousePosition;
@@ -151,6 +154,9 @@ public class PlayerStructures : MonoBehaviour
 
             spawningTower = false;
             Destroy(inactiveTower);
+
+            audioController.PlayOneShot(0, 0.1f);
+
             NavMeshBuilder.BuildNavMeshAsync();
 
         }
