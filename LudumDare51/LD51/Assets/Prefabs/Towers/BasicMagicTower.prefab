@@ -206,6 +206,7 @@ GameObject:
   - component: {fileID: 3819570541728797020}
   - component: {fileID: 1123144481020713902}
   - component: {fileID: 3500896445975197912}
+  - component: {fileID: 1418280550776764624}
   m_Layer: 0
   m_Name: BasicMagicTower
   m_TagString: Untagged
@@ -463,6 +464,22 @@ MonoBehaviour:
   speaker: {fileID: 1123144481020713902}
   sounds:
   - {fileID: 8300000, guid: 63d3c4d21202ac2449755a90fb8512a4, type: 3}
+--- !u!208 &1418280550776764624
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549349075060496980}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.5, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &4675356524396653158
 GameObject:
   m_ObjectHideFlags: 0

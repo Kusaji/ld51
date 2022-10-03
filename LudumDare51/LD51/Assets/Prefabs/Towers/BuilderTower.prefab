@@ -274,6 +274,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 2913511541878398760, guid: 6ac15664056ef7c45934d9ecafa6cd68, type: 3}
   myActivePopulation: {fileID: 5952773766199139753}
   myStructureHealthUI: {fileID: 1451263424730430919}
+  audioController: {fileID: 0}
   OnUpdatePopulation:
     m_PersistentCalls:
       m_Calls: []
@@ -423,6 +424,7 @@ GameObject:
   - component: {fileID: 6396986829702860742}
   - component: {fileID: 1821136089992248129}
   - component: {fileID: 7946479725330175876}
+  - component: {fileID: 4652561222457362063}
   m_Layer: 0
   m_Name: NavMeshBlocker
   m_TagString: Untagged
@@ -492,6 +494,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &4652561222457362063
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7538481716378537846}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &146735058670226150
 PrefabInstance:
   m_ObjectHideFlags: 0
