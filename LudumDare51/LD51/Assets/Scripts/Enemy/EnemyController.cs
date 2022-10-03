@@ -49,6 +49,7 @@ public class EnemyController : MonoBehaviour
         attackDamage = attackDamage + EnemyManager.Instance.wave * damagePerWave;
         cachedSpeed = startSpeed + EnemyManager.Instance.wave * speedPerWave;
         agent.speed = cachedSpeed;
+        enemyAnimator.anim.speed *= cachedSpeed / 1.75f;
     }
     #endregion
 

@@ -2865,7 +2865,7 @@ GameObject:
   - component: {fileID: 554418513115629762}
   - component: {fileID: 1541727008834050327}
   m_Layer: 0
-  m_Name: Ranged Enemy Test
+  m_Name: Ranged Enemy Final
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3009,7 +3009,7 @@ NavMeshAgent:
   m_Radius: 0.5
   m_Speed: 1.75
   m_Acceleration: 8
-  avoidancePriority: 10
+  avoidancePriority: 15
   m_AngularSpeed: 800
   m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1

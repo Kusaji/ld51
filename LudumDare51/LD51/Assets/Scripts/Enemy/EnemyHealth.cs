@@ -48,7 +48,8 @@ public class EnemyHealth : MonoBehaviour
             Destroy(gameObject);
         } else
         {
-            hitParticles.Play();
+            if (hitParticles != null)
+                hitParticles.Play();
         }
     }
     #endregion

@@ -150,6 +150,7 @@ MonoBehaviour:
   healthPerWave: 1
   healthPerWaveExponent: 1.2
   bloodPrefab: {fileID: 5381835647565391231, guid: f70ee53b5e68efe4d826f63aa302b15b, type: 3}
+  hitParticles: {fileID: 9053138446192406337}
 --- !u!195 &1052088562745392455
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3292,5 +3293,10 @@ PrefabInstance:
 --- !u!4 &329026320500686330 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8985363241050337231, guid: 718a24a4411b93847acacd498f49ce93, type: 3}
+  m_PrefabInstance: {fileID: 8656626513922888245}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &9053138446192406337 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 396798905609682292, guid: 718a24a4411b93847acacd498f49ce93, type: 3}
   m_PrefabInstance: {fileID: 8656626513922888245}
   m_PrefabAsset: {fileID: 0}
