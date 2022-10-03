@@ -51,6 +51,7 @@ MonoBehaviour:
   population: 10
   units: 0
   magicRunes: 0
+  gameOverGO: {fileID: 0}
   overallPopulation: 0
 --- !u!114 &3872526780349485346
 MonoBehaviour:
@@ -74,7 +75,6 @@ MonoBehaviour:
   - {fileID: 2564450407793457374, guid: ec39581980af8f94a86d9ef14b3da062, type: 3}
   - {fileID: 2958878110348796748, guid: b75998e22465c3c4db8f287fcb94a149, type: 3}
   - {fileID: 1520848835879839829, guid: f266e6f276b4b6a48bf16149c0129a24, type: 3}
-  - {fileID: 67490569136015586, guid: e555f369e2d697f4a8532fa469f2b70d, type: 3}
   - {fileID: 1340683463359221711, guid: 238206bd7d141c74e91e46bf90d6e0b1, type: 3}
   structureBalanceNumbers:
   - {fileID: 11400000, guid: 7c339a49506ccd74b8af1162ef0259a5, type: 2}
@@ -84,18 +84,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a7e5e66a2cf8fb040ba747245b89a79a, type: 2}
   - {fileID: 11400000, guid: 75dca1d039f8221429a7090fc56b4b22, type: 2}
   - {fileID: 11400000, guid: 0decd4edeb9b52140b7ff89a32e96f98, type: 2}
-  - {fileID: 11400000, guid: 8170e262ab7459844bcc02c1a759033b, type: 2}
   - {fileID: 11400000, guid: 0d11cc3c996bf704fa9e24689f0b9504, type: 2}
   inactiveStructurePrefabs:
   - {fileID: 549349075060496980, guid: e15e799889996b3469eacc395b9df99d, type: 3}
-  - {fileID: 549349075060496980, guid: e15e799889996b3469eacc395b9df99d, type: 3}
-  - {fileID: 549349075060496980, guid: e15e799889996b3469eacc395b9df99d, type: 3}
-  - {fileID: 549349075060496980, guid: e15e799889996b3469eacc395b9df99d, type: 3}
-  - {fileID: 549349075060496980, guid: e15e799889996b3469eacc395b9df99d, type: 3}
-  - {fileID: 549349075060496980, guid: e15e799889996b3469eacc395b9df99d, type: 3}
-  - {fileID: 549349075060496980, guid: e15e799889996b3469eacc395b9df99d, type: 3}
-  - {fileID: 549349075060496980, guid: e15e799889996b3469eacc395b9df99d, type: 3}
-  - {fileID: 549349075060496980, guid: e15e799889996b3469eacc395b9df99d, type: 3}
+  - {fileID: 7274745421117816712, guid: 77a44921900c6024eaba0183661286df, type: 3}
+  - {fileID: 3943919706478531790, guid: 47c1ac2abf7bf064abc07c954dc66f02, type: 3}
+  - {fileID: 9003128552936687413, guid: a499d457eb7eead48ae60190d1a5ddf6, type: 3}
+  - {fileID: 4489870175803269061, guid: a824f60c280da2448adf9f2e1881cd13, type: 3}
+  - {fileID: 6950024350075013808, guid: 4a51261aab5c7f24bae1fffb3f188784, type: 3}
+  - {fileID: 1990847129311646812, guid: 4c31cf3081e5ea940bdf56ac3fa92216, type: 3}
+  - {fileID: 7157672805737897871, guid: 94390ad3c04b83847b6a652d3bfc7797, type: 3}
   canPlaceHere: {fileID: 2100000, guid: bcdfa33ad3c0bad488433e19be280de8, type: 2}
   noPlaceHere: {fileID: 2100000, guid: 710ff46b85147e843b3fb2c09c591f04, type: 2}
   audioController: {fileID: 3862656599746624319}
@@ -109,6 +107,7 @@ MonoBehaviour:
   canSpawnOnMouseLastFrame: 0
   forceSetMaterials: 0
   inactiveTower: {fileID: 0}
+  firstStructurePlaced: 0
 --- !u!114 &3872526780349485347
 MonoBehaviour:
   m_ObjectHideFlags: 0

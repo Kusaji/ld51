@@ -41,30 +41,30 @@ public class PlayerInput : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            GetClickedOnObject();
-        }
+//        if (Input.GetMouseButtonDown(0))
+//        {
+//            GetClickedOnObject();
+//        }
 
-        if (Input.GetMouseButtonUp(0))
-        {
-            GetOnClickUpObject();
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-#if UNITY_EDITOR
-            Debug.Log("Remove Population has been... removed. Commit to your decisions! More strategy, less micro!");
-#endif
-            //GetRightClickedOnObject();
-        }
+//        if (Input.GetMouseButtonUp(0))
+//        {
+//            GetOnClickUpObject();
+//        }
+//        if (Input.GetMouseButtonDown(1))
+//        {
+//#if UNITY_EDITOR
+//            Debug.Log("Remove Population has been... removed. Commit to your decisions! More strategy, less micro!");
+//#endif
+//            //GetRightClickedOnObject();
+//        }
 
-        if (Input.GetMouseButtonUp(1))
-        {
-#if UNITY_EDITOR
-            Debug.Log("Remove Population has been... removed. Commit to your decisions! More strategy, less micro!");
-#endif
-            //GetOnRightClickUpObject();
-        }
+//        if (Input.GetMouseButtonUp(1))
+//        {
+//#if UNITY_EDITOR
+//            Debug.Log("Remove Population has been... removed. Commit to your decisions! More strategy, less micro!");
+//#endif
+//            //GetOnRightClickUpObject();
+//        }
 
         if ((Input.GetKeyDown(KeyCode.Mouse1) || Input.GetKeyDown(KeyCode.Escape)) && PlayerStructures.instance.spawningTower)
         {

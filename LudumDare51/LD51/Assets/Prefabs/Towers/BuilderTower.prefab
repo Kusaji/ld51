@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   balanceNumbersSO: {fileID: 11400000, guid: 75dca1d039f8221429a7090fc56b4b22, type: 2}
-  holdTimeToStartAutoClick: 0.2
+  holdTimeToStartAutoClick: 0.3
   isAlive: 0
   currentHealth: 0
   buildingComplete: 0
@@ -269,8 +269,8 @@ MonoBehaviour:
   designatedPopulation: 0
   cachedPopulationEffectiveness: 0
   cachedPopulationRangeEffectiveness: 0
-  populationAddedPerFUPGainPerSecond: 0.01
-  populationAddedPerFUP: 0.1
+  populationAddedPerFUPGainPerSecond: 0.1
+  populationAddedPerFUP: 0.2
   explosionPrefab: {fileID: 2913511541878398760, guid: 6ac15664056ef7c45934d9ecafa6cd68, type: 3}
   myActivePopulation: {fileID: 5952773766199139753}
   myStructureHealthUI: {fileID: 1451263424730430919}
@@ -924,6 +924,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4727032809799480459, guid: d8ce35fb3009c5041a31b96a2d52edd4, type: 3}
+      propertyPath: attatchedStructure
+      value: 
+      objectReference: {fileID: 7179941867667544852}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8ce35fb3009c5041a31b96a2d52edd4, type: 3}
 --- !u!114 &5952773766199139753 stripped

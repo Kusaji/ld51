@@ -2,15 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ActivePopulation : MonoBehaviour
 {
     public Structure attatchedStructure;
     public TextMeshProUGUI populationTMP;
     public Canvas theCanvas;
+    public GraphicRaycaster graycaster;
+    private void Awake()
+    {
+        GetComponentInChildren<CustomButton>().activePop = this;
+    }
     private void Start()
     {
         theCanvas.transform.rotation = CameraController.instance.theCamera.transform.rotation;
+        //graycaster.enabled = false;
     }
     // Update is called once per frame
     void Update()
@@ -27,5 +34,13 @@ public class ActivePopulation : MonoBehaviour
         //  Display effectiveness somewhere?
         //populationTMP.SetText(active + " / " + minimumRequired);
         populationTMP.SetText(active.ToString());
+    }
+    public void ClickDown()
+    {
+        attatchedStructure.OnClickDown();
+    }
+    public void ClickUp()
+    {
+        attatchedStructure.OnClickUp();
     }
 }

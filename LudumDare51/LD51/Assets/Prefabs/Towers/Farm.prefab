@@ -5300,7 +5300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   balanceNumbersSO: {fileID: 11400000, guid: cdbfce7b96380f147ad2164705eefb33, type: 2}
-  holdTimeToStartAutoClick: 0.2
+  holdTimeToStartAutoClick: 0.3
   isAlive: 0
   currentHealth: 20
   buildingComplete: 0
@@ -5317,6 +5317,7 @@ MonoBehaviour:
   OnUpdatePopulation:
     m_PersistentCalls:
       m_Calls: []
+  iAmHighlighted: 0
 --- !u!114 &3985806055285170214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41478,6 +41479,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4727032809799480459, guid: d8ce35fb3009c5041a31b96a2d52edd4, type: 3}
+      propertyPath: attatchedStructure
+      value: 
+      objectReference: {fileID: 7069261710541727588}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8ce35fb3009c5041a31b96a2d52edd4, type: 3}
 --- !u!4 &5357604596696470596 stripped

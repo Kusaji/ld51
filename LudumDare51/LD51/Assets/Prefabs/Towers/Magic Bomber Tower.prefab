@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   balanceNumbersSO: {fileID: 11400000, guid: 8170e262ab7459844bcc02c1a759033b, type: 2}
-  holdTimeToStartAutoClick: 0.2
+  holdTimeToStartAutoClick: 0.3
   isAlive: 0
   currentHealth: 10
   buildingComplete: 0
@@ -248,6 +248,7 @@ MonoBehaviour:
   structure: {fileID: 8552409804133243786}
   rangeIndicator: {fileID: 1729504752375448124}
   attackProjectilePrefab: {fileID: 7300430972184893010, guid: e201d947c0efd6a45ba1c130512f2f92, type: 3}
+  meteorInvoker: 0
 --- !u!82 &641303035176225048
 AudioSource:
   m_ObjectHideFlags: 0
@@ -856,6 +857,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4727032809799480459, guid: d8ce35fb3009c5041a31b96a2d52edd4, type: 3}
+      propertyPath: attatchedStructure
+      value: 
+      objectReference: {fileID: 8552409804133243786}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8ce35fb3009c5041a31b96a2d52edd4, type: 3}
 --- !u!4 &8718009476871304014 stripped
