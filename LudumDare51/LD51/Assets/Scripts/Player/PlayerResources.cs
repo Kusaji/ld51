@@ -19,6 +19,8 @@ public class PlayerResources : MonoBehaviour
     public int units;
     public int magicRunes;
 
+    public GameObject gameOverGO;
+
     [HideInInspector]
     public int overallPopulation;
     #endregion
@@ -57,6 +59,11 @@ public class PlayerResources : MonoBehaviour
         {
             //Debug.Log("Not enough population.");
         }
+    }
+    public void GameOver()
+    {
+        isAlive = false;
+        gameOverGO.SetActive(true);
     }
     #endregion
 }

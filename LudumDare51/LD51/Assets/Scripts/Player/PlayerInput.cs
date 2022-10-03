@@ -66,7 +66,7 @@ public class PlayerInput : MonoBehaviour
             //GetOnRightClickUpObject();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && PlayerStructures.instance.spawningTower)
+        if ((Input.GetKeyDown(KeyCode.Mouse1) || Input.GetKeyDown(KeyCode.Escape)) && PlayerStructures.instance.spawningTower)
         {
             PlayerStructures.instance.spawningTower = false;
             Destroy(PlayerStructures.instance.inactiveTower);
@@ -78,12 +78,14 @@ public class PlayerInput : MonoBehaviour
                 pauseUI.SetActive(true);
                 isPaused = true;
                 Time.timeScale = 0;
+                Cursor.lockState = CursorLockMode.None;
             }
             else if (isPaused) 
             {
                 pauseUI.SetActive(false);
                 isPaused = false;
                 Time.timeScale = 1;
+                Cursor.lockState = CursorLockMode.Confined;
             }
         }
     }

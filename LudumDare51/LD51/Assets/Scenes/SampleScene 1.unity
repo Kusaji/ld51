@@ -4569,6 +4569,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1793623010}
+    - target: {fileID: 788426039999007949, guid: 94a4453f34c48e74f9f2613e6313c073, type: 3}
+      propertyPath: m_Text
+      value: Experience Disappointment
+      objectReference: {fileID: 0}
     - target: {fileID: 1254644715341394837, guid: 94a4453f34c48e74f9f2613e6313c073, type: 3}
       propertyPath: m_IsActive
       value: 0

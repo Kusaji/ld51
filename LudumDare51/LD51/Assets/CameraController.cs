@@ -35,6 +35,7 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         SetResolutionShakeMod();
+        Cursor.lockState = CursorLockMode.Confined;
     }
     public void SetResolutionShakeMod()
     {
@@ -84,14 +85,6 @@ public class CameraController : MonoBehaviour
 
         theCamera.orthographicSize = SmoothFunc.Damp(theCamera.orthographicSize, targetCameraSize, 0.000001f, Time.unscaledDeltaTime);
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (Cursor.lockState == CursorLockMode.Confined)
-                Cursor.lockState = CursorLockMode.None;
-            else
-                Cursor.lockState = CursorLockMode.Confined;
-        }
-
         previousMoveInput = thisFrameMoveInput;
         thisFrameMoveInput.x = Input.GetAxisRaw("Horizontal");
         thisFrameMoveInput.y = Input.GetAxisRaw("Vertical");
@@ -128,7 +121,6 @@ public class CameraController : MonoBehaviour
 
         cameraNoShakePos += (Vector3)cameraVelocity * Time.unscaledDeltaTime * movespeed * theCamera.orthographicSize / 14f;
         ManageCameraShake();
-        DebugTextCanvas.SetDbText("camerashakeadd", "Camera Shake Add: " + cameraShakeAdd.ToString("0.00"));
         theCamera.transform.localPosition = cameraNoShakePos + cameraShakeAdd;
 
         //DebugTextCanvas.SetDbText("mouse pos", "mousePos: " + normalizedMousePositionOnScreen.ToString("0.0000"));

@@ -183,7 +183,6 @@ public class PlayerStructures : MonoBehaviour
             if (hit.transform.gameObject.CompareTag("Ground"))
             {
                 collisionOkay = true;
-                DebugTextCanvas.SetDbText("hittag", hit.transform.gameObject.name + " " + hit.transform.gameObject.tag);
             } 
             else
             {

@@ -119,7 +119,6 @@ public class TowerAttacker : MonoBehaviour
             meatcontroller.randomDirection.y = 0f;
             meatcontroller.randomDirection.Normalize();
             meatcontroller.directionSet = true;
-            print(meatcontroller.randomDirection.ToString("0.00"));
         }
         else
         {

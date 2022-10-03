@@ -101,13 +101,23 @@ public class BuilderTower : MonoBehaviour
 
     public void BuildStructures()
     {
-        float buildAmount = buildPower / activeBuildTargets;
+        //float buildAmount = buildPower / activeBuildTargets;
+
+        //for (int i = 0; i < incompleteTowers.Count; i++)
+        //{
+        //    if (incompleteTowers[i] != null) //In the off chance it was destroyed before the heal goes off.
+        //    {
+        //        incompleteTowers[i].AddBuildProgress(buildAmount);
+        //    }
+        //}
+        float buildAmount = buildPower;
 
         for (int i = 0; i < incompleteTowers.Count; i++)
         {
             if (incompleteTowers[i] != null) //In the off chance it was destroyed before the heal goes off.
             {
                 incompleteTowers[i].AddBuildProgress(buildAmount);
+                break;
             }
         }
     }

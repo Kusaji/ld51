@@ -33,7 +33,7 @@ public class Bastion : Structure
 
             Camera.main.GetComponent<CameraController>().ShakeCameraImpulse(Random.onUnitSphere, 10f);
 
-            PlayerResources.Instance.isAlive = false;
+            PlayerResources.Instance.GameOver();
 
             GameObject.Destroy(gameObject);
         }

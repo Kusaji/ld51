@@ -50,7 +50,9 @@ public class RangeIndicator : MonoBehaviour
     }
     public void SetRange(float p_range, IndicatorType type)
     {
+        myType = type;
         spr.transform.localScale = Vector3.one * p_range;
+        spr.color = desiredColor;
     }
     public enum IndicatorType
     {

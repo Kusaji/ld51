@@ -92,7 +92,11 @@ public class EnemyManager : MonoBehaviour
         //TODO countdown for spawn
         for (int i = (int)spawnTime; i > 0; i--)
         {
-            DebugTextCanvas.Instance._SetDbText($"Ass", $"Time until next wave : {i}");
+            string timeString = "<mspace=0.5em> " + i;
+            if (i == 10)
+                timeString = "<mspace=0.5em>10";
+            DebugTextCanvas.Instance._SetDbText($"Ass", $"Time until next wave : {timeString}");
+            DebugTextCanvas.Instance._SetDbText($"wave", $"<size=65%>Wave : {wave}");
             //Add animations or whatever you want here.
             yield return new WaitForSeconds(1f);
         }
@@ -109,16 +113,20 @@ public class EnemyManager : MonoBehaviour
                 yield return null;
                 yield return null;
             }
-
+            
             //Increment waves
             wave++;
+            DebugTextCanvas.Instance._SetDbText($"wave", $"<size=65%>Wave : {wave}");
             //Increase next wave amount
             enemiesToSpawn = Mathf.RoundToInt(Mathf.Pow(wave, enemySpawnExponent) * enemySpawnIncrement + 5f);
 
             //TODO countdown for spawn
             for (int i = (int)spawnTime; i > 0; i--)
             {
-                DebugTextCanvas.Instance._SetDbText($"Ass", $"Time until next wave : {i}");
+                string timeString = "<mspace=0.5em> " + i;
+                if (i == 10)
+                    timeString = "<mspace=0.5em>10";
+                DebugTextCanvas.Instance._SetDbText($"Ass", $"Time until next wave : {timeString}");
                 //Add animations or whatever you want here.
                 yield return new WaitForSeconds(1f);
             }
