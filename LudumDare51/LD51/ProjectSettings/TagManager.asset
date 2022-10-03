@@ -8,6 +8,7 @@ TagManager:
   - Environment
   - Enemy
   - Structure
+  - Ground
   layers:
   - Default
   - TransparentFX

@@ -10,7 +10,7 @@ Material:
   m_Name: EGACrystal
   m_Shader: {fileID: -6465566751694194690, guid: b268a6ba86048ff48a4241fee435ba97, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 0
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
