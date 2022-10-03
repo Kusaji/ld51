@@ -48,7 +48,7 @@ MonoBehaviour:
   activeEnemies: []
   spawnTime: 10
   enemiesToSpawn: 3
-  enemySpawnIncrement: 1.25
+  enemySpawnIncrement: 0.6
   enemySpawnExponent: 1.2
   spawnRadius: 35
   wave: 0

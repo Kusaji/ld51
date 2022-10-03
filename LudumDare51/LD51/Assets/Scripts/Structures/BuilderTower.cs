@@ -42,6 +42,7 @@ public class BuilderTower : MonoBehaviour
         GetTowersInRange();
         StartCoroutine(BuildRoutine());
         myStructure.OnUpdatePopulation.AddListener(SetRangeIndicator);
+        myStructure.OnUpdatePopulation.AddListener(GetTowersInRange);
     }
     #endregion
 
@@ -115,6 +116,8 @@ public class BuilderTower : MonoBehaviour
     #region Coroutines
     public IEnumerator BuildRoutine()
     {
+        yield return new WaitUntil(() => myStructure.buildingComplete);
+
         while (myStructure.isAlive)
         {
             if (towersInRange.Count > 0)

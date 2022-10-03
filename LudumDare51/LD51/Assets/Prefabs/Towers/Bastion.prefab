@@ -14795,7 +14795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myStructure: {fileID: 1974728397034254223}
-  timeToGenerateResource: 3.3334
+  timeToGenerateResource: 1.6667
   generateTimer: 0
   generateEffect: {fileID: 1747379526645430800}
 --- !u!114 &7691297003753053388
@@ -14814,6 +14814,8 @@ MonoBehaviour:
   attackRange: 16
   attackDamage: 2.5
   attackDelay: 0.5
+  areaOfEffect: 0
+  multishot: 1
   targeter: {fileID: 539973198415824676}
   structure: {fileID: 1974728397034254223}
   rangeIndicator: {fileID: 6705693300234008192}
@@ -14832,6 +14834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugMode: 0
   target: {fileID: 0}
+  targets: []
   projectileSpawnpoint: {fileID: 5813431578194035282}
   randomSphereSpawnPoint: 1
   distanceToTarget: 0
@@ -14852,9 +14855,9 @@ MonoBehaviour:
   incompleteTowers: []
   activeBuildTargets: 0
   buildRange: 10
-  buildPower: 0.02
+  buildPower: 0.125
   tickingBuildCooldown: 0
-  towerBuildDelay: 0
+  towerBuildDelay: 0.125
   myStructure: {fileID: 1974728397034254223}
   rangeIndicator: {fileID: 4237521071573279032}
 --- !u!82 &3232351949174127356

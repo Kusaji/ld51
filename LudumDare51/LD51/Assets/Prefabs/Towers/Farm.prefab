@@ -5330,7 +5330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myStructure: {fileID: 7069261710541727588}
-  timeToGenerateResource: 10
+  timeToGenerateResource: 7.5
   generateTimer: 0
   generateEffect: {fileID: 4114857568188008811}
 --- !u!1 &1216407537299449842
@@ -41444,7 +41444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4727032809799480458, guid: d8ce35fb3009c5041a31b96a2d52edd4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.45
       objectReference: {fileID: 0}
     - target: {fileID: 4727032809799480458, guid: d8ce35fb3009c5041a31b96a2d52edd4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -41658,7 +41658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 764834916675862552, guid: eecdcbda4d98fe2449a4ccaac6322d1b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.875
+      value: -1.45
       objectReference: {fileID: 0}
     - target: {fileID: 764834916675862552, guid: eecdcbda4d98fe2449a4ccaac6322d1b, type: 3}
       propertyPath: m_LocalPosition.z

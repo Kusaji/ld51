@@ -15,7 +15,9 @@ public class TowerAttacker : MonoBehaviour
     public float attackRange;
     public float attackDamage;
     public float attackDelay;
-    
+    public float areaOfEffect;
+    public int multishot = 1;
+
     public float EffectiveAttackRange
     {
         get
@@ -66,36 +68,50 @@ public class TowerAttacker : MonoBehaviour
         {
             if (targeter.target != null && structure.cachedPopulationEffectiveness > 0.001f)
             {
-                if (targeter.distanceToTarget <= EffectiveAttackRange)
+                int shotsFired = 0;
+                if (multishot <= 1 && targeter.distanceToTarget <= EffectiveAttackRange)
                 {
-                    if (instantAttack)
+                    shotsFired++;
+                    FireAtTarget(targeter.target);
+                    
+                } else if (multishot > 1)
+                {
+                    for (int i = 0; i < targeter.targets.Count; i++)
                     {
-                        targeter.target.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
-                        Debug.DrawLine(targeter.projectileSpawnpoint.transform.position, targeter.target.transform.position, Color.red, 0.35f);
+                        if (targeter.targets[i] != null)
+                        {
+                            if (Vector3.Distance(targeter.targets[i].transform.position, targeter.transform.position) <= EffectiveAttackRange)
+                            {
+                                shotsFired++;
+                                FireAtTarget(targeter.targets[i]);
+                            }
+                        }
                     }
-                    else if (!instantAttack)
-                    {
-                        var projectile = Instantiate(
-                            attackProjectilePrefab,
-                            targeter.projectileSpawnpoint.transform.position + Random.insideUnitSphere * targeter.randomSphereSpawnPoint,
-                            Quaternion.identity);
-                        var projectileSettings = projectile.GetComponent<SingleTargetProjectile>();
-                        projectileSettings.target = targeter.target;
-                        projectileSettings.damage = attackDamage;
-                        structure.audioController.PlayOneShot(0, 0.60f);
-                    }
+                }
 
+                if (shotsFired > 0)
+                {
+                    structure.audioController.PlayOneShot(0, 0.60f);
                     tickingAttackCooldown = attackDelay;
                     while (tickingAttackCooldown >= 0f)
                     {
                         yield return new WaitForFixedUpdate();
                         tickingAttackCooldown -= Time.fixedDeltaTime * structure.cachedPopulationEffectiveness;
                     }
-                    //yield return new WaitForSeconds(attackDelay / structure.cachedPopulationEffectiveness);
                 }
             }
             yield return new WaitForEndOfFrame();
         }
+    }
+    private void FireAtTarget(GameObject target)
+    {
+        var projectile = Instantiate(
+                        attackProjectilePrefab,
+                        targeter.projectileSpawnpoint.transform.position + Random.insideUnitSphere * targeter.randomSphereSpawnPoint,
+                        Quaternion.identity);
+        var projectileSettings = projectile.GetComponent<SingleTargetProjectile>();
+        projectileSettings.target = target;
+        projectileSettings.damage = attackDamage;
     }
     #endregion
 }

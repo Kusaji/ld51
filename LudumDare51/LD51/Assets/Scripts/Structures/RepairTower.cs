@@ -55,6 +55,7 @@ public class RepairTower : MonoBehaviour
         GetTowersInRange();
         StartCoroutine(HealRoutine());
         myStructure.OnUpdatePopulation.AddListener(SetRangeIndicator);
+        myStructure.OnUpdatePopulation.AddListener(GetTowersInRange);
     }
 
     #endregion
@@ -77,6 +78,8 @@ public class RepairTower : MonoBehaviour
 
     public void GetTowersInRange()
     {
+        print("get towers in range!");
+
         towersInRange.Clear();
 
         if (PlayerStructures.instance.structures.Count > 0)
