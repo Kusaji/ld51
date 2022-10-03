@@ -62,7 +62,7 @@ Camera:
   far clip plane: 100
   field of view: 60
   orthographic: 1
-  orthographic size: 10.14
+  orthographic size: 14
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -149,7 +149,7 @@ MonoBehaviour:
   cameraVelocity: {x: 0, y: 0}
   previousMoveInput: {x: 0, y: 0}
   thisFrameMoveInput: {x: 0, y: 0}
-  movespeed: 9
+  movespeed: 12
   velocitySmoothingWithInput: 1e-15
   velocitySmoothingNoInput: 0.00001
   normalizedMousePositionOnScreen: {x: 0, y: 0}
@@ -158,6 +158,9 @@ MonoBehaviour:
   shakeDir: {x: 0, y: 0, z: 0}
   shakeSpeed: 1
   shakeDurationMod: 1
+  minCameraSize: 8
+  maxCameraSize: 20
+  targetCameraSize: 14
 --- !u!1 &4924545428203903462
 GameObject:
   m_ObjectHideFlags: 0

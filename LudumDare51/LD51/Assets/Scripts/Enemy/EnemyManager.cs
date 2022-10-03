@@ -2,22 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Handles instantiation of enemy prefabs and scaling wave difficulty.
+/// </summary>
 public class EnemyManager : MonoBehaviour
 {
+    #region Variables
+    [Header("Singleton")]
     public static EnemyManager Instance;
 
+    [Header("Lists")]
     public List<GameObject> enemyPrefabs;
     public List<GameObject> activeEnemies;
+    
+    [Header("Settings")]
     public float spawnTime;
-
-    public int wave; 
     public int enemiesToSpawn; //increment every 10 seconds
-    public int enemySpawnIncrement; //How many more enemies per wave?
+    public float enemySpawnIncrement; //How many more enemies per wave?
+    public float enemySpawnExponent; //Exponentially more enemies per wave!
+    public float spawnRadius = 35f;
 
-    private Vector3 spawnPosition;
+    [Header("Runtime Stats")]
+    public int wave; 
 
+    [Header("References")]
     public Transform enemyTransform;
 
+    //Private
+    private Vector3 spawnPosition;
+    #endregion
+
+    #region Unity Callbacks
     private void Awake()
     {
         Instance = this;
@@ -29,14 +44,15 @@ public class EnemyManager : MonoBehaviour
         transform.position = GameObject.Find("Bastion").transform.position;
         StartCoroutine(SpawnEnemyRoutine());
     }
+    #endregion
 
+    #region Methods
     public void GetRandomSpawnPos()
     {
         spawnPosition = Random.onUnitSphere;
         spawnPosition.y = 0;
-        spawnPosition = spawnPosition.normalized * 30f;
+        spawnPosition = spawnPosition.normalized * spawnRadius;
     }
-
     public void SpawnEnemy()
     {
         var spawnedEnemy = 
@@ -48,9 +64,19 @@ public class EnemyManager : MonoBehaviour
 
         activeEnemies.Add(spawnedEnemy);
     }
+    #endregion
 
+    #region Coroutines
     public IEnumerator SpawnEnemyRoutine()
     {
+        //TODO countdown for spawn
+        for (int i = (int)spawnTime; i > 0; i--)
+        {
+            DebugTextCanvas.Instance._SetDbText($"Ass", $"Time until next wave : {i}");
+            //Add animations or whatever you want here.
+            yield return new WaitForSeconds(1f);
+        }
+
         while (PlayerResources.Instance.isAlive)
         {
             //Grab spot to spawn a clump of enemies
@@ -60,12 +86,14 @@ public class EnemyManager : MonoBehaviour
             for (int i = 0; i < enemiesToSpawn; i++)
             {
                 SpawnEnemy();
+                yield return null;
+                yield return null;
             }
 
             //Increment waves
             wave++;
             //Increase next wave amount
-            enemiesToSpawn = wave + 5;
+            enemiesToSpawn = Mathf.RoundToInt(Mathf.Pow(wave, enemySpawnExponent) * enemySpawnIncrement + 5f);
 
             //TODO countdown for spawn
             for (int i = (int)spawnTime; i > 0; i--)
@@ -79,4 +107,5 @@ public class EnemyManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
     }
+    #endregion
 }

@@ -2,34 +2,71 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Handles attack routines and dealing damage to enemies.
+/// </summary>
 public class TowerAttacker : MonoBehaviour
 {
-    public TowerTargeter targeter;
-    public Structure structure;
+    #region Variables
+    [Header("Options")]
+    public bool instantAttack;
+    
+    [Header("Stats")]
     public float attackRange;
     public float attackDamage;
     public float attackDelay;
+    
+    public float EffectiveAttackRange
+    {
+        get
+        {
+            return attackRange * structure.cachedPopulationRangeEffectiveness;
+        }
+    }
 
-    public bool instantAttack;
+    [Header("References")]
+    public TowerTargeter targeter;
+    public Structure structure;
+    public RangeIndicator rangeIndicator;
+    
+    [Header("Prefabs")]
     public GameObject attackProjectilePrefab;
 
+    //Private Vars
+    private float tickingAttackCooldown;
+    #endregion
+
+    #region Unity Callbacks
     private void Start()
     {
         StartCoroutine(AttackRoutine());
+        structure.OnUpdatePopulation.AddListener(SetRangeIndicator);
     }
+    private void OnEnable()
+    {
+        SetRangeIndicator();
+    }
+    #endregion
 
+    #region Methods
     public void DealDamage()
     {
         targeter.target.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
     }
+    private void SetRangeIndicator()
+    {
+        rangeIndicator.SetRange(EffectiveAttackRange, RangeIndicator.IndicatorType.attacker);
+    }
+    #endregion
 
+    #region Coroutines
     public IEnumerator AttackRoutine()
     {
         while (structure.isAlive)
         {
-            if (targeter.target != null)
+            if (targeter.target != null && structure.cachedPopulationEffectiveness > 0.001f)
             {
-                if (targeter.distanceToTarget <= attackRange)
+                if (targeter.distanceToTarget <= EffectiveAttackRange)
                 {
                     if (instantAttack)
                     {
@@ -40,17 +77,25 @@ public class TowerAttacker : MonoBehaviour
                     {
                         var projectile = Instantiate(
                             attackProjectilePrefab,
-                            targeter.projectileSpawnpoint.transform.position,
+                            targeter.projectileSpawnpoint.transform.position + Random.insideUnitSphere * targeter.randomSphereSpawnPoint,
                             Quaternion.identity);
                         var projectileSettings = projectile.GetComponent<SingleTargetProjectile>();
                         projectileSettings.target = targeter.target;
                         projectileSettings.damage = attackDamage;
+                        structure.audioController.PlayOneShot(0, 0.60f);
                     }
 
-                    yield return new WaitForSeconds(attackDelay / structure.effectivenessExponent);
+                    tickingAttackCooldown = attackDelay;
+                    while (tickingAttackCooldown >= 0f)
+                    {
+                        yield return new WaitForFixedUpdate();
+                        tickingAttackCooldown -= Time.fixedDeltaTime * structure.cachedPopulationEffectiveness;
+                    }
+                    //yield return new WaitForSeconds(attackDelay / structure.cachedPopulationEffectiveness);
                 }
             }
             yield return new WaitForEndOfFrame();
         }
     }
+    #endregion
 }

@@ -2,11 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Handles Player Input.
+/// </summary>
 public class PlayerInput : MonoBehaviour
 {
+    #region Variables
+    [Header("Singleton")]
+    public static PlayerInput Instance;
+    
+    [Header("Runtime References")]
     public GameObject objectClickedOn;
     public Structure structure;
+    public Vector2 testMatrix = Vector2.one;
+    #endregion
 
+    #region Unity Callbacks
+    private void Awake()
+    {
+        Instance = this;
+    }
+    public static Vector3 ScaledMousePosition
+    {
+        get
+        {
+            return Input.mousePosition;
+        }
+    }
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -18,19 +40,44 @@ public class PlayerInput : MonoBehaviour
         {
             GetOnClickUpObject();
         }
-    }
+        if (Input.GetMouseButtonDown(1))
+        {
+#if UNITY_EDITOR
+            Debug.Log("Remove Population has been... removed. Commit to your decisions! More strategy, less micro!");
+#endif
+            //GetRightClickedOnObject();
+        }
 
+        if (Input.GetMouseButtonUp(1))
+        {
+#if UNITY_EDITOR
+            Debug.Log("Remove Population has been... removed. Commit to your decisions! More strategy, less micro!");
+#endif
+            //GetOnRightClickUpObject();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && PlayerStructures.instance.spawningTower)
+        {
+            PlayerStructures.instance.spawningTower = false;
+            Destroy(PlayerStructures.instance.inactiveTower);
+        }
+    }
+    #endregion
+
+    #region Methods
     public void GetClickedOnObject()
     {
         RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = CameraController.instance.theCamera.ScreenPointToRay(ScaledMousePosition);
+        
 
         if (Physics.Raycast(ray, out hit))
         {
             objectClickedOn = hit.transform.gameObject;
         }
 
-        if (objectClickedOn.CompareTag("Structure"))
+        if (objectClickedOn != null && objectClickedOn.CompareTag("Structure"))
         {
             structure = hit.transform.gameObject.GetComponent<StructureHitbox>().structure;
             structure.OnClickDown();
@@ -45,4 +92,30 @@ public class PlayerInput : MonoBehaviour
             structure = null;
         }
     }
+    public void GetRightClickedOnObject()
+    {
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(ScaledMousePosition);
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            objectClickedOn = hit.transform.gameObject;
+        }
+
+        if (objectClickedOn.CompareTag("Structure"))
+        {
+            structure = hit.transform.gameObject.GetComponent<StructureHitbox>().structure;
+            structure.OnRightClickDown();
+        }
+    }
+
+    public void GetOnRightClickUpObject()
+    {
+        if (structure != null)
+        {
+            structure.OnRightClickUp();
+            structure = null;
+        }
+    }
+    #endregion
 }

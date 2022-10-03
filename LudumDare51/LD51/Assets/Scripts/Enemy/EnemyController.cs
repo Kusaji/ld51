@@ -3,36 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// Handles Enemy Movement and Attacking AI.
+/// </summary>
 public class EnemyController : MonoBehaviour
 {
+    #region Variables
     [Header("Components")]
     public EnemyHealth health;
     public NavMeshAgent agent;
+    public EnemyAnimator enemyAnimator;
 
+    [Header("Set During Gameplay")]
     public GameObject target;
     public Structure targetStructure;
 
+    [Header("Stats")]
     public float attackDamage;
-    public float attackRange;
+    public float defaultAttackRange;
+    public float bastionAttackRange;
     public float attackDelay;
+
+    [Header("Runtime Stats")]
+    public float currentAttackRange;
     public float distanceToTarget;
-
     public bool isAttacking;
+    public float currentSpeed;
+    #endregion
 
+    #region Unity Callbacks
     // Start is called before the first frame update
     void Start()
     {
         agent.Warp(transform.position);
 
-
         StartCoroutine(FindTargetRoutine());
+        StartCoroutine(CalculateDistance());
     }
+    #endregion
 
-    private void Update()
-    {
-
-    }
-
+    #region Methods
     //todo
     //Iterate over structure list and find closest with priority.
     public GameObject GetRandomTarget()
@@ -46,7 +56,9 @@ public class EnemyController : MonoBehaviour
             return null;
         }
     }
+    #endregion
 
+    #region Coroutines
     public IEnumerator FindTargetRoutine()
     {
         yield return new WaitForSeconds(0.1f);
@@ -70,9 +82,12 @@ public class EnemyController : MonoBehaviour
                 targetStructure = closestTower.GetComponent<Structure>();
                 agent.SetDestination(target.transform.position);
                 distanceToTarget = closestTowerDistance;
-                StartCoroutine(CalculateDistance());
+                currentAttackRange = defaultAttackRange;
+
+
+                //StartCoroutine(CalculateDistance());
             }
-            else
+            else if (PlayerStructures.instance.bastion != null)
             {
                 target = PlayerStructures.instance.bastion;
 
@@ -80,10 +95,16 @@ public class EnemyController : MonoBehaviour
                 {
                     targetStructure = PlayerStructures.instance.bastion.GetComponent<Structure>();
                     agent.SetDestination(target.transform.position);
-                    StartCoroutine(CalculateDistance());
+                    currentAttackRange = bastionAttackRange;
                 }
             }
-            yield return new WaitForSeconds(0.25f);
+            else
+            {
+                agent.SetDestination(transform.position);
+                enemyAnimator.anim.SetTrigger("Idle");
+                distanceToTarget = 0;
+            }
+            yield return new WaitForSeconds(0.50f);
         }
     }
 
@@ -95,7 +116,7 @@ public class EnemyController : MonoBehaviour
             {
                 distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
 
-                if (distanceToTarget <= attackRange && !isAttacking)
+                if (distanceToTarget <= currentAttackRange && !isAttacking)
                 {
                     StartCoroutine(AttackRoutine());
                     isAttacking = true;
@@ -109,9 +130,10 @@ public class EnemyController : MonoBehaviour
     {
         while (health.isAlive != false)
         {
-            if (distanceToTarget <= attackRange && target != null)
+            if (distanceToTarget <= currentAttackRange && target != null)
             {
                 targetStructure.DealDamage(attackDamage);
+                enemyAnimator.AttackAnimation();
             }
             else
             {
@@ -121,4 +143,5 @@ public class EnemyController : MonoBehaviour
             yield return new WaitForSeconds(attackDelay);
         }
     }
+    #endregion
 }

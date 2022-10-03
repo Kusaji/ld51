@@ -47,7 +47,9 @@ MonoBehaviour:
   - {fileID: 1052088562745392504, guid: c0b963f43106ff747a53e25e44a12aa5, type: 3}
   activeEnemies: []
   spawnTime: 10
+  enemiesToSpawn: 3
+  enemySpawnIncrement: 1.25
+  enemySpawnExponent: 1.2
+  spawnRadius: 35
   wave: 0
-  enemiesToSpawn: 5
-  enemySpawnIncrement: 0
   enemyTransform: {fileID: 0}

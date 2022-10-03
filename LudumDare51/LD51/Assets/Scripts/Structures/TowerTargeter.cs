@@ -2,40 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Handles finding nearest enemy and setting targets for towers.
+/// </summary>
 public class TowerTargeter : MonoBehaviour
 {
+    #region Variables
     [Header("Debug")]
     public bool debugMode;
 
     [Header("Target Info")]
     public GameObject target;
     public GameObject projectileSpawnpoint;
+    public float randomSphereSpawnPoint = 1f;
     public float distanceToTarget;
 
     [Header("Components")]
     public TowerAttacker towerAttacker;
+    #endregion
 
+    #region Unity Callbacks
     private void Start()
     {
         StartCoroutine(FindTargetRoutine());
-
     }
-
     private void Update()
     {
         if (debugMode && target != null)
         {
-            if (distanceToTarget > towerAttacker.attackRange)
+            if (distanceToTarget > towerAttacker.EffectiveAttackRange)
             {
                 Debug.DrawLine(projectileSpawnpoint.transform.position, target.transform.position, Color.white);
             }
-            else if (distanceToTarget <= towerAttacker.attackRange)
+            else if (distanceToTarget <= towerAttacker.EffectiveAttackRange)
             {
                 Debug.DrawLine(projectileSpawnpoint.transform.position, target.transform.position, Color.blue);
             }
         }
     }
+    #endregion
 
+    #region Methods
     public void FindNewTarget()
     {
         if (EnemyManager.Instance.activeEnemies.Count > 0)
@@ -56,7 +63,9 @@ public class TowerTargeter : MonoBehaviour
             distanceToTarget = closestEnemyDistance;
         }
     }
+    #endregion
 
+    #region Coroutines
     public IEnumerator CalculateDistanceToTargetRoutine()
     {
         while (gameObject)
@@ -77,4 +86,5 @@ public class TowerTargeter : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
     }
+    #endregion
 }
