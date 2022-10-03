@@ -26,9 +26,9 @@ public class DisasterManager : MonoBehaviour
 
     public void GetRandomSpawnPos()
     {
-        spawnPosition = Random.onUnitSphere;
+        spawnPosition = Random.onUnitSphere * 30f;
         spawnPosition.y = 15f;
-        spawnPosition = spawnPosition.normalized * 30f;
+        //spawnPosition = spawnPosition.normalized * 30f;
     }
 
     public IEnumerator DisasterRoutine()

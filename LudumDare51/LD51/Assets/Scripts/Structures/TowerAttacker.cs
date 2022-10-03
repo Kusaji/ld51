@@ -52,7 +52,6 @@ public class TowerAttacker : MonoBehaviour
     public void DealDamage()
     {
         targeter.target.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
-        structure.audioController.PlayOneShot(0, 0.60f);
     }
     private void SetRangeIndicator()
     {
@@ -83,6 +82,7 @@ public class TowerAttacker : MonoBehaviour
                         var projectileSettings = projectile.GetComponent<SingleTargetProjectile>();
                         projectileSettings.target = targeter.target;
                         projectileSettings.damage = attackDamage;
+                        structure.audioController.PlayOneShot(0, 0.60f);
                     }
 
                     tickingAttackCooldown = attackDelay;
