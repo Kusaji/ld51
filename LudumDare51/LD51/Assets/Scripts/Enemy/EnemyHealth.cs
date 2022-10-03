@@ -13,6 +13,7 @@ public class EnemyHealth : MonoBehaviour
     public float maxHealth;
     public float currentHealth;
     public float healthPerWave;
+    public float healthPerWaveExponent;
 
     [Header("Prefabs")]
     public GameObject bloodPrefab;
@@ -24,7 +25,7 @@ public class EnemyHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxHealth = maxHealth + EnemyManager.Instance.wave * healthPerWave;
+        maxHealth = maxHealth + Mathf.Pow(EnemyManager.Instance.wave, healthPerWaveExponent) * healthPerWave;
         currentHealth = maxHealth;
         isAlive = true;
     }

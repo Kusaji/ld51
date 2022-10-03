@@ -24,12 +24,17 @@ public class EnemyController : MonoBehaviour
     public float defaultAttackRange;
     public float bastionAttackRange;
     public float attackDelay;
+    public bool attackCooldown = false;
+    public float startSpeed;
+    public float speedPerWave;
+    
 
     [Header("Runtime Stats")]
     public float currentAttackRange;
     public float distanceToTarget;
     public bool isAttacking;
-    public float currentSpeed;
+    public float cachedSpeed;
+
     #endregion
 
     #region Unity Callbacks
@@ -42,6 +47,8 @@ public class EnemyController : MonoBehaviour
         StartCoroutine(CalculateDistance());
 
         attackDamage = attackDamage + EnemyManager.Instance.wave * damagePerWave;
+        cachedSpeed = startSpeed + EnemyManager.Instance.wave * speedPerWave;
+        agent.speed = cachedSpeed;
     }
     #endregion
 
@@ -137,6 +144,8 @@ public class EnemyController : MonoBehaviour
             {
                 targetStructure.DealDamage(attackDamage);
                 enemyAnimator.AttackAnimation();
+                attackCooldown = true;
+                agent.speed = cachedSpeed * 0.05f;
             }
             else
             {
@@ -144,6 +153,8 @@ public class EnemyController : MonoBehaviour
                 yield break;
             }
             yield return new WaitForSeconds(attackDelay);
+            attackCooldown = false;
+            agent.speed = cachedSpeed;
         }
     }
     #endregion

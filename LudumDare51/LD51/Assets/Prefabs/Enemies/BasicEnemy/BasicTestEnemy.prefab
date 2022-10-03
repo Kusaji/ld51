@@ -124,10 +124,12 @@ MonoBehaviour:
   defaultAttackRange: 3
   bastionAttackRange: 8
   attackDelay: 0.25
+  attackCooldown: 0
+  startSpeed: 1.75
+  speedPerWave: 0.04375
   currentAttackRange: 0
   distanceToTarget: 0
   isAttacking: 0
-  currentSpeed: 0
 --- !u!114 &1052088562745392454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +146,7 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   healthPerWave: 1
+  healthPerWaveExponent: 1.2
   bloodPrefab: {fileID: 5381835647565391231, guid: f70ee53b5e68efe4d826f63aa302b15b, type: 3}
 --- !u!195 &1052088562745392455
 NavMeshAgent:
