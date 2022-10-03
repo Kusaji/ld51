@@ -24,6 +24,8 @@ public class ActivePopulation : MonoBehaviour
     }
     public void SetPopulationCount(int active, int minimumRequired)
     {
-        populationTMP.SetText(active + " / " + minimumRequired);
+        //  Display effectiveness somewhere?
+        //populationTMP.SetText(active + " / " + minimumRequired);
+        populationTMP.SetText(active.ToString());
     }
 }

@@ -126,7 +126,7 @@ public class CameraController : MonoBehaviour
 
         //theCamera.transform.Translate(cameraVelocity * Time.unscaledDeltaTime * movespeed, Space.Self);
 
-        cameraNoShakePos += (Vector3)cameraVelocity * Time.unscaledDeltaTime * movespeed;
+        cameraNoShakePos += (Vector3)cameraVelocity * Time.unscaledDeltaTime * movespeed * theCamera.orthographicSize / 14f;
         ManageCameraShake();
         DebugTextCanvas.SetDbText("camerashakeadd", "Camera Shake Add: " + cameraShakeAdd.ToString("0.00"));
         theCamera.transform.localPosition = cameraNoShakePos + cameraShakeAdd;

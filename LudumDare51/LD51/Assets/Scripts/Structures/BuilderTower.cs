@@ -17,6 +17,15 @@ public class BuilderTower : MonoBehaviour
 
     [Header("Stats")]
     public float buildRange;
+
+    public float EffectiveBuildRange
+    {
+        get
+        {
+            return buildRange * myStructure.cachedPopulationRangeEffectiveness;
+        }
+    }
+
     public float buildPower;
     public float tickingBuildCooldown;
     public float towerBuildDelay;
@@ -55,7 +64,7 @@ public class BuilderTower : MonoBehaviour
         {
             for (int i = 0; i < PlayerStructures.instance.structures.Count; i++)
             {
-                if (Vector3.Distance(transform.position, PlayerStructures.instance.structures[i].transform.position) <= buildRange)
+                if (Vector3.Distance(transform.position, PlayerStructures.instance.structures[i].transform.position) <= EffectiveBuildRange)
                 {
                     towersInRange.Add(PlayerStructures.instance.structures[i].GetComponent<Structure>());
                 }

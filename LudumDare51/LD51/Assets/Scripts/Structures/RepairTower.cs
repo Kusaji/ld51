@@ -20,6 +20,14 @@ public class RepairTower : MonoBehaviour
     public float towerHealAmount;
     public float towerHealDelay;
 
+    public float EffectiveHealRange
+    {
+        get
+        {
+            return towerHealRange * myStructure.cachedPopulationRangeEffectiveness;
+        }
+    }
+
     [Header("Stats - Set Via Game")]
     public int activeHealTargets;
     public float tickingHealCooldown;
@@ -70,7 +78,7 @@ public class RepairTower : MonoBehaviour
                 {
                     if (PlayerStructures.instance.structures[i].gameObject != gameObject) //Check to make sure we don't add ourself to list.
                     {
-                        if (Vector3.Distance(transform.position, PlayerStructures.instance.structures[i].transform.position) <= towerHealRange)
+                        if (Vector3.Distance(transform.position, PlayerStructures.instance.structures[i].transform.position) <= EffectiveHealRange)
                         {
                             towersInRange.Add(PlayerStructures.instance.structures[i].GetComponent<Structure>());
                         }
@@ -78,7 +86,7 @@ public class RepairTower : MonoBehaviour
                 }
                 else if (canHealSelf) //Bypass check and have ourself on list to be healed.
                 {
-                    if (Vector3.Distance(transform.position, PlayerStructures.instance.structures[i].transform.position) <= towerHealRange)
+                    if (Vector3.Distance(transform.position, PlayerStructures.instance.structures[i].transform.position) <= EffectiveHealRange)
                     {
                         towersInRange.Add(PlayerStructures.instance.structures[i].GetComponent<Structure>());
                     }

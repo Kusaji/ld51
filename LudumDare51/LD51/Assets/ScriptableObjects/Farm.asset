@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Farm
   m_EditorClassIdentifier: 
   minimumPopulationToFunction: 10
+  effectivenessExponent: 0.5
+  rangeEffectivenessExponent: 0
   maxHealth: 20
-  maxBuildProgress: 10
   incomingDamageDefenseMod: 1.5
+  maxBuildProgress: 10

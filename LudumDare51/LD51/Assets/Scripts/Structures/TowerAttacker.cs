@@ -16,6 +16,14 @@ public class TowerAttacker : MonoBehaviour
     public float attackDamage;
     public float attackDelay;
     
+    public float EffectiveAttackRange
+    {
+        get
+        {
+            return attackRange * structure.cachedPopulationRangeEffectiveness;
+        }
+    }
+
     [Header("References")]
     public TowerTargeter targeter;
     public Structure structure;
@@ -48,7 +56,7 @@ public class TowerAttacker : MonoBehaviour
         {
             if (targeter.target != null && structure.cachedPopulationEffectiveness > 0.001f)
             {
-                if (targeter.distanceToTarget <= attackRange)
+                if (targeter.distanceToTarget <= EffectiveAttackRange)
                 {
                     if (instantAttack)
                     {

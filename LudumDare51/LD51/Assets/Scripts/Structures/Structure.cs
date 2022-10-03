@@ -22,7 +22,6 @@ public class Structure : MonoBehaviour
     }
     [Header("Settings")]
     public float holdTimeToStartAutoClick = 0.2f;
-    public float effectivenessExponent = 0.75f;
 
     [Header("Health")]
     public bool isAlive;
@@ -56,6 +55,7 @@ public class Structure : MonoBehaviour
     [Header("Stats")]
     public int designatedPopulation;
     public float cachedPopulationEffectiveness = 0f;
+    public float cachedPopulationRangeEffectiveness = 0f;
     public float populationAddedPerFUPGainPerSecond = 0.01f;
     public float populationAddedPerFUP = 0.1f;
 
@@ -239,12 +239,16 @@ public class Structure : MonoBehaviour
     public virtual void UpdatePopulation()
     {
         if (designatedPopulation >= minimumPopulationToFunction)
-            cachedPopulationEffectiveness = Mathf.Pow(designatedPopulation + 1, effectivenessExponent);
+            cachedPopulationEffectiveness = Mathf.Pow(designatedPopulation + 1, balanceNumbersSO.effectivenessExponent);
         else
             cachedPopulationEffectiveness = 0f;
 
+        cachedPopulationRangeEffectiveness = Mathf.Pow(designatedPopulation + 1, balanceNumbersSO.rangeEffectivenessExponent);
+
         if (myActivePopulation != null)
-        myActivePopulation.SetPopulationCount(designatedPopulation, minimumPopulationToFunction);
+            myActivePopulation.SetPopulationCount(designatedPopulation, minimumPopulationToFunction);
+
+
     }
 
     public void HealTower(float amount)
