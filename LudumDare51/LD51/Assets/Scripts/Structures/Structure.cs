@@ -66,6 +66,7 @@ public class Structure : MonoBehaviour
     [Header("References")]
     public ActivePopulation myActivePopulation;
     public StructureHealthUI myStructureHealthUI;
+    public AudioController audioController;
 
     //private vars
     private float clickHeldTime = 0f;

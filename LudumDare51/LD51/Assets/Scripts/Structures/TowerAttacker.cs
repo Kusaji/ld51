@@ -52,6 +52,7 @@ public class TowerAttacker : MonoBehaviour
     public void DealDamage()
     {
         targeter.target.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
+        structure.audioController.PlayOneShot(0, 0.60f);
     }
     private void SetRangeIndicator()
     {
