@@ -361,7 +361,7 @@ MonoBehaviour:
   instantAttack: 0
   attackRange: 12
   attackDamage: 10
-  attackDelay: 12
+  attackDelay: 8
   areaOfEffect: 0
   multishot: 5
   targeter: {fileID: 7320479364769502860}

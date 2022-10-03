@@ -142,7 +142,7 @@ MonoBehaviour:
   isAlive: 0
   maxHealth: 10
   currentHealth: 0
-  healthPerWave: 2
+  healthPerWave: 1
 --- !u!195 &1052088562745392455
 NavMeshAgent:
   m_ObjectHideFlags: 0

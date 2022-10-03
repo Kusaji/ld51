@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minimumPopulationToFunction: 50
   effectivenessExponent: 0.75
-  rangeEffectivenessExponent: 0.11
+  rangeEffectivenessExponent: 0.12
   maxHealth: 25
   incomingDamageDefenseMod: 1.25
-  maxBuildProgress: 25
+  maxBuildProgress: 20
