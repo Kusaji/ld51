@@ -88,17 +88,14 @@ public class MeatballController : MonoBehaviour
         if (currentStructureDamage == 15)
         {
             meatballSize = 7f;
-            Debug.Log($"Meatball Size : {meatballSize}");
         }
         else if (currentStructureDamage <= 14 && currentStructureDamage >= 6f)
         {
             meatballSize = 3f;
-            Debug.Log($"Meatball Size : {meatballSize}");
         }
         else if (currentStructureDamage <= 5f) 
         {
             meatballSize = 1f;
-            Debug.Log($"Meatball Size : {meatballSize}");
         }
     }
 
