@@ -6057,6 +6057,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DisasterManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7983032953941820185, guid: f57042cb8a21d5e40af4cc4ab7016f7c, type: 3}
+      propertyPath: disasterCooldown
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7983032953941820186, guid: f57042cb8a21d5e40af4cc4ab7016f7c, type: 3}
       propertyPath: m_RootOrder
       value: 20

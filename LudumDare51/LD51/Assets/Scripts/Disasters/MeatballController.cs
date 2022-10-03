@@ -21,7 +21,7 @@ public class MeatballController : MonoBehaviour
     [Header("References / Compoennts")]
     public Rigidbody rb;
     public MeatballHitController meatballHit;
-
+    public AudioController audioController;
 
     #endregion
 
@@ -31,6 +31,10 @@ public class MeatballController : MonoBehaviour
     {
         //Shape the delicious meatball
         transform.localScale = new Vector3(meatballSize, meatballSize, meatballSize);
+
+        audioController.PlayOneShot(0, 0.60f);
+        audioController.PlayOneShot(2, 0.20f);
+
         PickRandomDirection();
     }
 
