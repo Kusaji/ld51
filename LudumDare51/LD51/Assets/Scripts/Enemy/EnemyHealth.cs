@@ -12,13 +12,14 @@ public class EnemyHealth : MonoBehaviour
     public bool isAlive;
     public float maxHealth;
     public float currentHealth;
-
+    public float healthPerWave;
     #endregion
 
     #region Unity Callbacks
     // Start is called before the first frame update
     void Start()
     {
+        maxHealth = maxHealth + EnemyManager.Instance.wave * healthPerWave;
         currentHealth = maxHealth;
         isAlive = true;
     }

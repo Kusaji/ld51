@@ -274,6 +274,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 2913511541878398760, guid: 6ac15664056ef7c45934d9ecafa6cd68, type: 3}
   myActivePopulation: {fileID: 5952773766199139753}
   myStructureHealthUI: {fileID: 1451263424730430919}
+  audioController: {fileID: 0}
   OnUpdatePopulation:
     m_PersistentCalls:
       m_Calls: []
@@ -292,10 +293,10 @@ MonoBehaviour:
   towersInRange: []
   incompleteTowers: []
   activeBuildTargets: 0
-  buildRange: 6.5
-  buildPower: 0.02
+  buildRange: 6
+  buildPower: 0.25
   tickingBuildCooldown: 0
-  towerBuildDelay: 0
+  towerBuildDelay: 0.125
   myStructure: {fileID: 7179941867667544852}
   rangeIndicator: {fileID: 2072922758889308438}
 --- !u!1 &5017592781306433589
