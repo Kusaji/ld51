@@ -339,7 +339,7 @@ MonoBehaviour:
   canHealSelf: 1
   towerHealRange: 5
   towerHealAmount: 2
-  towerHealDelay: 3
+  towerHealDelay: 6
   activeHealTargets: 0
   tickingHealCooldown: 0
   repairProjectile: {fileID: 7300430972184893010, guid: be224a2c10b02974d9877d244e7810be, type: 3}
