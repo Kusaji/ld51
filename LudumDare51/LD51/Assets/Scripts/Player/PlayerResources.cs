@@ -55,7 +55,7 @@ public class PlayerResources : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not enough population.");
+            //Debug.Log("Not enough population.");
         }
     }
     #endregion
