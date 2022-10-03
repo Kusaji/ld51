@@ -78,7 +78,6 @@ public class RepairTower : MonoBehaviour
 
     public void GetTowersInRange()
     {
-        print("get towers in range!");
 
         towersInRange.Clear();
 
