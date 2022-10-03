@@ -7,6 +7,8 @@ public class DisasterManager : MonoBehaviour
     public List<GameObject> disasterPrefabs;
     public Vector3 spawnPosition;
     public float disasterCooldown;
+    public float disasterMissChanceAtWave0;
+    public float disasterMissChanceAtWave20;
 
     // Start is called before the first frame update
     void Start()
@@ -16,12 +18,17 @@ public class DisasterManager : MonoBehaviour
 
     public void SpawnDisaster()
     {
-        GetRandomSpawnPos();
+        float finlDisasterMissChance = Mathf.Lerp(disasterMissChanceAtWave0, disasterMissChanceAtWave20, EnemyManager.Instance.wave);
 
-        Instantiate(
-            disasterPrefabs[Random.Range(0, disasterPrefabs.Count)],
-            spawnPosition,
-            Quaternion.Euler(new Vector3(0f, Random.Range(0f, 360f), 0f)));
+        if (Random.value > finlDisasterMissChance)
+        {
+            GetRandomSpawnPos();
+
+            Instantiate(
+                disasterPrefabs[Random.Range(0, disasterPrefabs.Count)],
+                spawnPosition,
+                Quaternion.Euler(new Vector3(0f, Random.Range(0f, 360f), 0f)));
+        }
     }
 
     public void GetRandomSpawnPos()

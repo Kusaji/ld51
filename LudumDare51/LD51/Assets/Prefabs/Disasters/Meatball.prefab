@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 4894907657875195904}
   - component: {fileID: 3382796986282568287}
   - component: {fileID: 8578589722897470909}
+  - component: {fileID: -3167387788794650022}
   m_Layer: 0
   m_Name: Meatball
   m_TagString: Untagged
@@ -384,6 +385,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7d64db6fdb854044ba010f719a34b95c, type: 3}
   - {fileID: 8300000, guid: ed3c6f4570db9ac4081c21d05fee1ec3, type: 3}
   - {fileID: 8300000, guid: 002e08010c967a54a847004cee59e655, type: 3}
+--- !u!114 &-3167387788794650022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4894907657875195907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e6ea21942bbbcf4980b3bc206505334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7392356118517175988
 GameObject:
   m_ObjectHideFlags: 0

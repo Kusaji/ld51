@@ -37,6 +37,8 @@ public class MeatballController : MonoBehaviour
         MakeRandomMeatball();
         transform.localScale = new Vector3(meatballSize, meatballSize, meatballSize);
 
+        transform.Translate(Vector3.up * (meatballSize), Space.Self);
+
         audioController.PlayOneShot(0, 0.60f);
         audioController.PlayOneShot(2, 0.20f);
 
