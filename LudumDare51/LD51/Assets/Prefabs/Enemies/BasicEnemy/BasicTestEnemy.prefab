@@ -143,6 +143,7 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   healthPerWave: 1
+  bloodPrefab: {fileID: 5381835647565391231, guid: f70ee53b5e68efe4d826f63aa302b15b, type: 3}
 --- !u!195 &1052088562745392455
 NavMeshAgent:
   m_ObjectHideFlags: 0
