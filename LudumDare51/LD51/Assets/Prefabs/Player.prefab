@@ -121,9 +121,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14595956bbc05b41a9d60e8afe2d1c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseUI: {fileID: 0}
   objectClickedOn: {fileID: 0}
   structure: {fileID: 0}
   testMatrix: {x: 1, y: 1}
+  isPaused: 0
 --- !u!82 &2328861946067477242
 AudioSource:
   m_ObjectHideFlags: 0

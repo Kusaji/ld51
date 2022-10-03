@@ -116,22 +116,25 @@ public class PlayerStructures : MonoBehaviour
 
     public void SpawnPlacementTower(int towerPrefab)
     {
-        minimumPopOfSelectedTower = structureBalanceNumbers[towerPrefab].minimumPopulationToFunction;
-        if (!spawningTower && PlayerResources.Instance.population >= minimumPopOfSelectedTower)
+        if (!spawningTower)
         {
-            GetMousePosition();
+            minimumPopOfSelectedTower = structureBalanceNumbers[towerPrefab].minimumPopulationToFunction;
+            if (!spawningTower && PlayerResources.Instance.population >= minimumPopOfSelectedTower)
+            {
+                GetMousePosition();
 
-            spawningTower = true;
-            spawningTowerInt = towerPrefab;
+                spawningTower = true;
+                spawningTowerInt = towerPrefab;
 
-            inactiveTower = Instantiate(
-                inactiveStructurePrefabs[towerPrefab],
-                MouseHitPosition,
-                Quaternion.identity,
-                structuresTransform
-                );
+                inactiveTower = Instantiate(
+                    inactiveStructurePrefabs[towerPrefab],
+                    MouseHitPosition,
+                    Quaternion.identity,
+                    structuresTransform
+                    );
 
-            forceSetMaterials = true;
+                forceSetMaterials = true;
+            }
         }
     }
 

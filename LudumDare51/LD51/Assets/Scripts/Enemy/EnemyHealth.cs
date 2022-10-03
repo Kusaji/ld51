@@ -13,6 +13,11 @@ public class EnemyHealth : MonoBehaviour
     public float maxHealth;
     public float currentHealth;
     public float healthPerWave;
+
+    [Header("Prefabs")]
+    public GameObject bloodPrefab;
+
+
     #endregion
 
     #region Unity Callbacks
@@ -33,6 +38,10 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             EnemyManager.Instance.activeEnemies.Remove(gameObject);
+            Instantiate(
+                bloodPrefab,
+                transform.position,
+                Quaternion.Euler(90f, 0f, 0f));
             Destroy(gameObject);
         }
     }

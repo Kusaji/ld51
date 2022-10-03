@@ -29,6 +29,7 @@ public class PlayerInput : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1.0f;
+        QualitySettings.maxQueuedFrames = 3;
     }
 
     public static Vector3 ScaledMousePosition

@@ -619,6 +619,14 @@ PrefabInstance:
       propertyPath: structures.Array.data[0]
       value: 
       objectReference: {fileID: 1371585485}
+    - target: {fileID: 3872526780349485346, guid: fb7bae57fe489c84984c38d68306fbe7, type: 3}
+      propertyPath: structurePrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 2564450407793457374, guid: ec39581980af8f94a86d9ef14b3da062, type: 3}
+    - target: {fileID: 3872526780349485346, guid: fb7bae57fe489c84984c38d68306fbe7, type: 3}
+      propertyPath: structurePrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 2958878110348796748, guid: b75998e22465c3c4db8f287fcb94a149, type: 3}
     - target: {fileID: 3872526780349485347, guid: fb7bae57fe489c84984c38d68306fbe7, type: 3}
       propertyPath: pauseUI
       value: 
