@@ -8,7 +8,8 @@ public class MeatballController : MonoBehaviour
 
     [Header("Assigned Stats")]
     public float moveSpeed;
-    public float damage;
+    public float enemyDamage;
+    public float structureDamage;
     public float lifeLength;
     public float meatballSize;
 
@@ -18,6 +19,7 @@ public class MeatballController : MonoBehaviour
 
     [Header("References / Compoennts")]
     public Rigidbody rb;
+    public MeatballHitController meatballHit;
 
     #endregion
 
@@ -52,14 +54,25 @@ public class MeatballController : MonoBehaviour
     /// <returns></returns>
     public IEnumerator MeatballRoutine()
     {
-        while (moveSpeed > 0)
+        while (gameObject)
         {
-            moveSpeed -= 4f;
-            meatballSize -= 0.030f;
-            transform.localScale = new Vector3(meatballSize, meatballSize, meatballSize);
+            if (moveSpeed > 0)
+            {
+                moveSpeed -= 4f;
+            }
+            if (meatballSize > 0.1f)
+            {
+                meatballSize -= 0.030f;
+                transform.localScale = new Vector3(meatballSize, meatballSize, meatballSize);
+                meatballHit.transform.localScale = new Vector3(meatballSize, meatballSize, meatballSize);
+            }
+            else if (meatballSize < 0.1f)
+            {
+                Destroy(gameObject);
+            }
             yield return new WaitForSeconds(0.1f);
         }
-    }
 
+    }
     #endregion
 }

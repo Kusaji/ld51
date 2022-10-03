@@ -256,12 +256,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4145293abde391489a74a28f00b34c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 250
-  damage: 0
+  moveSpeed: 300
+  enemyDamage: 25
+  structureDamage: 5
   lifeLength: 10
   meatballSize: 3
   hasHitGround: 0
   rb: {fileID: 4894907657875195906}
+  meatballHit: {fileID: 8048904204146908670}
 --- !u!1 &7392356118517175988
 GameObject:
   m_ObjectHideFlags: 0
