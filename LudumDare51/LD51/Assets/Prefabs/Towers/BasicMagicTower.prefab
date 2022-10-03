@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantAttack: 0
-  attackRange: 13
+  attackRange: 11
   attackDamage: 7.5
   attackDelay: 3
   targeter: {fileID: 179404295171479120}

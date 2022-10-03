@@ -18,7 +18,9 @@ public class EnemyManager : MonoBehaviour
     [Header("Settings")]
     public float spawnTime;
     public int enemiesToSpawn; //increment every 10 seconds
-    public int enemySpawnIncrement; //How many more enemies per wave?
+    public float enemySpawnIncrement; //How many more enemies per wave?
+    public float enemySpawnExponent; //Exponentially more enemies per wave!
+    public float spawnRadius = 35f;
 
     [Header("Runtime Stats")]
     public int wave; 
@@ -49,7 +51,7 @@ public class EnemyManager : MonoBehaviour
     {
         spawnPosition = Random.onUnitSphere;
         spawnPosition.y = 0;
-        spawnPosition = spawnPosition.normalized * 30f;
+        spawnPosition = spawnPosition.normalized * spawnRadius;
     }
     public void SpawnEnemy()
     {
@@ -91,7 +93,7 @@ public class EnemyManager : MonoBehaviour
             //Increment waves
             wave++;
             //Increase next wave amount
-            enemiesToSpawn = wave + 5;
+            enemiesToSpawn = Mathf.RoundToInt(Mathf.Pow(wave, enemySpawnExponent) * enemySpawnIncrement + 5f);
 
             //TODO countdown for spawn
             for (int i = (int)spawnTime; i > 0; i--)
