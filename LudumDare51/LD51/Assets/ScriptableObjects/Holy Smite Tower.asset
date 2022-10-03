@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da0252e04fc22af4795091675347eaae, type: 3}
-  m_Name: Builder
+  m_Name: Holy Smite Tower
   m_EditorClassIdentifier: 
-  minimumPopulationToFunction: 75
-  effectivenessExponent: 0.75
+  minimumPopulationToFunction: 250
+  effectivenessExponent: 0.85
   rangeEffectivenessExponent: 0.15
-  maxHealth: 20
-  incomingDamageDefenseMod: 1.5
-  maxBuildProgress: 25
+  maxHealth: 25
+  incomingDamageDefenseMod: 1.25
+  maxBuildProgress: 60

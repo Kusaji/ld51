@@ -70,13 +70,28 @@ MonoBehaviour:
   - {fileID: 549349075060496980, guid: ef357346ff68d1742903dcfe601acf87, type: 3}
   - {fileID: 684044323393523222, guid: 5201db9bd68a7e04cbe963fb5722a8ea, type: 3}
   - {fileID: 3916337454664495451, guid: 085422b326b266c409254bde00b7da90, type: 3}
+  - {fileID: 6950567571303324296, guid: efaed877c886c6f4e8a4277b93fdc0b2, type: 3}
+  - {fileID: 2564450407793457374, guid: ec39581980af8f94a86d9ef14b3da062, type: 3}
   - {fileID: 2958878110348796748, guid: b75998e22465c3c4db8f287fcb94a149, type: 3}
+  - {fileID: 1520848835879839829, guid: f266e6f276b4b6a48bf16149c0129a24, type: 3}
+  - {fileID: 67490569136015586, guid: e555f369e2d697f4a8532fa469f2b70d, type: 3}
+  - {fileID: 1340683463359221711, guid: 238206bd7d141c74e91e46bf90d6e0b1, type: 3}
   structureBalanceNumbers:
   - {fileID: 11400000, guid: 7c339a49506ccd74b8af1162ef0259a5, type: 2}
   - {fileID: 11400000, guid: cdbfce7b96380f147ad2164705eefb33, type: 2}
   - {fileID: 11400000, guid: 79dc5b0f8857a9b4aa2e182aaf8eefd0, type: 2}
+  - {fileID: 11400000, guid: 3d66ee50ed0d255448b0697fad46df6a, type: 2}
+  - {fileID: 11400000, guid: a7e5e66a2cf8fb040ba747245b89a79a, type: 2}
   - {fileID: 11400000, guid: 75dca1d039f8221429a7090fc56b4b22, type: 2}
+  - {fileID: 11400000, guid: 0decd4edeb9b52140b7ff89a32e96f98, type: 2}
+  - {fileID: 11400000, guid: 8170e262ab7459844bcc02c1a759033b, type: 2}
+  - {fileID: 11400000, guid: 0d11cc3c996bf704fa9e24689f0b9504, type: 2}
   inactiveStructurePrefabs:
+  - {fileID: 549349075060496980, guid: e15e799889996b3469eacc395b9df99d, type: 3}
+  - {fileID: 549349075060496980, guid: e15e799889996b3469eacc395b9df99d, type: 3}
+  - {fileID: 549349075060496980, guid: e15e799889996b3469eacc395b9df99d, type: 3}
+  - {fileID: 549349075060496980, guid: e15e799889996b3469eacc395b9df99d, type: 3}
+  - {fileID: 549349075060496980, guid: e15e799889996b3469eacc395b9df99d, type: 3}
   - {fileID: 549349075060496980, guid: e15e799889996b3469eacc395b9df99d, type: 3}
   - {fileID: 549349075060496980, guid: e15e799889996b3469eacc395b9df99d, type: 3}
   - {fileID: 549349075060496980, guid: e15e799889996b3469eacc395b9df99d, type: 3}
@@ -106,9 +121,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14595956bbc05b41a9d60e8afe2d1c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseUI: {fileID: 0}
   objectClickedOn: {fileID: 0}
   structure: {fileID: 0}
   testMatrix: {x: 1, y: 1}
+  isPaused: 0
 --- !u!82 &2328861946067477242
 AudioSource:
   m_ObjectHideFlags: 0

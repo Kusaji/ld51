@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97949b992cccce4ca9d6857b4cbf3e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackerColor: {r: 1, g: 1, b: 1, a: 1}
-  repairColor: {r: 0, g: 1, b: 0, a: 1}
-  builderColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  attackerColor: {r: 1, g: 1, b: 1, a: 0.2509804}
+  repairColor: {r: 0, g: 1, b: 0, a: 0.5019608}
+  builderColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 0.5019608}
   spr: {fileID: 7770900246037804626}
