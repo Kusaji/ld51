@@ -120,6 +120,7 @@ MonoBehaviour:
   target: {fileID: 0}
   targetStructure: {fileID: 0}
   attackDamage: 0.25
+  damagePerWave: 0.025
   defaultAttackRange: 3
   bastionAttackRange: 8
   attackDelay: 0.25

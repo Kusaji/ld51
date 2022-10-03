@@ -20,6 +20,7 @@ public class EnemyController : MonoBehaviour
 
     [Header("Stats")]
     public float attackDamage;
+    public float damagePerWave;
     public float defaultAttackRange;
     public float bastionAttackRange;
     public float attackDelay;
@@ -39,6 +40,8 @@ public class EnemyController : MonoBehaviour
 
         StartCoroutine(FindTargetRoutine());
         StartCoroutine(CalculateDistance());
+
+        attackDamage = attackDamage + EnemyManager.Instance.wave * damagePerWave;
     }
     #endregion
 
