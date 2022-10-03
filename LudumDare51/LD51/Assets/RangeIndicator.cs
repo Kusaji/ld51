@@ -22,7 +22,7 @@ public class RangeIndicator : MonoBehaviour
 
         transform.localScale = tempscale;
     }
-    void SetRange(float p_range, IndicatorType type)
+    public void SetRange(float p_range, IndicatorType type)
     {
         spr.transform.localScale = Vector3.one * p_range;
         switch (type)
@@ -38,7 +38,7 @@ public class RangeIndicator : MonoBehaviour
                 break;
         }
     }
-    enum IndicatorType
+    public enum IndicatorType
     {
         attacker, builder, repairer
     }

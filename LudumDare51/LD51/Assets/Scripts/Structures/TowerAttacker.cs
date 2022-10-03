@@ -27,6 +27,7 @@ public class TowerAttacker : MonoBehaviour
     [Header("References")]
     public TowerTargeter targeter;
     public Structure structure;
+    public RangeIndicator rangeIndicator;
     
     [Header("Prefabs")]
     public GameObject attackProjectilePrefab;
@@ -39,6 +40,11 @@ public class TowerAttacker : MonoBehaviour
     private void Start()
     {
         StartCoroutine(AttackRoutine());
+        structure.OnUpdatePopulation.AddListener(SetRangeIndicator);
+    }
+    private void OnEnable()
+    {
+        SetRangeIndicator();
     }
     #endregion
 
@@ -46,6 +52,10 @@ public class TowerAttacker : MonoBehaviour
     public void DealDamage()
     {
         targeter.target.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
+    }
+    private void SetRangeIndicator()
+    {
+        rangeIndicator.SetRange(EffectiveAttackRange, RangeIndicator.IndicatorType.attacker);
     }
     #endregion
 
@@ -67,7 +77,7 @@ public class TowerAttacker : MonoBehaviour
                     {
                         var projectile = Instantiate(
                             attackProjectilePrefab,
-                            targeter.projectileSpawnpoint.transform.position,
+                            targeter.projectileSpawnpoint.transform.position + Random.insideUnitSphere * targeter.randomSphereSpawnPoint,
                             Quaternion.identity);
                         var projectileSettings = projectile.GetComponent<SingleTargetProjectile>();
                         projectileSettings.target = targeter.target;
