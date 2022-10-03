@@ -14,6 +14,7 @@ public class TowerTargeter : MonoBehaviour
     [Header("Target Info")]
     public GameObject target;
     public GameObject projectileSpawnpoint;
+    public float randomSphereSpawnPoint = 1f;
     public float distanceToTarget;
 
     [Header("Components")]

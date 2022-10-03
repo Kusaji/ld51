@@ -39,6 +39,7 @@ public class RepairTower : MonoBehaviour
     public GameObject projectileOrigin;
 
     private Structure myStructure;
+    public RangeIndicator rangeIndicator;
     #endregion
 
     #region Unity Callbacks
@@ -47,6 +48,7 @@ public class RepairTower : MonoBehaviour
         myStructure = GetComponent<Structure>();
         GetTowersInRange();
         StartCoroutine(HealRoutine());
+        myStructure.OnUpdatePopulation.AddListener(SetRangeIndicator);
     }
 
     #endregion
@@ -56,6 +58,7 @@ public class RepairTower : MonoBehaviour
     private void OnEnable()
     {
         PlayerStructures.TowerUpdate += GetTowersInRange;
+        SetRangeIndicator();
     }
 
     private void OnDisable()
@@ -109,7 +112,10 @@ public class RepairTower : MonoBehaviour
 
         activeHealTargets = damagedTowers.Count;
     }
-
+    private void SetRangeIndicator()
+    {
+        rangeIndicator.SetRange(EffectiveHealRange, RangeIndicator.IndicatorType.repairer);
+    }
 
     public void HealStructures()
     {

@@ -32,6 +32,7 @@ public class BuilderTower : MonoBehaviour
 
     [Header("Components")]
     public Structure myStructure;
+    public RangeIndicator rangeIndicator;
     #endregion
 
     #region Unity Callbacks
@@ -40,6 +41,7 @@ public class BuilderTower : MonoBehaviour
     {
         GetTowersInRange();
         StartCoroutine(BuildRoutine());
+        myStructure.OnUpdatePopulation.AddListener(SetRangeIndicator);
     }
     #endregion
 
@@ -47,6 +49,7 @@ public class BuilderTower : MonoBehaviour
     private void OnEnable()
     {
         PlayerStructures.TowerUpdate += GetTowersInRange;
+        SetRangeIndicator();
     }
 
     private void OnDisable()
@@ -70,6 +73,10 @@ public class BuilderTower : MonoBehaviour
                 }
             }
         }
+    }
+    private void SetRangeIndicator()
+    {
+        rangeIndicator.SetRange(EffectiveBuildRange, RangeIndicator.IndicatorType.builder);
     }
 
     public void CheckForIncompleteTowers()

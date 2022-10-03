@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.AI;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Base Class all deployable structures rely on.
@@ -72,8 +73,14 @@ public class Structure : MonoBehaviour
     private bool leftClickHeld = false;
     private bool rightClickHeld = false;
     private bool constructionFrame = true;
+
+    public UnityEvent OnUpdatePopulation;
     #endregion
 
+    private void Awake()
+    {
+        OnUpdatePopulation = new UnityEvent();
+    }
     #region Unity Callbacks
     // Start is called before the first frame update
     void Start()
@@ -88,7 +95,7 @@ public class Structure : MonoBehaviour
         if (myStructureHealthUI != null)
             myStructureHealthUI.SetHealthCount(currentHealth, maxHealth);
         if (myStructureHealthUI != null)
-            myStructureHealthUI.SetConstructionCount(currentBuildProgress, maxBuildProgress);
+            myStructureHealthUI.SetConstructionCount(currentBuildProgress, maxBuildProgress);        
     }
     private void FixedUpdate()
     {
@@ -96,6 +103,9 @@ public class Structure : MonoBehaviour
 
         if (constructionFrame && myStructureHealthUI != null)
             myStructureHealthUI.SetHealthCount(currentHealth, maxHealth);
+
+        if (constructionFrame)
+            UpdatePopulation();
 
         constructionFrame = false;
     }
@@ -248,7 +258,7 @@ public class Structure : MonoBehaviour
         if (myActivePopulation != null)
             myActivePopulation.SetPopulationCount(designatedPopulation, minimumPopulationToFunction);
 
-
+        OnUpdatePopulation.Invoke();
     }
 
     public void HealTower(float amount)
