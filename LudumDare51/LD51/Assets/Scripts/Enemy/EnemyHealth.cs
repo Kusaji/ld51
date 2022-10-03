@@ -12,6 +12,7 @@ public class EnemyHealth : MonoBehaviour
     public bool isAlive;
     public float maxHealth;
     public float currentHealth;
+    public GameObject deathPrefab;
 
     #endregion
 
@@ -32,6 +33,11 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             EnemyManager.Instance.activeEnemies.Remove(gameObject);
+            if (deathPrefab != null)
+            {
+                Instantiate(deathPrefab, transform.position,Quaternion.Euler(new Vector3(90,0,0)));
+            }
+
             Destroy(gameObject);
         }
     }
