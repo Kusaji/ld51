@@ -18,7 +18,7 @@ public class DisasterManager : MonoBehaviour
 
     public void SpawnDisaster()
     {
-        float finlDisasterMissChance = Mathf.Lerp(disasterMissChanceAtWave0, disasterMissChanceAtWave20, EnemyManager.Instance.wave);
+        float finlDisasterMissChance = Mathf.Lerp(disasterMissChanceAtWave0, disasterMissChanceAtWave20, (float)EnemyManager.Instance.wave / 20f);
 
         if (Random.value > finlDisasterMissChance)
         {

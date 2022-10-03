@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Magic Multishot Tower
   m_EditorClassIdentifier: 
   minimumPopulationToFunction: 50
-  effectivenessExponent: 0.75
-  rangeEffectivenessExponent: 0.12
+  effectivenessExponent: 0.7
+  rangeEffectivenessExponent: 0.11
   maxHealth: 25
   incomingDamageDefenseMod: 1.25
   maxBuildProgress: 20

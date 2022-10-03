@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class BGMController : MonoBehaviour
 {
+    public static BGMController instance;
     public List<AudioClip> songs;
     public AudioSource speaker;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(CheckIfSongEndedRoutine());
+        if (instance != null)
+            Destroy(this.gameObject);
+        else
+        {
+            instance = this;
+            StartCoroutine(CheckIfSongEndedRoutine());
+            GameObject.DontDestroyOnLoad(this.gameObject);
+        }
     }
 
 

@@ -14795,7 +14795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myStructure: {fileID: 1974728397034254223}
-  timeToGenerateResource: 1.6667
+  timeToGenerateResource: 1.5
   generateTimer: 0
   generateEffect: {fileID: 1747379526645430800}
 --- !u!114 &7691297003753053388
@@ -14854,7 +14854,7 @@ MonoBehaviour:
   towersInRange: []
   incompleteTowers: []
   activeBuildTargets: 0
-  buildRange: 10
+  buildRange: 11
   buildPower: 0.125
   tickingBuildCooldown: 0
   towerBuildDelay: 0.125

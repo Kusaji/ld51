@@ -18,6 +18,8 @@ public class EnemyHealth : MonoBehaviour
     [Header("Prefabs")]
     public GameObject bloodPrefab;
 
+    [Header("Components")]
+    public ParticleSystem hitParticles;
 
     #endregion
 
@@ -44,6 +46,9 @@ public class EnemyHealth : MonoBehaviour
                 transform.position,
                 Quaternion.Euler(90f, 0f, 0f));
             Destroy(gameObject);
+        } else
+        {
+            hitParticles.Play();
         }
     }
     #endregion

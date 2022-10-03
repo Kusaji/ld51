@@ -46,4 +46,6 @@ MonoBehaviour:
   disasterPrefabs:
   - {fileID: 4894907657875195907, guid: 3c81bb922da32f546ac9639de571ccad, type: 3}
   spawnPosition: {x: 0, y: 0, z: 0}
-  disasterCooldown: 30
+  disasterCooldown: 10
+  disasterMissChanceAtWave0: 1
+  disasterMissChanceAtWave20: 0.33

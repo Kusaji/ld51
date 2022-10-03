@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 300
-  enemyDamage: 25
+  enemyDamage: 99999
   minimumStructureDamage: 4
   maxStructureDamage: 15
   currentStructureDamage: 0
@@ -397,6 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6ea21942bbbcf4980b3bc206505334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &7392356118517175988
 GameObject:
   m_ObjectHideFlags: 0
