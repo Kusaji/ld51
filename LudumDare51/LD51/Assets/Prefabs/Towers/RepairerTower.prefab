@@ -337,7 +337,7 @@ MonoBehaviour:
   towersInRange: []
   damagedTowers: []
   canHealSelf: 1
-  towerHealRange: 10
+  towerHealRange: 5
   towerHealAmount: 2
   towerHealDelay: 3
   activeHealTargets: 0

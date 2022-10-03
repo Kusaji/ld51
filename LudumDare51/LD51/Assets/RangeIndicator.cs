@@ -8,12 +8,10 @@ public class RangeIndicator : MonoBehaviour
     public Color repairColor = Color.green;
     public Color builderColor = Color.yellow;
 
-    private SpriteRenderer spr;
+    public SpriteRenderer spr;
 
     private void Awake()
     {
-        spr = GetComponentInChildren<SpriteRenderer>();
-
         Vector3 tempscale = Vector3.one;
 
         tempscale.x /= transform.lossyScale.x;

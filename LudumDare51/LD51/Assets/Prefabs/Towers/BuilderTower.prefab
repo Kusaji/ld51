@@ -292,7 +292,7 @@ MonoBehaviour:
   towersInRange: []
   incompleteTowers: []
   activeBuildTargets: 0
-  buildRange: 10
+  buildRange: 6.5
   buildPower: 0.02
   tickingBuildCooldown: 0
   towerBuildDelay: 0

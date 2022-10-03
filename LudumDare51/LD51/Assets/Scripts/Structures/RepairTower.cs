@@ -24,6 +24,9 @@ public class RepairTower : MonoBehaviour
     {
         get
         {
+            if (myStructure == null)
+                myStructure = GetComponent<Structure>();
+
             return towerHealRange * myStructure.cachedPopulationRangeEffectiveness;
         }
     }
@@ -43,9 +46,12 @@ public class RepairTower : MonoBehaviour
     #endregion
 
     #region Unity Callbacks
-    private void Start()
+    private void Awake()
     {
         myStructure = GetComponent<Structure>();
+    }
+    private void Start()
+    {        
         GetTowersInRange();
         StartCoroutine(HealRoutine());
         myStructure.OnUpdatePopulation.AddListener(SetRangeIndicator);
