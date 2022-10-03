@@ -9900,7 +9900,7 @@ MonoBehaviour:
   minVolume: 0.1
   maxVolume: 0.2
   sounds:
-  - {fileID: 8300000, guid: b4d3ef246c0a88045a2cb11dff6a4552, type: 3}
+  - {fileID: 8300000, guid: 9d2e0e29fee2ff44d848255f6331bc0f, type: 3}
   speaker: {fileID: 5162378166918398024}
 --- !u!1 &2923628356150892779
 GameObject:
