@@ -17,7 +17,6 @@ public class BGMController : MonoBehaviour
     public void StartPlayingRandomSong()
     {
         int randomSelection = Random.Range(0, songs.Count);
-        Debug.Log($"{randomSelection}");
         speaker.clip = songs[randomSelection];
         speaker.Play();
     }
