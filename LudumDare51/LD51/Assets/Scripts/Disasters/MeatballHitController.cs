@@ -28,5 +28,20 @@ public class MeatballHitController : MonoBehaviour
                 screenShakeStrength -= screenShakeReductionAmount;
             }
         }
+
+        //Damage to enemies
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            var enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
+
+            enemyHealth.TakeDamage(meatball.enemyDamage);
+        }
+        
+        //Damage to structures
+        if (other.gameObject.CompareTag("Structure"))
+        {
+            var structureHealth = other.gameObject.GetComponent<StructureHitbox>().structure;
+            structureHealth.DealDamage(meatball.structureDamage);
+        }
     }
 }

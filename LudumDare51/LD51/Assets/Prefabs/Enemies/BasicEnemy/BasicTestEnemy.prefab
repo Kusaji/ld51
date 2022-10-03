@@ -97,7 +97,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1052088562745392504}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -116,16 +116,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 1052088562745392454}
   agent: {fileID: 1052088562745392455}
+  enemyAnimator: {fileID: 7033545255873040978}
   target: {fileID: 0}
   targetStructure: {fileID: 0}
   attackDamage: 0.25
   defaultAttackRange: 3
   bastionAttackRange: 8
-  currentAttackRange: 0
   attackDelay: 0.25
+  currentAttackRange: 0
   distanceToTarget: 0
   isAttacking: 0
-  enemyAnimator: {fileID: 7033545255873040978}
+  currentSpeed: 0
 --- !u!114 &1052088562745392454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,9 +213,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1052088562745392449}
   anim: {fileID: 8307113940210926471}
-  isRunning: 0
-  isIdle: 0
-  isAttacking: 0
   state: 0
 --- !u!1 &4312765199510127107
 GameObject:
