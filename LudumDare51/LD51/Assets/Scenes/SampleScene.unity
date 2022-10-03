@@ -613,7 +613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3872526780349485345, guid: fb7bae57fe489c84984c38d68306fbe7, type: 3}
       propertyPath: population
-      value: 500
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3872526780349485346, guid: fb7bae57fe489c84984c38d68306fbe7, type: 3}
       propertyPath: structures.Array.data[0]
