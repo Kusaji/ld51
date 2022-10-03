@@ -34159,6 +34159,7 @@ GameObject:
   - component: {fileID: 2913511541878398765}
   - component: {fileID: 2913511541878398763}
   - component: {fileID: 2913511541878398762}
+  - component: {fileID: 504934388788613851}
   m_Layer: 0
   m_Name: TowerExplosion
   m_TagString: Untagged
@@ -39074,9 +39075,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c4e1ce118471da4090e311a38f4e5ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speaker: {fileID: 2913511541878398762}
+  minVolume: 0.45
+  maxVolume: 0.55
   sounds:
   - {fileID: 8300000, guid: 83489d85d0a82374f9137adcba0c5cac, type: 3}
+  speaker: {fileID: 2913511541878398762}
 --- !u!82 &2913511541878398762
 AudioSource:
   m_ObjectHideFlags: 0
@@ -39173,6 +39176,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &504934388788613851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2913511541878398760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4e1ce118471da4090e311a38f4e5ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVolume: 0.3
+  maxVolume: 0.4
+  sounds:
+  - {fileID: 8300000, guid: f1845e74a728c5c4481944fc452384c5, type: 3}
+  speaker: {fileID: 2913511541878398762}
 --- !u!1 &2913522419774657914
 GameObject:
   m_ObjectHideFlags: 0
