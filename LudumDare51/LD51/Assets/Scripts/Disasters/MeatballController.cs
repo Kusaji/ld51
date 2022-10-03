@@ -9,7 +9,11 @@ public class MeatballController : MonoBehaviour
     [Header("Assigned Stats")]
     public float moveSpeed;
     public float enemyDamage;
-    public float structureDamage;
+    
+    public float minimumStructureDamage;
+    public float maxStructureDamage;
+    public float currentStructureDamage;
+
     public float lifeLength;
     public float meatballSize;
 
@@ -30,6 +34,7 @@ public class MeatballController : MonoBehaviour
     private void Start()
     {
         //Shape the delicious meatball
+        MakeRandomMeatball();
         transform.localScale = new Vector3(meatballSize, meatballSize, meatballSize);
 
         audioController.PlayOneShot(0, 0.60f);
@@ -70,6 +75,30 @@ public class MeatballController : MonoBehaviour
             case 3:
                 randomDirection = new Vector3(-1f, 0f, 0f);
                 break;
+        }
+    }
+
+    public void MakeRandomMeatball()
+    {
+        //If we roll a 15 damage meatball, it is catastrophic potentially run ending.
+        int randomStuctureDamage = (int)Random.Range(minimumStructureDamage, maxStructureDamage + 1);
+        currentStructureDamage = randomStuctureDamage;
+
+        //Mega Meatball
+        if (currentStructureDamage == 15)
+        {
+            meatballSize = 7f;
+            Debug.Log($"Meatball Size : {meatballSize}");
+        }
+        else if (currentStructureDamage <= 14 && currentStructureDamage >= 6f)
+        {
+            meatballSize = 3f;
+            Debug.Log($"Meatball Size : {meatballSize}");
+        }
+        else if (currentStructureDamage <= 5f) 
+        {
+            meatballSize = 1f;
+            Debug.Log($"Meatball Size : {meatballSize}");
         }
     }
 

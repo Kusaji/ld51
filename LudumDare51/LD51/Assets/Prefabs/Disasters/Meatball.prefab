@@ -260,7 +260,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 300
   enemyDamage: 25
-  structureDamage: 5
+  minimumStructureDamage: 4
+  maxStructureDamage: 15
+  currentStructureDamage: 0
   lifeLength: 10
   meatballSize: 3
   hasHitGround: 0

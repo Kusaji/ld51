@@ -16,7 +16,22 @@ public class MeatballHitController : MonoBehaviour
             meatball.hasHitGround = true;
             meatball.StartMeatballRoutine();
             meatball.audioController.PlayOneShot(1, 0.60f);
-            Camera.main.GetComponent<CameraController>().ShakeCameraImpulse(Random.onUnitSphere, 100f);
+
+            if (meatball.meatballSize == 7)
+            {
+                screenShakeStrength = 150f;
+                Camera.main.GetComponent<CameraController>().ShakeCameraImpulse(Random.onUnitSphere, screenShakeStrength);
+            }
+            else if (meatball.meatballSize == 3)
+            {
+                screenShakeStrength = 75f;
+                Camera.main.GetComponent<CameraController>().ShakeCameraImpulse(Random.onUnitSphere, screenShakeStrength);
+            }
+            else
+            {
+                screenShakeStrength = 30f;
+                Camera.main.GetComponent<CameraController>().ShakeCameraImpulse(Random.onUnitSphere, screenShakeStrength);
+            }
         }
 
         //Camera shake, hell yeah.
@@ -43,7 +58,7 @@ public class MeatballHitController : MonoBehaviour
         if (other.gameObject.CompareTag("Structure"))
         {
             var structureHealth = other.gameObject.GetComponent<StructureHitbox>().structure;
-            structureHealth.DealDamage(meatball.structureDamage);
+            structureHealth.DealDamage(meatball.currentStructureDamage);
         }
     }
 }
