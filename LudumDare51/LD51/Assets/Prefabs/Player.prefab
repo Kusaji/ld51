@@ -62,7 +62,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 062a8d2c3bad6cd48ab6c4b190f90a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  structures: []
+  structures:
+  - {fileID: 0}
   structurePrefabs:
   - {fileID: 549349075060496980, guid: ef357346ff68d1742903dcfe601acf87, type: 3}
   - {fileID: 684044323393523222, guid: 5201db9bd68a7e04cbe963fb5722a8ea, type: 3}
@@ -87,6 +88,8 @@ MonoBehaviour:
   spawningTowerInt: 0
   spawningTower: 0
   canSpawnOnMouse: 0
+  canSpawnOnMouseLastFrame: 0
+  forceSetMaterials: 0
   inactiveTower: {fileID: 0}
 --- !u!114 &3872526780349485347
 MonoBehaviour:
