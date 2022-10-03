@@ -15,6 +15,9 @@ public class SingleTargetProjectile : MonoBehaviour
     public float damage;
     public GameObject target;
     public Rigidbody rb;
+
+    public GameObject collisionEffectPrefab;
+    public Vector3 collisionEffectEulerAngles;
     #endregion
 
     #region Unity Callbacks
@@ -49,6 +52,8 @@ public class SingleTargetProjectile : MonoBehaviour
         if (other.gameObject == target)
         {
             other.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+            if (collisionEffectPrefab != null)
+                Instantiate(collisionEffectPrefab, other.gameObject.transform.position, Quaternion.Euler(collisionEffectEulerAngles));
             Destroy(gameObject);
         }
     }

@@ -14782,6 +14782,7 @@ MonoBehaviour:
   OnUpdatePopulation:
     m_PersistentCalls:
       m_Calls: []
+  iAmHighlighted: 0
 --- !u!114 &8304370153141541346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39893,6 +39894,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1974728397034254220}
     m_Modifications:
+    - target: {fileID: 3221582373719406268, guid: 5a42e4e1ca62c2c43a916c00a03977de, type: 3}
+      propertyPath: myStructure
+      value: 
+      objectReference: {fileID: 1974728397034254223}
     - target: {fileID: 7770900247867684248, guid: 5a42e4e1ca62c2c43a916c00a03977de, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -40236,6 +40241,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1974728397034254220}
     m_Modifications:
+    - target: {fileID: 3221582373719406268, guid: 5a42e4e1ca62c2c43a916c00a03977de, type: 3}
+      propertyPath: myStructure
+      value: 
+      objectReference: {fileID: 1974728397034254223}
     - target: {fileID: 7770900247867684248, guid: 5a42e4e1ca62c2c43a916c00a03977de, type: 3}
       propertyPath: m_RootOrder
       value: 8

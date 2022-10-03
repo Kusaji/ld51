@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0252e04fc22af4795091675347eaae, type: 3}
   m_Name: Holy Smite Tower
   m_EditorClassIdentifier: 
-  minimumPopulationToFunction: 250
+  minimumPopulationToFunction: 100
   effectivenessExponent: 0.85
   rangeEffectivenessExponent: 0.15
   maxHealth: 25

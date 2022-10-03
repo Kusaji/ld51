@@ -315,6 +315,7 @@ MonoBehaviour:
   OnUpdatePopulation:
     m_PersistentCalls:
       m_Calls: []
+  iAmHighlighted: 0
 --- !u!114 &179404295171479120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -731,6 +732,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 924503178666033390}
     m_Modifications:
+    - target: {fileID: 3221582373719406268, guid: 5a42e4e1ca62c2c43a916c00a03977de, type: 3}
+      propertyPath: myStructure
+      value: 
+      objectReference: {fileID: 8196598761461319996}
     - target: {fileID: 7770900247867684248, guid: 5a42e4e1ca62c2c43a916c00a03977de, type: 3}
       propertyPath: m_RootOrder
       value: 5

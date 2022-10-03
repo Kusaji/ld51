@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0252e04fc22af4795091675347eaae, type: 3}
   m_Name: Magic Bomber Tower
   m_EditorClassIdentifier: 
-  minimumPopulationToFunction: 1000
+  minimumPopulationToFunction: 500
   effectivenessExponent: 0.9
   rangeEffectivenessExponent: 0.2
   maxHealth: 35

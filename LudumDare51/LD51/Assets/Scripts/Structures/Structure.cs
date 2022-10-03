@@ -76,6 +76,7 @@ public class Structure : MonoBehaviour
     private bool constructionFrame = true;
 
     public UnityEvent OnUpdatePopulation;
+    public bool iAmHighlighted = false;
     #endregion
 
     private void Awake()
@@ -191,7 +192,10 @@ public class Structure : MonoBehaviour
             }
         }
     }
-
+    public void SetHighlighted(bool setting)
+    {
+        iAmHighlighted = setting;
+    }
     private void AddAPopFromPlayer()
     {        
             designatedPopulation++;

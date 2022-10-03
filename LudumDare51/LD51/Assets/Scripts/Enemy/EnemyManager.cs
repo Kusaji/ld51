@@ -11,8 +11,26 @@ public class EnemyManager : MonoBehaviour
     [Header("Singleton")]
     public static EnemyManager Instance;
 
+    
+    public List<GameObject> enemyPrefabs
+    {
+        get
+        {
+            if (wave >= 25)
+                return wave25enemyPrefabs;
+            else if (wave >= 15)
+                return wave15enemyPrefabs;
+            else if (wave >= 5)
+                return wave5enemyPrefabs;
+            else
+                return wave0enemyPrefabs;
+        }
+    }
     [Header("Lists")]
-    public List<GameObject> enemyPrefabs;
+    public List<GameObject> wave0enemyPrefabs;
+    public List<GameObject> wave5enemyPrefabs;
+    public List<GameObject> wave15enemyPrefabs;
+    public List<GameObject> wave25enemyPrefabs;
     public List<GameObject> activeEnemies;
     
     [Header("Settings")]
@@ -69,6 +87,8 @@ public class EnemyManager : MonoBehaviour
     #region Coroutines
     public IEnumerator SpawnEnemyRoutine()
     {
+        yield return new WaitUntil(() => PlayerStructures.instance.firstStructurePlaced);
+
         //TODO countdown for spawn
         for (int i = (int)spawnTime; i > 0; i--)
         {

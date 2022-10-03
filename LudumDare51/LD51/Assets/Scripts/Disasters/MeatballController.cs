@@ -26,7 +26,7 @@ public class MeatballController : MonoBehaviour
     public Rigidbody rb;
     public MeatballHitController meatballHit;
     public AudioController audioController;
-
+    public bool directionSet = false;
     #endregion
 
     #region Unity Callbacks
@@ -61,22 +61,25 @@ public class MeatballController : MonoBehaviour
 
     public void PickRandomDirection ()
     {
-        int selectedDirection = Random.Range(0, 4);
-
-        switch (selectedDirection)
+        if (directionSet == false)
         {
-            case 0:
-                randomDirection = new Vector3(0f, 0f, 1f);
-                break;
-            case 1:
-                randomDirection = new Vector3(0f, 0f, -1f);
-                break;
-            case 2:
-                randomDirection = new Vector3(1f, 0f, 0f);
-                break;
-            case 3:
-                randomDirection = new Vector3(-1f, 0f, 0f);
-                break;
+            int selectedDirection = Random.Range(0, 4);
+
+            switch (selectedDirection)
+            {
+                case 0:
+                    randomDirection = new Vector3(0f, 0f, 1f);
+                    break;
+                case 1:
+                    randomDirection = new Vector3(0f, 0f, -1f);
+                    break;
+                case 2:
+                    randomDirection = new Vector3(1f, 0f, 0f);
+                    break;
+                case 3:
+                    randomDirection = new Vector3(-1f, 0f, 0f);
+                    break;
+            }
         }
     }
 
@@ -120,7 +123,7 @@ public class MeatballController : MonoBehaviour
             {
                 meatballSize -= 0.030f;
                 transform.localScale = new Vector3(meatballSize, meatballSize, meatballSize);
-                meatballHit.transform.localScale = new Vector3(meatballSize, meatballSize, meatballSize);
+                //meatballHit.transform.localScale = new Vector3(meatballSize, meatballSize, meatballSize);
             }
             else if (meatballSize < 0.1f)
             {

@@ -232,6 +232,7 @@ MonoBehaviour:
   OnUpdatePopulation:
     m_PersistentCalls:
       m_Calls: []
+  iAmHighlighted: 0
 --- !u!114 &1223240385890133073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,15 +265,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantAttack: 0
-  attackRange: 11
-  attackDamage: 7.5
-  attackDelay: 3
+  attackRange: 16
+  attackDamage: 100
+  attackDelay: 40
   areaOfEffect: 0
   multishot: 1
   targeter: {fileID: 1223240385890133073}
   structure: {fileID: 7153025462477503293}
   rangeIndicator: {fileID: 1005581231193449099}
-  attackProjectilePrefab: {fileID: 7300430972184893010, guid: e201d947c0efd6a45ba1c130512f2f92, type: 3}
+  attackProjectilePrefab: {fileID: 7300430972184893010, guid: 8c2cdc0d69470f040a634c01e36e1244, type: 3}
 --- !u!82 &2094939170734254511
 AudioSource:
   m_ObjectHideFlags: 0
@@ -714,6 +715,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2184513386092393199}
     m_Modifications:
+    - target: {fileID: 3221582373719406268, guid: 5a42e4e1ca62c2c43a916c00a03977de, type: 3}
+      propertyPath: myStructure
+      value: 
+      objectReference: {fileID: 7153025462477503293}
     - target: {fileID: 7770900247867684248, guid: 5a42e4e1ca62c2c43a916c00a03977de, type: 3}
       propertyPath: m_RootOrder
       value: 5

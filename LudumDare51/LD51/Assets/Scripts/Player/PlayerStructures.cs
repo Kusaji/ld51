@@ -44,6 +44,7 @@ public class PlayerStructures : MonoBehaviour
     public bool forceSetMaterials;
     public GameObject inactiveTower;
     private int minimumPopOfSelectedTower;
+    public bool firstStructurePlaced = false;
     #endregion
 
     #region Events and Delegates
@@ -159,7 +160,7 @@ public class PlayerStructures : MonoBehaviour
             Destroy(inactiveTower);
 
             audioController.PlayOneShot(0, 0.1f);
-
+            firstStructurePlaced = true;
             //NavMeshBuilder.BuildNavMeshAsync();
 
         }

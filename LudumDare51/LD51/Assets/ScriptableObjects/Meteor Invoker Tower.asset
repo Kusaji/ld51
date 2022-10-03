@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0252e04fc22af4795091675347eaae, type: 3}
   m_Name: Meteor Invoker Tower
   m_EditorClassIdentifier: 
-  minimumPopulationToFunction: 5000
+  minimumPopulationToFunction: 500
   effectivenessExponent: 0.95
   rangeEffectivenessExponent: 0.3
   maxHealth: 75
   incomingDamageDefenseMod: 1.5
-  maxBuildProgress: 400
+  maxBuildProgress: 90

@@ -14,17 +14,19 @@ public class ResourceGenerator : MonoBehaviour
     }
     private void FixedUpdate()
     {
-
-        generateTimer -= Time.fixedDeltaTime * myStructure.cachedPopulationEffectiveness;
-        int generates = 0;
-        while (generateTimer <= 0f)
+        if (PlayerStructures.instance.firstStructurePlaced)
         {
-            PlayerResources.Instance.AddPopulation(1);
-            PlayerResources.Instance.TrackPopulationGeneration(1);
-            generateTimer += timeToGenerateResource;
-            generates++;
+            generateTimer -= Time.fixedDeltaTime * myStructure.cachedPopulationEffectiveness;
+            int generates = 0;
+            while (generateTimer <= 0f)
+            {
+                PlayerResources.Instance.AddPopulation(1);
+                PlayerResources.Instance.TrackPopulationGeneration(1);
+                generateTimer += timeToGenerateResource;
+                generates++;
+            }
+            if (generates > 0)
+                generateEffect.Play();
         }
-        if (generates > 0)
-            generateEffect.Play();
     }
 }

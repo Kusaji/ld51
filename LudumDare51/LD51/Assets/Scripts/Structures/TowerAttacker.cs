@@ -34,6 +34,8 @@ public class TowerAttacker : MonoBehaviour
     [Header("Prefabs")]
     public GameObject attackProjectilePrefab;
 
+    public bool meteorInvoker = false;
+
     //Private Vars
     private float tickingAttackCooldown;
     #endregion
@@ -105,13 +107,31 @@ public class TowerAttacker : MonoBehaviour
     }
     private void FireAtTarget(GameObject target)
     {
-        var projectile = Instantiate(
-                        attackProjectilePrefab,
-                        targeter.projectileSpawnpoint.transform.position + Random.insideUnitSphere * targeter.randomSphereSpawnPoint,
-                        Quaternion.identity);
-        var projectileSettings = projectile.GetComponent<SingleTargetProjectile>();
-        projectileSettings.target = target;
-        projectileSettings.damage = attackDamage;
+        if (meteorInvoker)
+        {
+            var meatball = Instantiate(
+                attackProjectilePrefab,
+                targeter.projectileSpawnpoint.transform.position + Vector3.up * 15f,
+                Quaternion.Euler(new Vector3(0f, Random.Range(0f, 360f), 0f)));
+
+            var meatcontroller = meatball.GetComponent<MeatballController>();
+            meatcontroller.randomDirection = (target.transform.position - transform.position);
+            meatcontroller.randomDirection.y = 0f;
+            meatcontroller.randomDirection.Normalize();
+            meatcontroller.directionSet = true;
+            print(meatcontroller.randomDirection.ToString("0.00"));
+        }
+        else
+        {
+
+            var projectile = Instantiate(
+                            attackProjectilePrefab,
+                            targeter.projectileSpawnpoint.transform.position + Random.insideUnitSphere * targeter.randomSphereSpawnPoint,
+                            Quaternion.identity);
+            var projectileSettings = projectile.GetComponent<SingleTargetProjectile>();
+            projectileSettings.target = target;
+            projectileSettings.damage = attackDamage;
+        }
     }
     #endregion
 }
