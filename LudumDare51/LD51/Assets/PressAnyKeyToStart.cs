@@ -27,9 +27,7 @@ public class PressAnyKeyToStart : MonoBehaviour
             }
             else
             {
-                //SceneManager.LoadScene(1);
-                menuObject.SetActive(true);
-                gameObject.SetActive(false);
+                SceneManager.LoadScene(1);
             }
             tutorialStage++;
         }
