@@ -24,6 +24,10 @@ public class PlayerStructures : MonoBehaviour
     [Header("Inactive Structures")] //Match this with structure prefabs
     public List<GameObject> inactiveStructurePrefabs;
 
+    [Header("Placement Materials")]
+    public Material canPlaceHere;
+    public Material noPlaceHere;
+
     [Header("Runtime | Do not set")]
     [Space(50)]
     public Vector3 mousePosition;
@@ -33,6 +37,8 @@ public class PlayerStructures : MonoBehaviour
     public int spawningTowerInt;
     public bool spawningTower;
     public bool canSpawnOnMouse;
+    public bool canSpawnOnMouseLastFrame;
+    public bool forceSetMaterials;
     public GameObject inactiveTower;
     private int minimumPopOfSelectedTower;
     #endregion
@@ -65,7 +71,29 @@ public class PlayerStructures : MonoBehaviour
         if (spawningTower && inactiveTower != null)
         {
             GetMousePosition();
-            inactiveTower.transform.position = MouseHitPosition;
+            inactiveTower.transform.position = MouseHitPosition;            
+
+            if (forceSetMaterials || canSpawnOnMouse != canSpawnOnMouseLastFrame)
+            {
+                forceSetMaterials = false;
+                MeshRenderer[] meshRenderers = inactiveTower.gameObject.GetComponentsInChildren<MeshRenderer>();
+                
+                for (int mrIter = 0; mrIter < meshRenderers.Length; mrIter++)
+                {
+                    int matArrayLength = meshRenderers[mrIter].sharedMaterials.Length;
+                    if (matArrayLength == 1)
+                        meshRenderers[mrIter].sharedMaterial = canSpawnOnMouse ? canPlaceHere : noPlaceHere;
+                    else
+                    {
+                        Material[] matArray = new Material[matArrayLength];
+                        for (int i = 0; i < matArrayLength; i++)
+                        {
+                            matArray[i] = canSpawnOnMouse ? canPlaceHere : noPlaceHere;
+                        }
+                        meshRenderers[mrIter].sharedMaterials = matArray;
+                    }
+                }
+            }
         }
     }
     #endregion
@@ -99,6 +127,8 @@ public class PlayerStructures : MonoBehaviour
                 Quaternion.identity,
                 structuresTransform
                 );
+
+            forceSetMaterials = true;
         }
     }
 
@@ -135,14 +165,33 @@ public class PlayerStructures : MonoBehaviour
         {
             MouseHitPosition = hit.point;
 
+            canSpawnOnMouseLastFrame = canSpawnOnMouse;
+
+            bool collisionOkay;
+
             if (!hit.transform.gameObject.CompareTag("Structure") && !hit.transform.gameObject.CompareTag("Environment"))
             {
-                canSpawnOnMouse = true;
+                collisionOkay = true;
             } 
             else
             {
-                canSpawnOnMouse = false;
+                collisionOkay = false;
             }
+            bool builderInRange = false;
+            for (int i = 0; i < structures.Count; i++)
+            {
+                if (structures[i] != null)
+                {
+                    var builder = structures[i].GetComponent<BuilderTower>();
+                    if (builder != null && builder.GetPointInRange(MouseHitPosition))
+                    {
+                        builderInRange = true;
+                        break;
+                    }
+                }
+            }
+
+            canSpawnOnMouse = builderInRange && collisionOkay;
         }
     }
 

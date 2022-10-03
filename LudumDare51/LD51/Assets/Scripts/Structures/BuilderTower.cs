@@ -74,6 +74,10 @@ public class BuilderTower : MonoBehaviour
             }
         }
     }
+    public bool GetPointInRange(Vector3 point)
+    {
+        return (Vector3.Distance(transform.position, point) <= EffectiveBuildRange);
+    }
     private void SetRangeIndicator()
     {
         rangeIndicator.SetRange(EffectiveBuildRange, RangeIndicator.IndicatorType.builder);
