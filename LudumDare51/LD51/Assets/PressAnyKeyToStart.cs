@@ -8,6 +8,7 @@ public class PressAnyKeyToStart : MonoBehaviour
     float timeAtScreen = 0f;
     private int tutorialStage = 0;
     public Canvas[] canvases = new Canvas[0];
+    public GameObject menuObject;
     // Update is called once per frame
     void Update()
     {
@@ -26,10 +27,16 @@ public class PressAnyKeyToStart : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene(1);
+                //SceneManager.LoadScene(1);
+                menuObject.SetActive(true);
+                gameObject.SetActive(false);
             }
-
             tutorialStage++;
         }
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene(1);
     }
 }
