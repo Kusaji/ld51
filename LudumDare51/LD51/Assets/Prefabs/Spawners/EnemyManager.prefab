@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4826958155831621460
 Transform:
   m_ObjectHideFlags: 0
@@ -56,10 +56,21 @@ MonoBehaviour:
   - {fileID: 1052088562745392504, guid: c0b963f43106ff747a53e25e44a12aa5, type: 3}
   - {fileID: 1052088562745392504, guid: c0b963f43106ff747a53e25e44a12aa5, type: 3}
   - {fileID: 1052088562745392504, guid: c0b963f43106ff747a53e25e44a12aa5, type: 3}
+  - {fileID: 1052088562745392504, guid: c0b963f43106ff747a53e25e44a12aa5, type: 3}
   - {fileID: 8818250758075921981, guid: ed5d27a623ba7e54d99e2c01a573d69f, type: 3}
   - {fileID: 8818250758075921981, guid: ed5d27a623ba7e54d99e2c01a573d69f, type: 3}
   - {fileID: 4987155842661748840, guid: c200ca4c23dd0364b8c2faee687b6526, type: 3}
   wave25enemyPrefabs:
+  - {fileID: 1052088562745392504, guid: c0b963f43106ff747a53e25e44a12aa5, type: 3}
+  - {fileID: 1052088562745392504, guid: c0b963f43106ff747a53e25e44a12aa5, type: 3}
+  - {fileID: 1052088562745392504, guid: c0b963f43106ff747a53e25e44a12aa5, type: 3}
+  - {fileID: 1052088562745392504, guid: c0b963f43106ff747a53e25e44a12aa5, type: 3}
+  - {fileID: 1052088562745392504, guid: c0b963f43106ff747a53e25e44a12aa5, type: 3}
+  - {fileID: 8818250758075921981, guid: ed5d27a623ba7e54d99e2c01a573d69f, type: 3}
+  - {fileID: 8818250758075921981, guid: ed5d27a623ba7e54d99e2c01a573d69f, type: 3}
+  - {fileID: 4987155842661748840, guid: c200ca4c23dd0364b8c2faee687b6526, type: 3}
+  - {fileID: 4987155842661748840, guid: c200ca4c23dd0364b8c2faee687b6526, type: 3}
+  wave35enemyPrefabs:
   - {fileID: 1052088562745392504, guid: c0b963f43106ff747a53e25e44a12aa5, type: 3}
   - {fileID: 1052088562745392504, guid: c0b963f43106ff747a53e25e44a12aa5, type: 3}
   - {fileID: 1052088562745392504, guid: c0b963f43106ff747a53e25e44a12aa5, type: 3}
@@ -69,6 +80,7 @@ MonoBehaviour:
   - {fileID: 4987155842661748840, guid: c200ca4c23dd0364b8c2faee687b6526, type: 3}
   - {fileID: 4987155842661748840, guid: c200ca4c23dd0364b8c2faee687b6526, type: 3}
   activeEnemies: []
+  activeEnemiesScripts: []
   spawnTime: 10
   enemiesToSpawn: 3
   enemySpawnIncrement: 0.6

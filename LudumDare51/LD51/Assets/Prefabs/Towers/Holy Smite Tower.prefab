@@ -181,6 +181,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   iAmHighlighted: 0
+  cachedPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1223240385890133073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,9 +197,16 @@ MonoBehaviour:
   debugMode: 0
   target: {fileID: 0}
   targets: []
+  targetsArr:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   projectileSpawnpoint: {fileID: 5937642182007789671}
   randomSphereSpawnPoint: 0.25
   distanceToTarget: 0
+  cachedPosition: {x: 0, y: 0, z: 0}
   towerAttacker: {fileID: 2847782172965610333}
 --- !u!114 &2847782172965610333
 MonoBehaviour:
@@ -214,8 +222,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instantAttack: 0
   attackRange: 16
-  attackDamage: 100
-  attackDelay: 80
+  attackDamage: 200
+  attackDelay: 60
   areaOfEffect: 0
   multishot: 1
   targeter: {fileID: 1223240385890133073}

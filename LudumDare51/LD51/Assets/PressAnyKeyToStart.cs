@@ -23,7 +23,7 @@ public class PressAnyKeyToStart : MonoBehaviour
 
                 canvases[tutorialStage].enabled = true;
 
-                timeAtScreen = 0;
+                timeAtScreen = 0.5f;
             }
             else
             {

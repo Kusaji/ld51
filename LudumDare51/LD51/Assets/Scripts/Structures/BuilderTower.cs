@@ -44,6 +44,13 @@ public class BuilderTower : MonoBehaviour
         myStructure.OnUpdatePopulation.AddListener(SetRangeIndicator);
         myStructure.OnUpdatePopulation.AddListener(GetTowersInRange);
     }
+#if UNITY_EDITOR
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+            buildPower = 9;
+    }
+#endif
     #endregion
 
     #region Events and Delegates

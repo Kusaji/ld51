@@ -2967,7 +2967,7 @@ MonoBehaviour:
   target: {fileID: 0}
   targetStructure: {fileID: 0}
   attackDamage: 0.075
-  damagePerWave: 0.0075
+  damagePerWave: 0.005
   defaultAttackRange: 10.5
   bastionAttackRange: 15.5
   attackDelay: 0.25
@@ -2997,6 +2997,7 @@ MonoBehaviour:
   healthPerWaveExponent: 1.2
   bloodPrefab: {fileID: 5381835647565391231, guid: f70ee53b5e68efe4d826f63aa302b15b, type: 3}
   hitParticles: {fileID: 8554531015877735852}
+  enemyController: {fileID: 8818250758075921924}
 --- !u!195 &8818250758075921922
 NavMeshAgent:
   m_ObjectHideFlags: 0

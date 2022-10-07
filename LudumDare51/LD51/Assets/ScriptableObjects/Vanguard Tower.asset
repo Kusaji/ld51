@@ -15,6 +15,7 @@ MonoBehaviour:
   minimumPopulationToFunction: 50
   effectivenessExponent: 0.8
   rangeEffectivenessExponent: 0.125
-  maxHealth: 75
-  incomingDamageDefenseMod: 0.5
+  maxHealth: 100
+  incomingDamageDefenseMod: 0.1
+  aggroRangeBonus: -3
   maxBuildProgress: 40

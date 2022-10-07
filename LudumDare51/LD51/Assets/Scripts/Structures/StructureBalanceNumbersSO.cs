@@ -12,6 +12,7 @@ public class StructureBalanceNumbersSO : ScriptableObject
     [Header("Defense")]
     public float maxHealth;
     public float incomingDamageDefenseMod;
+    public float aggroRangeBonus;
 
     [Header("Build Time")]
     public float maxBuildProgress;

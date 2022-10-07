@@ -77,11 +77,13 @@ public class Structure : MonoBehaviour
 
     public UnityEvent OnUpdatePopulation;
     public bool iAmHighlighted = false;
+    public Vector3 cachedPosition;
     #endregion
 
     private void Awake()
     {
         OnUpdatePopulation = new UnityEvent();
+        cachedPosition = transform.position;
     }
     #region Unity Callbacks
     // Start is called before the first frame update
@@ -234,7 +236,7 @@ public class Structure : MonoBehaviour
             //Remove from structurel ist
             if (PlayerStructures.instance.structures.Contains(gameObject))
             {
-                PlayerStructures.instance.structures.Remove(gameObject);
+                PlayerStructures.instance.RemoveStructure(gameObject);
                 
                 //TODO 
                 //Rebuild navmesh

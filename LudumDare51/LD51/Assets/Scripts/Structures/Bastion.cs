@@ -10,7 +10,7 @@ public class Bastion : Structure
     #region Methods
     public override void DealDamage(float damage)
     {
-        currentHealth -= damage;
+        currentHealth -= damage * incomingDamageDefenseMod;
 
         if (myStructureHealthUI != null)
             myStructureHealthUI.SetHealthCount(currentHealth, maxHealth);
@@ -22,7 +22,7 @@ public class Bastion : Structure
             //Remove from structurel ist
             if (PlayerStructures.instance.structures.Contains(gameObject))
             {
-                PlayerStructures.instance.structures.Remove(gameObject);
+                PlayerStructures.instance.RemoveStructure(gameObject);
             }
 
             //Explosion / Death prefab

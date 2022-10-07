@@ -16,5 +16,6 @@ MonoBehaviour:
   effectivenessExponent: 0.5
   rangeEffectivenessExponent: 0.2
   maxHealth: 20
-  incomingDamageDefenseMod: 1.5
+  incomingDamageDefenseMod: 1
+  aggroRangeBonus: 2
   maxBuildProgress: 10

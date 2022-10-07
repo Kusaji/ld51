@@ -67,12 +67,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   structures:
   - {fileID: 0}
+  structuresScripts:
+  - {fileID: 0}
   structurePrefabs:
   - {fileID: 549349075060496980, guid: ef357346ff68d1742903dcfe601acf87, type: 3}
   - {fileID: 684044323393523222, guid: 5201db9bd68a7e04cbe963fb5722a8ea, type: 3}
   - {fileID: 3916337454664495451, guid: 085422b326b266c409254bde00b7da90, type: 3}
   - {fileID: 6950567571303324296, guid: efaed877c886c6f4e8a4277b93fdc0b2, type: 3}
-  - {fileID: 2564450407793457374, guid: ec39581980af8f94a86d9ef14b3da062, type: 3}
+  - {fileID: 1593707203318584791, guid: 61fe1492b5fb8fd4e9ab925338ee19ae, type: 3}
   - {fileID: 2958878110348796748, guid: b75998e22465c3c4db8f287fcb94a149, type: 3}
   - {fileID: 1520848835879839829, guid: f266e6f276b4b6a48bf16149c0129a24, type: 3}
   - {fileID: 1340683463359221711, guid: 238206bd7d141c74e91e46bf90d6e0b1, type: 3}

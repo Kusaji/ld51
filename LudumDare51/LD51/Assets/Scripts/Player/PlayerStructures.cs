@@ -16,6 +16,7 @@ public class PlayerStructures : MonoBehaviour
 
     [Header("Active Structures")]
     public List<GameObject> structures;
+    public List<Structure> structuresScripts;
 
     [Header("Available Structures")]
     public List<GameObject> structurePrefabs;
@@ -105,13 +106,15 @@ public class PlayerStructures : MonoBehaviour
     #region Methods
     public void AddStructure(GameObject structure)
     {
+        structuresScripts.Add(structure.GetComponent<Structure>());
         structures.Add(structure);
         BroadcastTowerUpdate();
     }
 
     public void RemoveStructure(GameObject structure)
     {
-        structures.Remove(structure);
+        structuresScripts.Remove(structure.GetComponent<Structure>());
+        structures.Remove(structure);        
         BroadcastTowerUpdate();
     }
 

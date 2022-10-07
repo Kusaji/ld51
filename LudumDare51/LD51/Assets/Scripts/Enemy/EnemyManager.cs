@@ -16,7 +16,9 @@ public class EnemyManager : MonoBehaviour
     {
         get
         {
-            if (wave >= 25)
+            if (wave >= 35)
+                return wave35enemyPrefabs;
+            else if (wave >= 25)
                 return wave25enemyPrefabs;
             else if (wave >= 15)
                 return wave15enemyPrefabs;
@@ -31,8 +33,10 @@ public class EnemyManager : MonoBehaviour
     public List<GameObject> wave5enemyPrefabs;
     public List<GameObject> wave15enemyPrefabs;
     public List<GameObject> wave25enemyPrefabs;
+    public List<GameObject> wave35enemyPrefabs;
     public List<GameObject> activeEnemies;
-    
+    public List<EnemyController> activeEnemiesScripts;
+
     [Header("Settings")]
     public float spawnTime;
     public int enemiesToSpawn; //increment every 10 seconds
@@ -81,6 +85,7 @@ public class EnemyManager : MonoBehaviour
             enemyTransform); //rotation
 
         activeEnemies.Add(spawnedEnemy);
+        activeEnemiesScripts.Add(spawnedEnemy.GetComponent<EnemyController>());
     }
     #endregion
 

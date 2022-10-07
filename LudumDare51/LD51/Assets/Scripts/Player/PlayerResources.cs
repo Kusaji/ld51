@@ -32,7 +32,14 @@ public class PlayerResources : MonoBehaviour
         isAlive = true;
         overallPopulation = population;
     }
-    #endregion
+#if UNITY_EDITOR
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+            population = 999999;
+    }
+#endif
+#endregion
 
     #region Methods
 
@@ -65,5 +72,5 @@ public class PlayerResources : MonoBehaviour
         isAlive = false;
         gameOverGO.SetActive(true);
     }
-    #endregion
+#endregion
 }

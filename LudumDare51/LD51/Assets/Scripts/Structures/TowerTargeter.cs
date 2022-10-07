@@ -14,35 +14,40 @@ public class TowerTargeter : MonoBehaviour
 
     [Header("Target Info")]
     public GameObject target;
-    public List<GameObject> targets;
+    public GameObject[] targetsArr = new GameObject[5];
     public GameObject projectileSpawnpoint;
     public float randomSphereSpawnPoint = 1f;
     public float distanceToTarget;
-    
+    public Vector3 cachedPosition;
 
     [Header("Components")]
     public TowerAttacker towerAttacker;
     #endregion
 
     #region Unity Callbacks
+    private void Awake()
+    {
+        cachedPosition = transform.position;
+    }
     private void Start()
     {
         StartCoroutine(FindTargetRoutine());
+        targetsArr = new GameObject[towerAttacker.multishot];        
     }
-    private void Update()
-    {
-        if (debugMode && target != null)
-        {
-            if (distanceToTarget > towerAttacker.EffectiveAttackRange)
-            {
-                Debug.DrawLine(projectileSpawnpoint.transform.position, target.transform.position, Color.white);
-            }
-            else if (distanceToTarget <= towerAttacker.EffectiveAttackRange)
-            {
-                Debug.DrawLine(projectileSpawnpoint.transform.position, target.transform.position, Color.blue);
-            }
-        }
-    }
+    //private void Update()
+    //{
+    //    if (debugMode && target != null)
+    //    {
+    //        if (distanceToTarget > towerAttacker.EffectiveAttackRange)
+    //        {
+    //            Debug.DrawLine(projectileSpawnpoint.transform.position, target.transform.position, Color.white);
+    //        }
+    //        else if (distanceToTarget <= towerAttacker.EffectiveAttackRange)
+    //        {
+    //            Debug.DrawLine(projectileSpawnpoint.transform.position, target.transform.position, Color.blue);
+    //        }
+    //    }
+    //}
     #endregion
 
     #region Methods
@@ -50,68 +55,49 @@ public class TowerTargeter : MonoBehaviour
     {
         if (EnemyManager.Instance.activeEnemies.Count > 0)
         {
+            
+
+            for (int i = 0; i < targetsArr.Length; i++) {
+                targetsArr[i] = null;
+            }
+
             var closestEnemy = EnemyManager.Instance.activeEnemies[0];
             float closestEnemyDistance = Mathf.Infinity;
 
-            if (towerAttacker.multishot > 1)
-                targets.Clear();
 
-            for (int i = 0; i < EnemyManager.Instance.activeEnemies.Count; i++)
-            {
-                if (Vector3.Distance(transform.position, EnemyManager.Instance.activeEnemies[i].transform.position) < closestEnemyDistance)
+            for (int multishotIter = 0; multishotIter < towerAttacker.multishot; multishotIter++) {
+
+                closestEnemy = EnemyManager.Instance.activeEnemies[0];
+                closestEnemyDistance = Mathf.Infinity;
+
+                for (int i = 0; i < EnemyManager.Instance.activeEnemies.Count; i++)
                 {
-                    closestEnemyDistance = Vector3.Distance(transform.position, EnemyManager.Instance.activeEnemies[i].transform.position);
-                    closestEnemy = EnemyManager.Instance.activeEnemies[i];
+                    bool checkDistance = true;
+                    for (int z = 0; z < towerAttacker.multishot; z++)
+                    {
+                        //if (targetsArr[z].GetInstanceID() == EnemyManager.Instance.activeEnemies[i].GetInstanceID())
+                        if (targetsArr[z] == EnemyManager.Instance.activeEnemies[i])
+                            checkDistance = false;
+                    }
+                    if (checkDistance && Vector3.Distance(cachedPosition, EnemyManager.Instance.activeEnemiesScripts[i].MyPosition) < closestEnemyDistance)
+                    {
+                        closestEnemyDistance = Vector3.Distance(cachedPosition, EnemyManager.Instance.activeEnemiesScripts[i].MyPosition);
+                        closestEnemy = EnemyManager.Instance.activeEnemies[i];
+                        targetsArr[multishotIter] = EnemyManager.Instance.activeEnemies[i];
+                    }
                 }
-                if (towerAttacker.multishot > 1 && Vector3.Distance(transform.position, EnemyManager.Instance.activeEnemies[i].transform.position) < towerAttacker.EffectiveAttackRange)
-                {
-                    targets.Add(EnemyManager.Instance.activeEnemies[i]);
-                }
+
+
             }
             
             target = closestEnemy;
             distanceToTarget = closestEnemyDistance;
 
-            if (towerAttacker.multishot > 1)
-                SortTargets();
-
         }
-    }
-
-    private void SortTargets()
-    {
-        if (targets != null && targets.Count > 1)
-        {
-            targets.Sort((a, b) => CompareByDistance(Vector3.Distance(b.transform.position, transform.position), Vector3.Distance(a.transform.position, transform.position)));
-            int desiredCount = towerAttacker.multishot;
-            if (targets.Count > desiredCount)
-                targets.RemoveRange(towerAttacker.multishot, targets.Count - desiredCount);
-        }
-    }
-    public static int CompareByDistance(float a, float b)
-    {
-        if (a > b)
-            return -1;
-        else if (a < b)
-            return 1;
-        else
-            return 0;
     }
     #endregion
 
     #region Coroutines
-    public IEnumerator CalculateDistanceToTargetRoutine()
-    {
-        while (gameObject)
-        {
-            if (target != null)
-            {
-                distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
-            }
-            yield return new WaitForSeconds(0.1f);
-        }
-    }
-
     public IEnumerator FindTargetRoutine()
     {
         while (gameObject)

@@ -71,21 +71,22 @@ public class TowerAttacker : MonoBehaviour
             if (targeter.target != null && structure.cachedPopulationEffectiveness > 0.001f)
             {
                 int shotsFired = 0;
-                if (multishot <= 1 && targeter.distanceToTarget <= EffectiveAttackRange)
+                if (multishot <= 1 && Vector3.Distance(targeter.cachedPosition, targeter.target.transform.position) <= EffectiveAttackRange)
                 {
                     shotsFired++;
                     FireAtTarget(targeter.target);
                     
                 } else if (multishot > 1)
                 {
-                    for (int i = 0; i < targeter.targets.Count; i++)
+                    for (int i = 0; i < targeter.targetsArr.Length; i++)
                     {
-                        if (targeter.targets[i] != null)
+                        if (targeter.targetsArr[i] != null)
                         {
-                            if (Vector3.Distance(targeter.targets[i].transform.position, targeter.transform.position) <= EffectiveAttackRange)
+                            if (Vector3.Distance(targeter.targetsArr[i].transform.position, targeter.cachedPosition) <= EffectiveAttackRange)
                             {
+                                Debug.Log(targeter.targetsArr[i].transform.position + " " + targeter.cachedPosition + " " + EffectiveAttackRange, this.gameObject);
                                 shotsFired++;
-                                FireAtTarget(targeter.targets[i]);
+                                FireAtTarget(targeter.targetsArr[i]);
                             }
                         }
                     }

@@ -21,6 +21,7 @@ public class EnemyHealth : MonoBehaviour
     [Header("Components")]
     public ParticleSystem hitParticles;
 
+    public EnemyController enemyController;
     #endregion
 
     #region Unity Callbacks
@@ -41,6 +42,7 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             EnemyManager.Instance.activeEnemies.Remove(gameObject);
+            EnemyManager.Instance.activeEnemiesScripts.Remove(enemyController);
             Instantiate(
                 bloodPrefab,
                 transform.position,

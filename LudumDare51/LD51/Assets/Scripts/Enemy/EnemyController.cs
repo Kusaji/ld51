@@ -35,12 +35,20 @@ public class EnemyController : MonoBehaviour
     public bool isAttacking;
     public float cachedSpeed;
 
+    public Vector3 MyPosition {
+        get
+        {
+            return cachedPosition;
+        }
+    }
+    private Vector3 cachedPosition;
     #endregion
 
     #region Unity Callbacks
     // Start is called before the first frame update
     void Start()
     {
+        cachedPosition = transform.position;
         agent.Warp(transform.position);
 
         StartCoroutine(FindTargetRoutine());
@@ -50,6 +58,10 @@ public class EnemyController : MonoBehaviour
         cachedSpeed = startSpeed + EnemyManager.Instance.wave * speedPerWave;
         agent.speed = cachedSpeed;
         enemyAnimator.anim.speed *= cachedSpeed / 1.75f;
+    }
+    private void FixedUpdate()
+    {
+        cachedPosition = transform.position;
     }
     #endregion
 
@@ -80,12 +92,15 @@ public class EnemyController : MonoBehaviour
             {
                 var closestTower = PlayerStructures.instance.structures[0];
                 var closestTowerDistance = Mathf.Infinity;
+                var closestTowerDistanceReal = Mathf.Infinity;
 
+                //for (int i = 0; i < PlayerStructures.instance.structures.Count; i++)
                 for (int i = 0; i < PlayerStructures.instance.structures.Count; i++)
                 {
-                    if (Vector3.Distance(transform.position, PlayerStructures.instance.structures[i].transform.position) < closestTowerDistance)
+                    if (Vector3.Distance(transform.position, PlayerStructures.instance.structuresScripts[i].cachedPosition) + PlayerStructures.instance.structuresScripts[i].balanceNumbersSO.aggroRangeBonus < closestTowerDistance)
                     {
-                        closestTowerDistance = Vector3.Distance(transform.position, PlayerStructures.instance.structures[i].transform.position);
+                        closestTowerDistanceReal = Vector3.Distance(transform.position, PlayerStructures.instance.structuresScripts[i].cachedPosition);
+                        closestTowerDistance = closestTowerDistanceReal + PlayerStructures.instance.structuresScripts[i].balanceNumbersSO.aggroRangeBonus;
                         closestTower = PlayerStructures.instance.structures[i];
                     }
                 }
@@ -95,8 +110,6 @@ public class EnemyController : MonoBehaviour
                 distanceToTarget = closestTowerDistance;
                 currentAttackRange = defaultAttackRange;
 
-
-                //StartCoroutine(CalculateDistance());
             }
             else if (PlayerStructures.instance.bastion != null)
             {
@@ -115,7 +128,7 @@ public class EnemyController : MonoBehaviour
                 enemyAnimator.anim.SetTrigger("Idle");
                 distanceToTarget = 0;
             }
-            yield return new WaitForSeconds(0.50f);
+            yield return new WaitForSeconds(0.334f);
         }
     }
 
@@ -141,7 +154,10 @@ public class EnemyController : MonoBehaviour
     {
         while (health.isAlive != false)
         {
-            if (distanceToTarget <= currentAttackRange && target != null)
+            if (target != null)
+                distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
+
+            if (target != null && distanceToTarget <= currentAttackRange)
             {
                 targetStructure.DealDamage(attackDamage);
                 enemyAnimator.AttackAnimation();
