@@ -192,12 +192,12 @@ public class PlayerStructures : MonoBehaviour
             
             if (Physics.BoxCast(MouseHitPosition + Vector3.up * 10f, towerSize, Vector3.down,quaternion.identity, 10f, structureMask))
             {
-                Debug.Log("Hitting");
+                //Debug.Log("Hitting");
                 collisionOkay = false;
             }
             else
             {
-                Debug.Log("Not hitting");
+                //Debug.Log("Not hitting");
                 collisionOkay = true;
             }
             /*
