@@ -595,6 +595,10 @@ PrefabInstance:
       value: tree
       objectReference: {fileID: 0}
     - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
       propertyPath: m_TagString
       value: Environment
       objectReference: {fileID: 0}
@@ -676,6 +680,10 @@ PrefabInstance:
       value: tree (3)
       objectReference: {fileID: 0}
     - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
       propertyPath: m_TagString
       value: Environment
       objectReference: {fileID: 0}
@@ -755,15 +763,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3872526780349485346, guid: fb7bae57fe489c84984c38d68306fbe7, type: 3}
       propertyPath: towerSize.x
-      value: 1.2
+      value: 1.65
       objectReference: {fileID: 0}
     - target: {fileID: 3872526780349485346, guid: fb7bae57fe489c84984c38d68306fbe7, type: 3}
       propertyPath: towerSize.y
-      value: 1.2
+      value: 1.65
       objectReference: {fileID: 0}
     - target: {fileID: 3872526780349485346, guid: fb7bae57fe489c84984c38d68306fbe7, type: 3}
       propertyPath: towerSize.z
-      value: 1.2
+      value: 1.65
       objectReference: {fileID: 0}
     - target: {fileID: 3872526780349485346, guid: fb7bae57fe489c84984c38d68306fbe7, type: 3}
       propertyPath: groundMask.m_Bits
@@ -771,7 +779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3872526780349485346, guid: fb7bae57fe489c84984c38d68306fbe7, type: 3}
       propertyPath: structureMask.m_Bits
-      value: 256
+      value: 768
       objectReference: {fileID: 0}
     - target: {fileID: 3872526780349485346, guid: fb7bae57fe489c84984c38d68306fbe7, type: 3}
       propertyPath: structures.Array.data[0]
@@ -889,6 +897,10 @@ PrefabInstance:
       value: tree (7)
       objectReference: {fileID: 0}
     - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
       propertyPath: m_TagString
       value: Environment
       objectReference: {fileID: 0}
@@ -973,6 +985,10 @@ PrefabInstance:
     - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
       propertyPath: m_Name
       value: tree (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
       propertyPath: m_TagString
@@ -1089,6 +1105,10 @@ PrefabInstance:
     - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
       propertyPath: m_Name
       value: tree (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
       propertyPath: m_TagString
@@ -1316,6 +1336,10 @@ PrefabInstance:
       value: tree (8)
       objectReference: {fileID: 0}
     - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
       propertyPath: m_TagString
       value: Environment
       objectReference: {fileID: 0}
@@ -1501,6 +1525,10 @@ PrefabInstance:
       value: tree (10)
       objectReference: {fileID: 0}
     - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
       propertyPath: m_TagString
       value: Environment
       objectReference: {fileID: 0}
@@ -1585,6 +1613,10 @@ PrefabInstance:
     - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
       propertyPath: m_Name
       value: tree (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
       propertyPath: m_TagString
@@ -1984,6 +2016,10 @@ PrefabInstance:
       value: tree (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
       propertyPath: m_TagString
       value: Environment
       objectReference: {fileID: 0}
@@ -2360,6 +2396,10 @@ PrefabInstance:
       value: tree (5)
       objectReference: {fileID: 0}
     - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
       propertyPath: m_TagString
       value: Environment
       objectReference: {fileID: 0}
@@ -2444,6 +2484,10 @@ PrefabInstance:
     - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
       propertyPath: m_Name
       value: tree (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
       propertyPath: m_TagString
@@ -2756,6 +2800,10 @@ PrefabInstance:
       value: tree (4)
       objectReference: {fileID: 0}
     - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
       propertyPath: m_TagString
       value: Environment
       objectReference: {fileID: 0}
@@ -3034,6 +3082,10 @@ PrefabInstance:
     - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
       propertyPath: m_Name
       value: tree (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
       propertyPath: m_TagString
@@ -3474,6 +3526,10 @@ PrefabInstance:
     - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
       propertyPath: m_Name
       value: tree (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
       propertyPath: m_TagString
@@ -4229,6 +4285,10 @@ PrefabInstance:
     - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
       propertyPath: m_Name
       value: tree (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6443648035842381123, guid: 8b1d135e4a55ff64cbc94d77684bf435, type: 3}
       propertyPath: m_TagString
