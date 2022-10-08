@@ -14783,6 +14783,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   iAmHighlighted: 0
+  cachedPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &8304370153141541346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14821,6 +14822,7 @@ MonoBehaviour:
   structure: {fileID: 1974728397034254223}
   rangeIndicator: {fileID: 6705693300234008192}
   attackProjectilePrefab: {fileID: 7300430972184893010, guid: e201d947c0efd6a45ba1c130512f2f92, type: 3}
+  meteorInvoker: 0
 --- !u!114 &539973198415824676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14835,10 +14837,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugMode: 0
   target: {fileID: 0}
-  targets: []
+  targetsArr:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   projectileSpawnpoint: {fileID: 5813431578194035282}
   randomSphereSpawnPoint: 1
   distanceToTarget: 0
+  cachedPosition: {x: 0, y: 0, z: 0}
   towerAttacker: {fileID: 7691297003753053388}
 --- !u!114 &4663998794020943171
 MonoBehaviour:
@@ -19859,7 +19867,7 @@ GameObject:
   - component: {fileID: 8792279629526411329}
   - component: {fileID: 6093866740908754125}
   - component: {fileID: 6188826548560427028}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BastionHitbox
   m_TagString: Structure
   m_Icon: {fileID: 0}
@@ -19875,7 +19883,7 @@ Transform:
   m_GameObject: {fileID: 3966794298239735979}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.423, z: 0}
-  m_LocalScale: {x: 2.5, y: 1, z: 2.5}
+  m_LocalScale: {x: 1.65, y: 1, z: 1.65}
   m_Children: []
   m_Father: {fileID: 1974728397034254220}
   m_RootOrder: 1
@@ -19895,7 +19903,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3966794298239735979}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

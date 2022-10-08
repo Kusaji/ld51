@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
+using UnityEditor.Rendering;
 //using UnityEditor.AI;
 using UnityEngine;
+using UnityEngine.Video;
 
 /// <summary>
 /// Singleton.
@@ -168,20 +171,36 @@ public class PlayerStructures : MonoBehaviour
 
         }
     }
-
+    
+    [Header("Tower Placement")]
+    [SerializeField] private LayerMask groundMask;
+    [SerializeField] private LayerMask structureMask;
+    [SerializeField] private Vector3 towerSize = Vector3.one;
     public void GetMousePosition()
     {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(PlayerInput.ScaledMousePosition);
-
-        if (Physics.Raycast(ray, out hit))        
+        //if Physics.Raycast(ray, out hit)
+        if (Physics.Raycast(ray, out hit, 9999f, groundMask))
         {
             MouseHitPosition = hit.point;
 
             canSpawnOnMouseLastFrame = canSpawnOnMouse;
 
             bool collisionOkay;
-
+            //Debug.DrawRay(MouseHitPosition + Vector3.up * 10, Vector3.down * 10, Color.red);
+            
+            if (Physics.BoxCast(MouseHitPosition + Vector3.up * 10f, towerSize, Vector3.down,quaternion.identity, 10f, structureMask))
+            {
+                Debug.Log("Hitting");
+                collisionOkay = false;
+            }
+            else
+            {
+                Debug.Log("Not hitting");
+                collisionOkay = true;
+            }
+            /*
             //if (!hit.transform.gameObject.CompareTag("Structure") && !hit.transform.gameObject.CompareTag("Environment"))
             if (hit.transform.gameObject.CompareTag("Ground"))
             {
@@ -191,6 +210,7 @@ public class PlayerStructures : MonoBehaviour
             {
                 collisionOkay = false;
             }
+            */
             bool builderInRange = false;
             for (int i = 0; i < structures.Count; i++)
             {

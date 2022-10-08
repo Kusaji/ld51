@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 4622951489540243948}
   - component: {fileID: 2170065927513641564}
   - component: {fileID: 3181253549416011510}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TowerHitbox (1)
   m_TagString: Structure
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ Transform:
   m_GameObject: {fileID: 2863180080368699575}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.375, y: -1.182, z: 0}
-  m_LocalScale: {x: 1.1, y: 0.900014, z: 3}
+  m_LocalScale: {x: 0.25, y: 0.900014, z: 2.5}
   m_Children: []
   m_Father: {fileID: 4479951990259643183}
   m_RootOrder: 4
@@ -410,7 +410,7 @@ GameObject:
   - component: {fileID: 3567963770983668586}
   - component: {fileID: 7444774032329169837}
   - component: {fileID: 6954891075831206244}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TowerHitbox (3)
   m_TagString: Structure
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ Transform:
   m_GameObject: {fileID: 3525860954335597009}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -1.182, z: 1.125}
-  m_LocalScale: {x: 1.1, y: 0.900014, z: 3}
+  m_LocalScale: {x: 0.25, y: 0.900014, z: 2.5}
   m_Children: []
   m_Father: {fileID: 4479951990259643183}
   m_RootOrder: 6
@@ -518,7 +518,7 @@ GameObject:
   - component: {fileID: 7431888729270350371}
   - component: {fileID: 1004181284690249908}
   - component: {fileID: 2426090440653846554}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TowerHitbox (2)
   m_TagString: Structure
   m_Icon: {fileID: 0}
@@ -534,7 +534,7 @@ Transform:
   m_GameObject: {fileID: 4367706583382600208}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.125, y: -1.182, z: 0}
-  m_LocalScale: {x: 1.1, y: 0.900014, z: 3}
+  m_LocalScale: {x: 0.25, y: 0.900014, z: 2.5}
   m_Children: []
   m_Father: {fileID: 4479951990259643183}
   m_RootOrder: 5
@@ -626,7 +626,7 @@ GameObject:
   - component: {fileID: 6948611066726013459}
   - component: {fileID: 6875693582258201299}
   - component: {fileID: 4752447184969499238}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TowerHitbox (4)
   m_TagString: Structure
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ Transform:
   m_GameObject: {fileID: 5843762106402975020}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -1.182, z: -1.125}
-  m_LocalScale: {x: 1.1, y: 0.900014, z: 3}
+  m_LocalScale: {x: 0.25, y: 0.900014, z: 2.5}
   m_Children: []
   m_Father: {fileID: 4479951990259643183}
   m_RootOrder: 7

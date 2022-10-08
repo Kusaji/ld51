@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 7314088142467856570}
   - component: {fileID: 3276254302752689932}
   - component: {fileID: 3889159579848845524}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TowerHitbox
   m_TagString: Structure
   m_Icon: {fileID: 0}
@@ -123,8 +123,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6944677079883965300}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.372, z: 0}
-  m_LocalScale: {x: 1.75, y: 0.900014, z: 1.75}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 7727808409295257650}
   m_RootOrder: 2
@@ -276,6 +276,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   iAmHighlighted: 0
+  cachedPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &7320479364769502860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,10 +291,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugMode: 0
   target: {fileID: 0}
-  targets: []
+  targetsArr:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   projectileSpawnpoint: {fileID: 2812776758934137530}
   randomSphereSpawnPoint: 0.25
   distanceToTarget: 0
+  cachedPosition: {x: 0, y: 0, z: 0}
   towerAttacker: {fileID: 5974897198129959296}
 --- !u!114 &5974897198129959296
 MonoBehaviour:

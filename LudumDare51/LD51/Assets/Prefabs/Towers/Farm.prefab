@@ -5303,6 +5303,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   iAmHighlighted: 0
+  cachedPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &3985806055285170214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20409,7 +20410,7 @@ GameObject:
   - component: {fileID: 8944465295636364275}
   - component: {fileID: 3397213034066229759}
   - component: {fileID: 5064076731065511357}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FarmHitbox
   m_TagString: Structure
   m_Icon: {fileID: 0}
@@ -20425,7 +20426,7 @@ Transform:
   m_GameObject: {fileID: 3143541743000900869}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.0292, z: 0}
-  m_LocalScale: {x: 2, y: 0.4581355, z: 2}
+  m_LocalScale: {x: 1, y: 0.4581355, z: 1}
   m_Children: []
   m_Father: {fileID: 159286371935982764}
   m_RootOrder: 2

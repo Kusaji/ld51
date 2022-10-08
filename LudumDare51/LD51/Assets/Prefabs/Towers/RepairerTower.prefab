@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 5327655889731151573}
   - component: {fileID: 7871213496739902982}
   - component: {fileID: 6213550145358361908}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RepairerHitbox
   m_TagString: Structure
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3174358473229104364}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.871, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 256841992197831921}
@@ -174,8 +174,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 2.0952852, z: 5}
-  m_Center: {x: 0, y: 0.24764264, z: 0}
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6213550145358361908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,6 +324,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   iAmHighlighted: 0
+  cachedPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &3882391929175638302
 MonoBehaviour:
   m_ObjectHideFlags: 0

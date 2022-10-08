@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 487528589206844936}
   - component: {fileID: 3768564255393689808}
   - component: {fileID: 114574197193566083}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BuilderHitbox
   m_TagString: Structure
   m_Icon: {fileID: 0}
@@ -129,8 +129,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2431709956854891921}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.905, z: 0}
-  m_LocalScale: {x: 1.45, y: 1.85, z: 1.45}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 0.7, y: 1.85, z: 0.7}
   m_Children: []
   m_Father: {fileID: 5976893471201784627}
   m_RootOrder: 2
@@ -279,6 +279,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   iAmHighlighted: 0
+  cachedPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &6304842220685353524
 MonoBehaviour:
   m_ObjectHideFlags: 0
