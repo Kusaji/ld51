@@ -84,7 +84,7 @@ public class TowerAttacker : MonoBehaviour
                         {
                             if (Vector3.Distance(targeter.targetsArr[i].transform.position, targeter.cachedPosition) <= EffectiveAttackRange)
                             {
-                                Debug.Log(targeter.targetsArr[i].transform.position + " " + targeter.cachedPosition + " " + EffectiveAttackRange, this.gameObject);
+                                //Debug.Log(targeter.targetsArr[i].transform.position + " " + targeter.cachedPosition + " " + EffectiveAttackRange, this.gameObject);
                                 shotsFired++;
                                 FireAtTarget(targeter.targetsArr[i]);
                             }
