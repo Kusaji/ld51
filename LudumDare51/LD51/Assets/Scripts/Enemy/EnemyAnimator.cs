@@ -10,7 +10,8 @@ public class EnemyAnimator : MonoBehaviour
     #region Variables
     [Header("Components")]
     public EnemyController controller;
-    public Animator anim;
+    //public Animator anim;
+    public AnimatedMesh anim;
 
     public enum currentState { idle, running, attacking};
     public currentState state;
@@ -21,18 +22,18 @@ public class EnemyAnimator : MonoBehaviour
     private void Start()
     {
         state = currentState.idle;
-        anim.speed = Random.Range(0.95f, 1.05f);
+        //anim.speed = Random.Range(0.95f, 1.05f);
     }
 
     private void FixedUpdate()
     {
         if (controller.distanceToTarget > controller.currentAttackRange)
         {
-            anim.SetTrigger("Run");
+            anim.Play("BasicEnemy_WalkForward");
         }
         else 
         {
-            anim.SetTrigger("Idle");
+            anim.Play("BasicEnemy_idle");
         }
     }
     #endregion
@@ -45,13 +46,13 @@ public class EnemyAnimator : MonoBehaviour
         switch (randomAnimation)
         {
             case 0:
-                anim.SetTrigger("Attack1");
+                anim.Play("BasicEnemy_Attack");
                 break;
             case 1:
-                anim.SetTrigger("Attack2");
+                anim.Play("BasicEnemy_Attack2");
                 break;
             case 2:
-                anim.SetTrigger("Attack3");
+                anim.Play("BasicEnemy_Attack3");
                 break;
         }
     }

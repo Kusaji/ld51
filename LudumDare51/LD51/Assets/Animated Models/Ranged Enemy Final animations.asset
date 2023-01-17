@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae2fd8e086a5f94991b50e5ca890322, type: 3}
+  m_Name: Ranged Enemy Final animations
+  m_EditorClassIdentifier: 
+  AnimationFPS: 15
+  Animations:
+  - Name: BasicEnemy_WalkForward
+    Meshes:
+    - {fileID: 4300000, guid: 0710ac318fa44ee4e9d0e8dc76961251, type: 2}
+    - {fileID: 4300000, guid: 4544a1087097c16409d28516c96a6057, type: 2}
+    - {fileID: 4300000, guid: 3039988d8e59ef04a99a3facedf2db1a, type: 2}
+    - {fileID: 4300000, guid: 8cb61fdd0865de5438bea06b4b26dcf2, type: 2}
+    - {fileID: 4300000, guid: efc89f7eea1d89d4eb44b2bdfc6148c9, type: 2}
+    - {fileID: 4300000, guid: 73a0c8fc0d14a0b4ab46208b21065b4a, type: 2}
+    - {fileID: 4300000, guid: b1b13b1971efba04985aa79dd4f8ae48, type: 2}
+    - {fileID: 4300000, guid: 6464f534013514c4fa67d6a31d3ede36, type: 2}
+    - {fileID: 4300000, guid: 8432ac7c10c49d848a004a65396b2195, type: 2}
+    - {fileID: 4300000, guid: e5a34a741085f0b44ad2bf6eb3d882b5, type: 2}
+    - {fileID: 4300000, guid: 9da914b476bc1654999ec45833c11f24, type: 2}
+    - {fileID: 4300000, guid: b362d2cb3dd40bc45afa89768144425d, type: 2}
+  - Name: BasicEnemy_idle
+    Meshes:
+    - {fileID: 4300000, guid: 21cb92be87d31674aaeae097fe88636a, type: 2}
+    - {fileID: 4300000, guid: eca03aae7748ae443b841a16088f9bc7, type: 2}
+    - {fileID: 4300000, guid: da16f792c013da247bacc9999d1b3ba0, type: 2}
+    - {fileID: 4300000, guid: 41ab8aa1daa2676468c91ee789874771, type: 2}
+    - {fileID: 4300000, guid: 45a9b063877abf242b4fa1ec42bd3fca, type: 2}
+    - {fileID: 4300000, guid: ae04d21247f5e564ca40a1043da0fdb1, type: 2}
+    - {fileID: 4300000, guid: 02762ef770211ee4e9db74ac60402656, type: 2}
+    - {fileID: 4300000, guid: 3f06607ad7f5f4f4bbb62c6e26378ce2, type: 2}
+    - {fileID: 4300000, guid: 82a5fb95d9a8cb24fbb149c7ec54a030, type: 2}
+    - {fileID: 4300000, guid: d5cb27de292335c4b8758b2185eac111, type: 2}
+    - {fileID: 4300000, guid: fa0112a22d8b60d4c8808cad9a7d9efd, type: 2}
+    - {fileID: 4300000, guid: a7bcdf546a80d9848b8dc13cdebacfc8, type: 2}
+    - {fileID: 4300000, guid: 5e9454b621ec5cb4aaa1bf2c03a3ddfc, type: 2}
+    - {fileID: 4300000, guid: a0c71faf277b8de488ef5aedc95bbd8d, type: 2}
+    - {fileID: 4300000, guid: a8cf6af9dd3980b48936f319f38a65ed, type: 2}
+    - {fileID: 4300000, guid: ccb33407e23437644a28ecb14ddca892, type: 2}
+    - {fileID: 4300000, guid: 0ccc99899f414f44e83e389918017ddd, type: 2}
+    - {fileID: 4300000, guid: 54ef4973300f97d48a9823e483263d68, type: 2}
+    - {fileID: 4300000, guid: 87d3a85431e23b649a00759a6593c1a1, type: 2}
+    - {fileID: 4300000, guid: 3911cb7e9b123294e9411f86dc03451e, type: 2}
+    - {fileID: 4300000, guid: d1bd75ec1cb3e044c9bbdd49bc4fe1c0, type: 2}
+    - {fileID: 4300000, guid: d3b3754de4133cc4d905e2a70721ad9f, type: 2}
+    - {fileID: 4300000, guid: 9f1354cfd11c9b74096db225c7d94787, type: 2}
+    - {fileID: 4300000, guid: c42b592e31475d144b140b19a7044ed0, type: 2}
+  - Name: 2Hand-Bow-Attack1 copy
+    Meshes:
+    - {fileID: 4300000, guid: 8cf7e9ef281084e4fae0df67918a258d, type: 2}
+    - {fileID: 4300000, guid: 4a3cc9b035167144abfb53eb53e3d5db, type: 2}
+    - {fileID: 4300000, guid: 5ff0808c2db52cb47b0f057530bf4d0c, type: 2}
+    - {fileID: 4300000, guid: f129b5093bebe2f4a854914ea4a238dc, type: 2}
+    - {fileID: 4300000, guid: fa08d0ee86213cd45b469515b2d54c88, type: 2}
+    - {fileID: 4300000, guid: 2ff01350b1776a54cb928aab91aff8ac, type: 2}
+    - {fileID: 4300000, guid: dadf1c5ebc95173439a3057b839f378e, type: 2}
+    - {fileID: 4300000, guid: df1b8bea4aecbc44f86861eedc405c14, type: 2}
+    - {fileID: 4300000, guid: 5ad6623ae3b89694da9da59aeb149b64, type: 2}
+    - {fileID: 4300000, guid: b225e6a6d6a902c4587885db901805e7, type: 2}
+    - {fileID: 4300000, guid: 3207224e961763c40a3e0a163f0b1a18, type: 2}
+    - {fileID: 4300000, guid: 6f270300d3986c942b990e9369e1b19f, type: 2}
+  - Name: 2Hand-Bow-Attack2 copy
+    Meshes:
+    - {fileID: 4300000, guid: dc88b3258c77b174ebe487f2e7c55a1e, type: 2}
+    - {fileID: 4300000, guid: ca4e427376f498c45b9d492ee8924cb7, type: 2}
+    - {fileID: 4300000, guid: 7eaa9bb63df11eb439455d8c4e31a19f, type: 2}
+    - {fileID: 4300000, guid: 93de9430ad9284d4e9fc15fcc661afd8, type: 2}
+    - {fileID: 4300000, guid: daf9640f40f2d1244812c85b625d0e9b, type: 2}
+    - {fileID: 4300000, guid: 561c0ebe8a274b44080ab1dbe0ba1b30, type: 2}
+    - {fileID: 4300000, guid: 33115f33063432b42ad9cbc6b5d644e1, type: 2}
+    - {fileID: 4300000, guid: 4098056a7e972e243bfe438ce6c922f9, type: 2}
+    - {fileID: 4300000, guid: 26b6da8ded6811d46b5fb6cec3c8cf6f, type: 2}
+    - {fileID: 4300000, guid: 3bba3fb3a89e2994db1dfaf3c3150e61, type: 2}
+    - {fileID: 4300000, guid: 893dee4ff4ff50b4dafd1dbb408d4ed6, type: 2}
+    - {fileID: 4300000, guid: d2d707ba0b8a24d4ebf5b241a227fb24, type: 2}
+  - Name: 2Hand-Bow-Attack3 copy
+    Meshes:
+    - {fileID: 4300000, guid: 75ba6179cebb4554b8f114a48f6abb94, type: 2}
+    - {fileID: 4300000, guid: ce68022c94e5cc54e99869adb806ec36, type: 2}
+    - {fileID: 4300000, guid: 43a820d2028278745ae607b53c4c1af1, type: 2}
+    - {fileID: 4300000, guid: b2ecdb65db2872e4fbffdddcfe085738, type: 2}
+    - {fileID: 4300000, guid: 6a63a39704ede544b88a8b4597304e72, type: 2}
+    - {fileID: 4300000, guid: d40c8e1083e28f943995bcaa07f93a8f, type: 2}
+    - {fileID: 4300000, guid: a162a8d60800b0d49a5f6e6313ca899a, type: 2}
+    - {fileID: 4300000, guid: 7cfe32e117e2deb41abf86347af86ae9, type: 2}
+    - {fileID: 4300000, guid: 7d73982b9f4b39a419343977c02083b7, type: 2}
+    - {fileID: 4300000, guid: d85ff2247a8a0664a90eecd59b8c4ba4, type: 2}
+    - {fileID: 4300000, guid: ea005e4039efc8e45945eded442262ab, type: 2}
+    - {fileID: 4300000, guid: 2760ba53b2c4ac741b1d7fac5bce8781, type: 2}

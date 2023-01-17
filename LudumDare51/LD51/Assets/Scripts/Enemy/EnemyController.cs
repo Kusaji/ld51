@@ -57,7 +57,10 @@ public class EnemyController : MonoBehaviour
         attackDamage = attackDamage + EnemyManager.Instance.wave * damagePerWave;
         cachedSpeed = startSpeed + EnemyManager.Instance.wave * speedPerWave;
         agent.speed = cachedSpeed;
-        enemyAnimator.anim.speed *= cachedSpeed / 1.75f;
+        //enemyAnimator.anim.speed *= cachedSpeed / 1.75f;
+        //todo
+        //  find a replacement for anim.speed
+        Debug.Log("find a replacement");
     }
     private void FixedUpdate()
     {
@@ -125,7 +128,8 @@ public class EnemyController : MonoBehaviour
             else
             {
                 agent.SetDestination(transform.position);
-                enemyAnimator.anim.SetTrigger("Idle");
+                //enemyAnimator.anim.SetTrigger("Idle");
+                enemyAnimator.anim.Play("BasicEnemy_idle");
                 distanceToTarget = 0;
             }
             yield return new WaitForSeconds(0.334f);

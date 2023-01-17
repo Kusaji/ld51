@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae2fd8e086a5f94991b50e5ca890322, type: 3}
+  m_Name: Melee Enemy animations
+  m_EditorClassIdentifier: 
+  AnimationFPS: 15
+  Animations:
+  - Name: BasicEnemy_WalkForward
+    Meshes:
+    - {fileID: 4300000, guid: 5a8078af88102b944af5b16f2a6da9cb, type: 2}
+    - {fileID: 4300000, guid: 0652a61c0b89338409da8e7eb253068b, type: 2}
+    - {fileID: 4300000, guid: cac87e9f0a6e4a14d9da819721e8ead7, type: 2}
+    - {fileID: 4300000, guid: d623b145e568e724789be987a44693f8, type: 2}
+    - {fileID: 4300000, guid: 1504aa19db6944b42beab27bcb80172b, type: 2}
+    - {fileID: 4300000, guid: b1ebe071abe97e54cbbb68a728c356c4, type: 2}
+    - {fileID: 4300000, guid: 59c4951c58a47574fa481f6fb0844b31, type: 2}
+    - {fileID: 4300000, guid: 89bb2cb6e8e9a904795b00b0d11e99aa, type: 2}
+    - {fileID: 4300000, guid: 5eb01d8c04985674fa1f415281b3561c, type: 2}
+    - {fileID: 4300000, guid: 0f8371fb755dfd94f95cf81badb2b264, type: 2}
+    - {fileID: 4300000, guid: 1209b23e908d2de40ae71910d6a1ebf4, type: 2}
+    - {fileID: 4300000, guid: fda9d80a373809041987b2b68502b782, type: 2}
+  - Name: BasicEnemy_idle
+    Meshes:
+    - {fileID: 4300000, guid: 68ff7bfa484d3c444bb0ad8d108b1072, type: 2}
+    - {fileID: 4300000, guid: 0009fe00e9ef484498cb1ecaef61844b, type: 2}
+    - {fileID: 4300000, guid: 02dc9c388d514d9458e5d2b3e8eccc24, type: 2}
+    - {fileID: 4300000, guid: fab92a0ea7475be44a1121124b38bf52, type: 2}
+    - {fileID: 4300000, guid: 7162255b90f3ab944a82db778830484a, type: 2}
+    - {fileID: 4300000, guid: f77264be0e0ce2b49913f4f0bd8d0afa, type: 2}
+    - {fileID: 4300000, guid: 0ba236e01bb1e0e4291af7a7d2eb3b69, type: 2}
+    - {fileID: 4300000, guid: 9550dfcb3016a3b46a96df308e8638ec, type: 2}
+    - {fileID: 4300000, guid: 55761ed0f57bbc247be9f8f449106c68, type: 2}
+    - {fileID: 4300000, guid: 305d513869ad52545a9b330cb03898b9, type: 2}
+    - {fileID: 4300000, guid: 9f9ba8e376c4e0e4bb5cc7d9174002a2, type: 2}
+    - {fileID: 4300000, guid: ff555f42eb9b18046a896c5de973aace, type: 2}
+    - {fileID: 4300000, guid: 09c90ffec35024647a1cab20a4001f87, type: 2}
+    - {fileID: 4300000, guid: 1afd62d3758911d43ab7019137c239c8, type: 2}
+    - {fileID: 4300000, guid: 12b3540c022ccab4b8b7d36ef12afd3f, type: 2}
+    - {fileID: 4300000, guid: 62110674e6be8e34c8f9a8e2792c4cd5, type: 2}
+    - {fileID: 4300000, guid: 931d8da5e63e69b46a11f83aa7e035b2, type: 2}
+    - {fileID: 4300000, guid: 2913da047e5b2c44aa4b8d28dda5ccc1, type: 2}
+    - {fileID: 4300000, guid: d0712850b1447c048903ecee08ca36aa, type: 2}
+    - {fileID: 4300000, guid: 6bdde31d683c4984fa5e8f748096be84, type: 2}
+    - {fileID: 4300000, guid: 6c83f125bb41f1e409f00a0ad358da0b, type: 2}
+    - {fileID: 4300000, guid: 3c161862f1f66a14497f8f1c5dbb1672, type: 2}
+    - {fileID: 4300000, guid: b8f38367927c3344e86a603e190d2856, type: 2}
+    - {fileID: 4300000, guid: f97ec241551fb86428f5e31f2ad09145, type: 2}
+  - Name: BasicEnemy_Attack
+    Meshes:
+    - {fileID: 4300000, guid: 9e8e62fb0a42f3e43a633a32e6970026, type: 2}
+    - {fileID: 4300000, guid: 07999744a32c95449b880efa7edfc809, type: 2}
+    - {fileID: 4300000, guid: 9c43d1360a2f2e844804a81c330dcd33, type: 2}
+    - {fileID: 4300000, guid: 03d2cda84fb704540b2c11c55f362712, type: 2}
+    - {fileID: 4300000, guid: 71a18bb828cbe52459f5c2f9dd9b2cdc, type: 2}
+    - {fileID: 4300000, guid: 668cae3439e5e804e9e45090bebb8c04, type: 2}
+    - {fileID: 4300000, guid: d6d0228f350a65249a8984d4a1beb5c2, type: 2}
+    - {fileID: 4300000, guid: c1f411c77ee9e8f4ebd8bf0c0d0c9ce3, type: 2}
+    - {fileID: 4300000, guid: 2c679c0ce9ffcb64c8d656b5bc4933bf, type: 2}
+    - {fileID: 4300000, guid: f653bf099667cda46b85080ab42daffa, type: 2}
+    - {fileID: 4300000, guid: 8e2d8eeececed474197b52b6c98ad874, type: 2}
+    - {fileID: 4300000, guid: 14eee9d33db9f544caf823cc3a935a5a, type: 2}
+  - Name: BasicEnemy_Attack2
+    Meshes:
+    - {fileID: 4300000, guid: 5dc3ea3af209ccc469186a7d9eb591d6, type: 2}
+    - {fileID: 4300000, guid: 6c9c7ec59ee99cb4e9c213a9cdeab741, type: 2}
+    - {fileID: 4300000, guid: dfb96380d68150c4f8982361da962bd1, type: 2}
+    - {fileID: 4300000, guid: ce6edee71f612a34b8132c1aaf1f7841, type: 2}
+    - {fileID: 4300000, guid: a490a36fe070d4846bc7d0d48b710f59, type: 2}
+    - {fileID: 4300000, guid: bcb61b015c9a8094685bcc406efac6bc, type: 2}
+    - {fileID: 4300000, guid: 293878212a1dc5b40adc6478709be9ea, type: 2}
+    - {fileID: 4300000, guid: 4acb39e1b5a3d0d4ba8cf17838a18e7e, type: 2}
+    - {fileID: 4300000, guid: 572747aaf366164449dfaecbe6dbc2c5, type: 2}
+    - {fileID: 4300000, guid: 9ea8d47bf934c4e4cae55238c99dee8b, type: 2}
+    - {fileID: 4300000, guid: 3986255cb27bd1143a769831e70a8bc9, type: 2}
+    - {fileID: 4300000, guid: 8c4c71bd8ed5ba9499de04258a53b620, type: 2}
+  - Name: BasicEnemy_Attack3
+    Meshes:
+    - {fileID: 4300000, guid: 93fecd6d72acac44f8c6b23ba8de13b8, type: 2}
+    - {fileID: 4300000, guid: ea6c4514d0fc060498f906dfca3447e5, type: 2}
+    - {fileID: 4300000, guid: 06106477fcaac03419b08f70bb98bc89, type: 2}
+    - {fileID: 4300000, guid: 3e7a03f777d107949a1ae9507b15a0d9, type: 2}
+    - {fileID: 4300000, guid: 9048c2fc3cd61374c9ea19fec16c73d2, type: 2}
+    - {fileID: 4300000, guid: 0736b9a1631149c42a5ff506dd714ac8, type: 2}
+    - {fileID: 4300000, guid: 2ab5d36ebbf634f4f89fff675543323a, type: 2}
+    - {fileID: 4300000, guid: 214bc7b362f31504db1d308f53e57060, type: 2}
+    - {fileID: 4300000, guid: 7ddda91dac10152469128a5eb5bb9b22, type: 2}
+    - {fileID: 4300000, guid: 19103ae79cd515e4ab4e4fe450f90efc, type: 2}
+    - {fileID: 4300000, guid: e482c99500d203d48a4018c0f0669e78, type: 2}
+    - {fileID: 4300000, guid: 7032a4039c6ff32479b8300a13a17cd0, type: 2}
